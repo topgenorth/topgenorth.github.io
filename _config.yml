@@ -9,4 +9,4 @@ twitter_username: topgenorth
 github_username:  topgenorth
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
