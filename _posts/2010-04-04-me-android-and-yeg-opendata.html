@@ -1,0 +1,40 @@
+--- 
+layout: post
+title: Me, Android, and YEG OpenData
+tags: 
+- Android
+- YEG
+status: publish
+type: post
+published: true
+meta: 
+  _edit_last: "2"
+---
+<a href="http://www.opgenorth.net/wp-content/uploads/2010/04/YegDataList1.png"><img style="display: inline; margin-left: 10px; margin-right: 0px; border: 0px initial initial;" title="YegDataList" src="http://www.opgenorth.net/wp-content/uploads/2010/04/YegDataList_thumb1.png" border="0" alt="YegDataList" width="164" height="244" align="right" /></a>Not that long ago, the City of Edmonton announced it's <a href="http://data.edmonton.ca/">Open Data Catalogue</a>.  I noticed that one of the data catalogues was a list of <a href="http://data.edmonton.ca/DataBrowser.aspx?Container=coe&amp;EntitySet=HistoricalBuildings">historical buildings</a> in the city.  Yeah, I know that some people in other cities might consider this a pretty weak list.  I mean, the oldest building in Edmonton isn’t even 150 years old.  I’d wager that some parts of the world consider 150 year old buildings to be “new construction”.  Anyway, as I've been dabbling with <a href="http://developer.android.com">Android</a> now for about the past year, I thought a handy little project to try out would be to write an app for Android that would show me where the historical buildings are in the city.
+
+I've got the foundation of a simple application started over a GitHub called, not surprisingly, <a href="http://github.com/topgenorth/historicalbuildings">Historical Buildings</a> (if you pull the source code, then just a heads up that I use <a href="http://www.jetbrains.com/idea/">IntelliJ</a> for my Android development).  This application currently works in the emulator, my next step is to installing it on my phone and trying it out for real.  Right now all the application does is present you with a list of buildings.  You click on one, and you'll see on Google Maps where the building.
+
+Some other ideas for features that may or may not happen:
+<ul>
+	<li>Figure out the whole unit testing story in Android.  Then setup a build script.  Then a build server.  CI rocks, but as I’m trying to learn the Android framework and figure out what all the parts are, I’m not to focused on that at the moment.</li>
+	<li>Don’t always fetch the data – store it locally
+<ul>
+	<li>I don’t think the way I’m parsing the JSON result is very efficient or “proper”, but it does get the job done.</li>
+</ul>
+</li>
+	<li>Notify the user when they are within a certain distance of a historical building.</li>
+	<li>Currently YEG has a PDF explaining the significance of the building.  Not very friendly/convenient for mobile devices.  Need something better.
+<ul>
+	<li>One thought would be to create Wikipedia entries and link to that.</li>
+	<li>Another thought is to petition the City of Edmonton to convert their PDF’s to a more neutral format (HTML anyone)?</li>
+	<li>The <a href="http://www.epl.ca">Edmonton Public Library</a> has some information about the “<a href="http://www.epl.ca/EPLPhotoBuildings.cfm">Lost Building of Edmonton</a>”.  Maybe incorporate that somehow – perhaps showing what buildings used to exist at a given address?</li>
+</ul>
+</li>
+	<li>Perhaps allow the user to update their coordinates for YEG’s historical buildings.  I’ve notice (on the emulator) that sometimes the lat/long isn’t exactly accurate.  If you look at the image below for the old Arlington Apartments, you notice that the marker should be over the pile of rubble slightly to the left of where it currently is.</li>
+	<li>Maybe include buildings that aren’t necessarily designated as historical, but are interesting architecturally or otherwise.</li>
+	<li>Instead of using YEG OpenData, perhaps an independent cloud based data store (<a href="http://www.microsoft.com/windowsazure/">Azure</a> maybe?)</li>
+</ul>
+If you’ve got any other suggestions, I’m happy to hear them.
+
+<a href="http://www.opgenorth.net/wp-content/uploads/2010/04/MapList.png"><img style="display: block; float: none; margin-left: auto; margin-right: auto; border: 0px;" title="MapList" src="http://www.opgenorth.net/wp-content/uploads/2010/04/MapList_thumb.png" border="0" alt="MapList" width="219" height="326" /></a>
+<div class="zemanta-pixie"><img class="zemanta-pixie-img" src="http://img.zemanta.com/pixy.gif?x-id=e1a8a615-56c6-883e-b52b-35084586f039" alt="" /></div>

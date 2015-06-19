@@ -1,0 +1,24 @@
+--- 
+layout: post
+title: "Android, MapView, and your Google apiKey: Part 2"
+tags: 
+- Android
+- Programming
+status: publish
+type: post
+published: true
+meta: 
+  _edit_last: "2"
+  _wp_old_slug: ""
+---
+Just to follow up on my <a href="http://www.opgenorth.net/2010/04/07/android-mapview-and-your-google-apikey-part-1/">last post</a> about embedding Google Maps into your Android application (this part is kind of anti-climatic).
+
+So, by now you’ve signed your application.  This is the “hardest” (i.e. busiest part) of the whole process.  The next part, getting your Goggle apiKey, is the easy part.  First you  need to get the MD5 fingerprint of your keystore:
+
+keytool -list -alias androiddebugkey -keystore &lt;path_to_debug_keystore&gt;.keystore -storepass android -keypass android
+
+Once that is done, you and register for a <a href="http://code.google. com/android/maps-api-signup.html">Google Maps API key</a>.  You need a Google account, and have to agree to some terms of service legal mumbo-jumbo, but it’s pretty simple.  Once you click “Generate API Key”, you will get your key string.  You then simply add the Maps API key to your MapView in your application.  There are a couple of ways to do this, heres how you would do it if you were using the XML layout files:
+
+Of course, after all this is done, the next trick is managing these keys.  You see, when you are working locally, your application is automatically signed using a debug key.  This is fine and dandy for most development.  However, when you deploy your application, you sign the application using your keystore that you created in <a href="http://www.opgenorth.net/2010/04/07/android-mapview-and-your-google-apikey-part-1/">Step 1</a>.  You may have a brief moment of clarity here and realize that the apiKey from your debug keystore and your deployment keystore are different.  I’ve got some ideas on how to deal with that that, but that will be for another day.
+
+<a href="http://code.google.com/android/add-ons/google-apis/mapkey.html">Full documentation</a> for all this can be found on the Android developer’s website.

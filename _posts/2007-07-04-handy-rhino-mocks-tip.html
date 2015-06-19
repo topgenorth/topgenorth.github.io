@@ -1,0 +1,14 @@
+--- 
+layout: post
+title: Handy Rhino.Mocks Tip
+tags: 
+- .NET
+status: publish
+type: post
+published: true
+meta: 
+  _edit_last: "2"
+---
+<p>I just pulled this <a href="http://groups.google.com/group/RhinoMocks/tree/browse_frm/thread/fddb4a51e77b144/220886956ad923ad?rnum=1&amp;hl=en&amp;_done=%2Fgroup%2FRhinoMocks%2Fbrowse_frm%2Fthread%2Ffddb4a51e77b144%3Fhl%3Den%26#doc_b4fb8f3276ccfbf4">handy tip</a> from the <a href="http://www.ayende.com/projects/rhino-mocks.aspx">Rhino.Mocks</a> <a href="http://groups.google.com/group/RhinoMocks?hl=en">mailing list</a>:</p>  <p>If you would like to see more details of the expectations that you are recording and matching, try adding this in your test setup:</p>  <pre>RhinoMocks.Logger = New TextWriterExpectationLogger (Console.Out)</pre>
+
+<p>You should then see all the logging messages in the Output window of Visual Studio.</p>

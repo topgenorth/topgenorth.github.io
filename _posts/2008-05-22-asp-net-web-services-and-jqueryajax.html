@@ -1,0 +1,61 @@
+--- 
+layout: post
+title: ASP.NET Web Services and jQuery/AJAX
+tags: 
+- .NET
+- javascript
+status: publish
+type: post
+published: true
+meta: {}
+
+---
+<p>As far as web developer's go, I'll freely admit that my Javascript is not one of my strong points.&#160; I don't have a real good reason for this, it's just that over the past few years I haven't had much call/need to polish and hone my Javascript skills.&#160; Recently I discovered <a href="http://www.jquery.com">jQuery</a>, and I must say that I wish I had know about this library earlier.&#160; The more I use <a href="http://www.jquery.com">jQuery</a>, the more I like it.&#160; The simple things are simple, and the hard things are possible.&#160; Take calling a simple webservice when the user clicks a button on a form.</p>  <p>Client side, the user would click on a button in their browser, in order to &quot;check out&quot; or &quot;check in&quot; - pretty simple stuff.&#160; Click a button, update a record in the database.&#160; I wanted this done via AJAX, as the page itself is pretty heavy with data, and I didn't want to go through the whole page lifecycle.&#160; I spent some time Googling how to do this on the web, but I didn't find anything that seemed to be suitable for something as simple as this.</p>  <p>So, enough boring stuff, on with the issue.&#160; In my current application the ASP.NET web service that the client should call looks something like:</p>  <pre style="border-bottom: #cecece 1px solid; border-left: #cecece 1px solid; padding-bottom: 5px; background-color: #fbfbfb; min-height: 40px; padding-left: 5px; width: 650px; padding-right: 5px; overflow: auto; border-top: #cecece 1px solid; border-right: #cecece 1px solid; padding-top: 5px"><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">[WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">[ScriptService]
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">public</span> <span style="color: #0000ff">class</span> CampaignProductCheckoutService : WebService, ICampaignProductCheckoutService
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">{
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">  [WebMethod]
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">  <span style="color: #0000ff">public</span> <span style="color: #0000ff">void</span> CheckIn(<span style="color: #0000ff">int</span> campaignProductId, <span style="color: #0000ff">int</span> loginId)
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">  {
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #008000">// Do something...</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">  }
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">  [WebMethod]
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">  <span style="color: #0000ff">public</span> <span style="color: #0000ff">void</span> CheckOut(<span style="color: #0000ff">int</span> campaignProductId, <span style="color: #0000ff">int</span> loginId)
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">  {
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #008000">// Do something...</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">  }
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">}</pre></pre>
+
+<p>Pretty simple webservice, nothing fancy.&#160; Here is the corresponding Javascript on the browser:</p>
+
+<pre style="border-bottom: #cecece 1px solid; border-left: #cecece 1px solid; padding-bottom: 5px; background-color: #fbfbfb; min-height: 40px; padding-left: 5px; width: 650px; padding-right: 5px; overflow: auto; border-top: #cecece 1px solid; border-right: #cecece 1px solid; padding-top: 5px"><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">$.ajax({
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">  type: &quot;<span style="color: #8b0000">POST</span>&quot;,
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">  url: &quot;<span style="color: #8b0000">CampaignProductCheckoutService.asmx/CheckOut</span>&quot;,  
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">  data: &quot;<span style="color: #8b0000">campaignProductId=3&amp;loginId=4</span>&quot;,
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">  beforeSend: <span style="color: #0000ff">function</span>(xhr) { 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    xhr.setRequestHeader(&quot;<span style="color: #8b0000">Content-Length</span>&quot;, &quot;<span style="color: #8b0000">campaignProductId=3&amp;loginId=4</span>&quot;.<span style="color: #0000ff">length</span>);
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    $(&quot;<span style="color: #8b0000">#progressBarContainer</span>&quot;).show();
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">  },
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">  dataType: &quot;<span style="color: #8b0000">xml</span>&quot;,
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">  complete: <span style="color: #0000ff">function</span> (xhr, msg) {
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    $(&quot;<span style="color: #8b0000">#progressBarContainer</span>&quot;).hide();
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">if</span> (xhr.<span style="color: #0000ff">status</span> == 200) {
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">      <span style="color: #0000ff">alert</span>(&quot;<span style="color: #8b0000">Happy Times!</span>&quot;);
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">else</span> {
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">      <span style="color: #0000ff">alert</span>(&quot;<span style="color: #8b0000">Wailing and gnashing of teeth!</span>&quot;);
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">  }
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">});</pre></pre>
+
+<p>This looks busy, but in reality, it isn't. Now, for a detailed explanation of what is going on here, I'd suggest reading the book <a href="http://www.amazon.ca/gp/product/1933988355?ie=UTF8&amp;tag=opgenorthne08-20&amp;linkCode=as2&amp;camp=15121&amp;creative=330641&amp;creativeASIN=1933988355">jQuery in Action</a><img border="0" alt="" src="http://www.assoc-amazon.ca/e/ir?t=opgenorthne08-20&amp;l=as2&amp;o=15&amp;a=1933988355" width="1" height="1" />.&#160; It is a most helpful book for learning jQuery.</p>
+
+<p>Anyway, here is a quick rundown of what is going on:&#160; the $.ajax is a jQuery method that will perform the AJAX call, using the parameters that we provide it.&#160; jQuery will perform an HTTP post to web service specified in url.&#160; As part of the POST request, you can see that we're passing in the parameters for the webservice call.&#160; So far, pretty straightforward.</p>
+
+<p>The next line, beforeSend, is a javascript method that jQuery will call before it does the POST.&#160; In this case, we make sure that the request header has the length of the data being sent, and we show a progress bar to the user.&#160; The funny syntax you see there is how we select the DIV element holding our animated gif and display it to the user.</p>
+
+<p>Your standard ASP.NET web service will return XML to the client, and we inform jQuery of that with the dataType parameter.</p>
+
+<p>By default, jQuery will perform the AJAX call asynchronously, so in the final line we provide another Javascript callback.&#160; jQuery will call this function once the request is finished.&#160; In this case, we hide the DIV element holding the progress bar, and we check the XMLHttpRequest object that is returned from jQuery. If the status is 200, then all okay and we display a happy message.&#160; Otherwise we assume the request failed, and display a sad message to the user. </p>
+
+<p>There you have it, a quick and dirty explanation of using jQuery to call an ASP.NET Web Service.</p>

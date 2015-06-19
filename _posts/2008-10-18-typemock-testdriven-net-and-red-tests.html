@@ -1,0 +1,14 @@
+--- 
+layout: post
+title: TypeMock, TestDriven.NET, and Red Tests
+tags: 
+- .NET
+- Programming
+- TDD
+status: publish
+type: post
+published: true
+meta: 
+  _edit_last: "2"
+---
+<p>Lately I've been experimenting with <a href="http://www.typemock.com/">TypeMock Isolator</a>,&#160; and it's new AAA syntax.&#160; For the past two years I've been a diehard Rhino.Mocks kind of guy, but figured that it's time to check out other tools.&#160; Anyway, I had a situation where a unit test of mine was failing when I ran it with <a href="http://www.testdriven.net/">TestDriven.NET</a>, but would pass when I ran it using the unit test runner in <a href="http://www.jetbrains.com/resharper">Resharper 4.1</a>.</p>  <p>Usually when I develop, I write individual tests and then run individually with TestDriven.NET and collectively with Resharper.&#160; In this case, as I was writing one unit test, it kept failing with TestDriven.NET.&#160; At first I thought it was just me being stupid (always a good place to start), and then I was worried that perhaps the documentation for TypeMock was to blame.&#160; So, I sent a email to Avi at TypeMock, mostly expecting confirmation of my stupidity.</p>  <p>Turns out the problem in this case was pretty obscure one (to me).&#160; At home, I do my development in a VM running Windows 2008 64 bit.&#160; When Resharper runs your unit tests, it does in a 32 bit process.&#160; TD.NET, on a 64bit OS,&#160; runs as a 64 bit process.&#160; If you get TD.NET to run as a 32 bit process, then your tests will run fine under TD.NET.</p>  <p>To do so, from the Visual Studio 2008 Command Prompt, change to the directory that you have TD.NET installed in.&#160; Then use corflags:</p>  <p><font face="Courier New">corflags /32bit+ ProcessInvocation.exe</font></p>  <p>Note that it's probably best to do this when logged in as the Administrator.</p>  <p>I will say that I was happy with the support I got from the guys (Avi, Gil and Ohad) at TypeMock.&#160; Given the fact that we're about a half a world apart (western Canada vs. Isreal), they provided prompt, excellent support.&#160; My thanks to them.</p>

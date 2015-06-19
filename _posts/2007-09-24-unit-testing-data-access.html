@@ -1,0 +1,12 @@
+--- 
+layout: post
+title: Unit Testing Data Access
+tags: 
+- TDD
+status: publish
+type: post
+published: true
+meta: {}
+
+---
+<p>One thing that I don't like about writing tests is some of the jiggery-pokery that goes on with testing database access code. Jiggery-pokery being: ensuring the tables are there, up to date, and are holding the data that they are supposed to hold before and after the test has run. If you don't pay attention to these details, you get a lot of false negatives on your unit tests. This will result in a loss of confidence in your unit tests. When this happens you stop running them, and loose confidence in your ability to refactor without fear.</p>  <p>In my Petshop2Monorail side project I'm working on in my spare time, I decided to see about using an in-memory database for my tests. I would get <a href="http://www.castleproject.org/activerecord/">ActiveRecord</a> to create the database each and every time a test fixture runs. There may (or may not) be some activity involved with populating the database, but at least I have tight control over the database schema and the data I'm working with.</p>  <p>I checked out the <a href="http://www.sqlite.org/">SQLite</a> documentation, and in theory one should be able to use <a href="http://www.sqlite.org/">SQLite</a> as an in-memory database. I couldn't get it to work. I'm not to sure if it's something I'm doing wrong or if it's a limitation of the <a href="http://sqlite.phxsoftware.com">ADO.NET data provider I'm using</a>. For now, I'm willing to turn a blind eye to this shortcoming, and use a file on disk. Yes, I am aware of some of SQLite's other shortcomings (namely concurrency), but for the task at hand I don't think that these shortcomings will negatively manifest themselves.&#160; Yes, I'm aware that I'm having a unit test use a file on disk (something I say you shouldn't do).</p>  <p>The one glitch I ran into was with <a href="http://www.castleproject.org/activerecord">ActiveRecord</a>. I kept getting the error <em>The IDbCommand and IDbConnection implementation in the assembly SQLite.NET could not be found</em>. A quick bit of googling, and <a href="http://sqlite.phxsoftware.com/forums/t/564.aspx">I had my answer</a>. To summarize: There are two ADO.NET drivers for SQLite, and so therefore two NHibernate drivers: <a href="http://adodotnetsqlite.sourceforge.net/">NHibernate.Driver.SQLiteDriver</a> (old) and <a href="http://sqlite.phxsoftware.com/">NHibernate.Driver.SQLite20Driver</a> (new). NHibernate.Driver.SQLite20Driver is what I should have been using.</p>
