@@ -2,6 +2,9 @@
 layout: post
 title: "My First QuadCopter"
 date: "2015-07-21 16:51"
+comments: true
+categories: [quadcopter]
+
 ---
 
 Just recently I acquired a new quadcopter &ndash; a WL Toys 959. Total cost to me was about $75.00 and I ordered from Amazon.ca. I picked this because of the low cost and the fact that it came with camera that can do both photo and video and it was relatively inexpensive.
