@@ -7,7 +7,7 @@ comments: true
 
 In May, 2015 at Google announced [a data binding library for Android](https://developer.android.com/tools/data-binding/guide.html). The data binding library is currently in beta, so things might change and make what I am saying here irrelevant/obsolete. When in doubt, consult the official documentation.
 
-It's long overdue &ndash; developers no longer have to come up with their own schemes for displaying or retrieving data from their views. With two-way data binding, it's possible to remove a lot of redundant boilerplate code from the activities and fragments that make up an application. 
+It's long overdue &ndash; developers no longer have to come up with their own schemes for displaying or retrieving data from their views. With two-way data binding, it's possible to remove a lot of redundant boilerplate code from the activities and fragments that make up an application.
 
 There were several steps/phases when I tried to implement data binding in a side project of mine. Here's what I did:
 
@@ -18,7 +18,7 @@ There were several steps/phases when I tried to implement data binding in a side
 
 # Adding Data Binding to Your Project
 
-First off, I had to upgrade to Android Studio 1.3. This meant I had to switch the updates from the *Stable* channel to the *Beta* channel. You can do this by looking in **Android Studio > Preferences**, and then under **Appearance & Behaviour > System Settings > Updates**. 
+First off, I had to upgrade to Android Studio 1.3. This meant I had to switch the updates from the *Stable* channel to the *Beta* channel. You can do this by looking in **Android Studio > Preferences**, and then under **Appearance & Behaviour > System Settings > Updates**.
 
 Next I had to edit the project's **build.gradle** file, my  `dependencies` section looks like this:
 
@@ -62,7 +62,7 @@ To keep my Activity as code free as possible, I abstracted much of the data bind
 
 	}
 
-Here I'm just using a POJO that subclasses `BaseObservable`. Subclassing isn't mandatory &ndash; a naked POJO will work too. However, `BaseObservable` provides the infrastructure for setting up the data binding; the POJO can notify registered listeners as values change. 
+Here I'm just using a POJO that subclasses `BaseObservable`. Subclassing isn't mandatory &ndash; a naked POJO will work too. However, `BaseObservable` provides the infrastructure for setting up the data binding; the POJO can notify registered listeners as values change.
 
 Some getters are adorned with the `@Bindable` annotation - this identifies how the listeners should retrieve values from the properties.
 
@@ -76,7 +76,7 @@ With the code out of the way, it's time to update the layout.
 
 There were a couple of changes that I needed to make to my existing layout for things to work:
 
-1. Declare some variables in my layout. 
+1. Declare some variables in my layout.
 2. Identify properties on the various widgets that will be bound to the variable declared above.
 3. Establish the data binding in the Activity.
 
@@ -132,9 +132,9 @@ Finally, the easy stuff - setting up the data binding. This is a very minimal am
 	        mViewModel = createViewModel();
 	        initializeViewModel();
 	    }
-	    private void FirearmViewModel createViewModel() {
+	    private FirearmViewModel createViewModel() {
 	    	// Code deliberately omitted.
-	    }	  
+	    }
 
 	    private void initializeViewModel() {
 
@@ -155,5 +155,3 @@ Once the binding is instantiated, I tell it what object to bind to. Notice as we
 # Sie Sind Fertig
 
 With all this, data binding has been accomplished. It may seem like a lot of code, and perhaps it is for such a trivial example. Where the true power of this comes into play is when you want to write tests for your code. Two way data binding lays the framework for the Model-View-View Model pattern, which in turn helps you create a loosely coupled app that is easier to test.
-
-
