@@ -2,6 +2,7 @@
 layout: post
 title: "Getting Started with Data Binding in Android"
 date: 2015-09-14 21:45:32 -0600
+redirect_from: "/blog/2015/06/21/android-data-binding-intro/"
 comments: true
 ---
 
