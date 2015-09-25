@@ -5,14 +5,14 @@ date: 2015-09-24 21:45:32 -0600
 comments: true
 ---
 
-I've had a [Samsung Gear Live](http://www.samsung.com/global/microsite/gear/gearlive_design.html). One day, all of sudden, it wouldn't turn on after I had it charging in it's little charging dock. I thought the problem was with the watch, and Google the systems let me to one of two conculsions:
+I have a [Samsung Gear Live](http://www.samsung.com/global/microsite/gear/gearlive_design.html). One day, all of sudden, it wouldn't turn on after I had it charging in it's little charging dock. I thought the problem was with the watch, and Google the symptoms led me to one of two conclusions:
 
 1. The watch was defective, and I should send it back under warranty.
 2. I could fix the problem by taking the watch apart, disconnecting the battery for a minute, and then reconnecting the battery. Or something like that.
 
-I was a bit dismayed that for a device not even a year old that these were my options. I was mulling over the options, and I flipped the watch over to see what tools I would need to take the watch apart (who doesn't like disassembling electronics), when I notice that the contact points on the watch were filthy (as one the NCOs on my infantry course used to say when inspecting rifles - "crud, corruption, and communism"). You can see the contacts for the charging dock right in the picture below:
+I was a bit dismayed that for a device not even a year old that these were my options. I was mulling over the options, and I flipped the watch over to see what tools I would need to take the watch apart (who doesn't like disassembling electronics), when I notice that the contact points on the watch were filthy (as one the NCOs on my infantry course used to say when inspecting rifles &ndash; "crud, corruption, and communism"). You can see the contacts for the charging dock right in the picture below:
 
-![](/assets/back-of-samsung-gear-live.png)
+![](/images/back-of-samsung-gear-live.png)
 
 I figured cleaning these contact points was easier than taking the watch apart and quicker than sending the watch back, so I grabbed an eraser and gave the contacts a quick scrub.  I plugged the watch back into the charging cradle, and all of a sudden it started charging again.
 
