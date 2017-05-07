@@ -9,7 +9,7 @@ twitter_username: topgenorth
 github_username:  topgenorth
 
 # Build settings
-markdown: redcarpet
+markdown: kramdown
 permalink: /blog/:year/:month/:day/:title/
 
 # Disqus Comments
