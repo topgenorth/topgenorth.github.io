@@ -39,7 +39,13 @@ Next, after firing 20 rounds through my SKS, here is the ballistic data from the
 | **Std. Dev:** | 12.74 fps | 3.88 m/s |
 
 
-I'll omit the velocities from the flight of the bullet, we've got enough boring numbers. So running these numbers through the JBM BC calculator and we get the following two BC values: 
+I'll omit the velocities from the flight of the bullet, we've got enough boring numbers. So running these numbers through the [JBM BC calculator](http://www.jbmballistics.com/cgi-bin/jbmbcv-5.1.cgi) and we get the following two BC values: 
+
+| BC Model | Value |
+|---------:|-------|
+|G1 | 0.266 |
+|G7 | 0.131 |
+
 
 **Ballistic Coefficient G1:** 0.266
 **Ballistic Coefficient G7:** 0.131
