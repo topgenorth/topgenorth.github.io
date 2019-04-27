@@ -22,4 +22,4 @@ google_analytics_tracking_id: 1812612
 plugins:
   - jekyll-redirect-from
 
-theme: jekyll-theme-midnight
+theme: jekyll-theme-minimal
