@@ -3,6 +3,8 @@ layout: post
 title: "Ballistics of the Norinco 7.62x51"
 date: 2017-05-15 18:14:00 -0600
 comments: true
+categories: [Firearms, ballistics]
+
 ---
 
 After an amateur attempt at trying to calculate the [BC of the Norinco 7.62x39mm](/blog/2017/05/07/norinco-762x39-ballistics/) ammunition, I thought I would do the same thing with Norinco's 7.62x51mm ammo. As one would expect, this stuff is fairly inexpensive as well, running aroun $0.50/round. I don't think this is "precision ammo", but it works well enough in my M-305 rifle.

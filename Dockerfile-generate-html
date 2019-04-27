@@ -1,0 +1,8 @@
+# Use the official Jekyll image as the base
+FROM jekyll/builder
+
+# We use these to optimize PNG/JPGs
+RUN apk add jpegoptim && \
+    apk add optipng
+
+WORKDIR /srv/jekyll

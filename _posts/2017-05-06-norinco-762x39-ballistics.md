@@ -3,6 +3,7 @@ layout: post
 title: "Ballistics of the Norinco 7.62x39"
 date: 2017-05-06 19:10:00 -0600
 comments: true
+categories: [Firearms, ballistics]
 ---
 
 On of the great things about 7.62x39mm rifles (like the SKS) is that (for the time being) ammo is fairly inexpensive. A fellow who keeps his eye open for a deal can find 7.62x39mm in the range of $0.16CAD (for corrosive) to $0.30CAD (for non-corrosive) ammo. Of course being surplus ammo, finding ballistics data on this ammunition can be a bit of a trick. Granted, the 7.62x39 cartridge isn't exactly a "precision" round, but intellectual curiousity had me wondering what the ballistic coefficient (BC) of this Norinco ammo was.
@@ -46,9 +47,6 @@ I'll omit the velocities from the flight of the bullet, we've got enough boring 
 |G1 | 0.266 |
 |G7 | 0.131 |
 
-
-**Ballistic Coefficient G1:** 0.266
-**Ballistic Coefficient G7:** 0.131
 
 Comparing these BC values to commercial ammo, and we can see that [Tula has a G1 BC of 0.306](http://en.tulammo.ru/products/rifle_cartridges/762x39_fmj/) and that [Hornady has a BC of 0.295](http://www.hornady.com/store/7.62x39-123-gr-sst/).
 

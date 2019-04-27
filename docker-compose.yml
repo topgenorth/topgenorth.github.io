@@ -1,0 +1,13 @@
+version: '3'
+services:
+  jekyll-author:
+    image: jekyll/builder
+    container_name: blog-author-content
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/srv/jekyll
+    command:
+      - gem install bundler
+      - bundle update
+      - bundle exec jekyll serve --force_polling
