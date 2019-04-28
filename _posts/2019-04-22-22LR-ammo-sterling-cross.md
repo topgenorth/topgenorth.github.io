@@ -20,12 +20,12 @@ However, there is very little ballistic information available for this brand of 
 
 Ballistic nerds will appreciate that environmental conditions have a significant impact on ammunition and the calculation of the BC. Here is the environmental information that I recorded on that day: 
 
-|   | Imperial  | Metric  | 
-|---:|---|---|
-| **Altitude:** | 2490 feet | 758 metres |
-| **Temperature:** | 59 F  | 15 C |
-| **Air Pressure:**  |  26.961 inHg | 913 mb |
-| **Humidity:** | 51% | &nbsp; |
+|                   | Imperial     | Metric     | 
+|------------------:|-------------:|-----------:|
+| **Altitude:**     | 2490 feet    | 758 metres |
+| **Temperature:**  | 59 F         | 15 C       |
+| **Air Pressure:** | &nbsp;&nbsp;26.961 inHg  | 913 mb     |
+| **Humidity:**     | 51%          | &mdash;    |
 
 The wind was pretty brutal.  It was typically about 5mph with prolonged gusts around 10mph.  The highest wind I observed was 22mph. In general, the wind seemed to come in from about the 10:30 to 11:00 direction.
 
@@ -42,19 +42,20 @@ I gathered some velocity measurements on about 40 rounds I fired.  My chorograph
 Punching all the above values into the online [JBM BC calculator](http://www.jbmballistics.com/cgi-bin/jbmbcv-5.1.cgi), and we arrive at the following two BC values:
 
 | BC Model | Value |
-|---------:|:------|
+|---------:|:-----:|
 |G1 | 0.140 |
 |G7 | 0.074 |
 
 
 The .22 projectile seems more like the G1 reference projectile, so I stuck with that value to calculate a drop chart.  I did this once with [Strelok Pro](https://play.google.com/store/apps/details?id=com.borisov.strelokpro), and then again with [Applied Ballistics](https://play.google.com/store/apps/details?id=com.appliedballisticsllc.appliedballistics).  Here's the results (in MOA) for my rifle:
 
-| Metres|  Strelok Pro | Applied Ballistics  |
-|------:|--------------|---------------------|
-|    25 |    - 0.50    |       0.00 |
+| Metres|  &nbsp;&nbsp;&nbsp;Strelok <br> Pro | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Applied<br> Ballistics  |
+|------:|-------------:|--------------------:|
+|    25 |    - 0.50    |       0.50 |
+|    36 |    - 1.00    |      -0.75 | 
 |    50 |      0.00    |       0.00 | 
-|    75 |    + 3.25    |     + 3.00 |
-|   100 |    + 7.00    |     + 7.00 | 
+|    75 |    + 3.25    |     + 3.25 |
+|   100 |    + 7.00    |     + 7.25 | 
 |   125 |    +11.50    |     +11.50 |
 |   150 |    +16.25    |     +16.25 |
 |   175 |    +21.25    |     +21.25 |
@@ -63,6 +64,6 @@ The .22 projectile seems more like the G1 reference projectile, so I stuck with 
 |   250 |    +37.75    |     +38.25 |    
 |   275 |    +43.75    |     +44.50 |
 |   300 |    +50.00    |     +50.75 |
-|   325 |    +56.5     |     +57.25 |
+|   325 |    +56.50    |     +57.25 |
 
 It's comforting to me that Strelok and Applied Ballistics have very similar values (theortical they may be). The next step for me is to head out and actually test these values in the Real World at 100m, 150m, 200m, and (time permitting) 300m.
