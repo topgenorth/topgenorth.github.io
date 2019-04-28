@@ -29,7 +29,7 @@ Ballistic nerds will appreciate that environmental conditions have a significant
 
 The wind was pretty brutal.  It was typically about 5mph with prolonged gusts around 10mph.  The highest wind I observed was 22mph. In general, the wind seemed to come in from about the 10:30 to 11:00 direction.
 
-I gathered some velocity measurements on about 40 rounds I fired.  My chorograph captured the velocity of the projectiles at several points between  0 to 50 yards.  (Yes, I know I'm mixing systems of measure here; it's an imperfect world but at least I'm not making you do to the math). Without boring you on the chart, here's what I observed:
+I gathered some velocity measurements on about 40 rounds I fired.  My chorograph captured the velocity of the projectiles at several points between  0 to 50 yards.  (Yes, I know I'm mixing systems of measure here; it's an imperfect world but at least I'm not making you do to the math). Without boring you on the velocities that were recorded, here's what I observed:
 
 |                       | Imperial | Metric   |
 |----------------------:|---------:|---------:|
