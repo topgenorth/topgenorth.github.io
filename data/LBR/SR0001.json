@@ -19,7 +19,7 @@
     },
     "firearm": {
         "name": "Isreali 98K",
-        "cartridge": "8mm Mauser",
+        "cartridge": "8mm Mauser"
     },
     "loadData": {
         "cartridge": "8mm Mauser",
@@ -38,3 +38,4 @@
         }
     }
 }
+ßß
