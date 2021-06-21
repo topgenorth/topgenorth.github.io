@@ -1,9 +1,9 @@
-name: Publish blog
+name: github pages
 
 on:
   push:
     branches:
-      - gh-pages  # Set a branch to deploy
+      - main  # Set a branch to deploy
   pull_request:
 
 jobs:
