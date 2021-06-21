@@ -1,0 +1,42 @@
+---
+date: "2008-04-10T00:00:00Z"
+meta: {}
+published: true
+status: publish
+categories:
+- Programming
+tags:
+- .NET
+- TDD
+title: Where Should Your Tests Live?
+type: post
+---
+<p>Thanks to <a href="http://haacked.com/Default.aspx">Phil Haack</a>'s <a href="http://haacked.com/archive/2008/04/09/unit-test-project-structure-poll.aspx">online poll</a>, there is a bit of controversy over where one's unit tests should reside:&#160; should the unit tests be housed in a separate project and assembly, or do they shack up in the same project as the code that they are testing?&#160; Like <a href="http://weblogs.asp.net/bsimser/archive/2008/04/09/unit-test-projects-or-not.aspx">Bil</a>, I figured that rather than a big long blog comment, I'd be better of with my post.</p>  <p>Way back when I started out with TDD, I used to put the test fixtures in the same file as the class under test, sort of like:</p>  <pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">public</span> <span style="color: #0000ff">class</span> ClassUnderTest
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">{
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">}
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">#<span style="color: #0000ff">if</span> DEBUG
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">[TestFixture]
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">public</span> <span style="color: #0000ff">class</span> Tests_for_ClassUnderTest
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">{
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">}
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">#endif</pre></pre>
+
+<p>My logic was basically this way, the test is right there - quick and easy to access.&#160; Tests are, after all, supposed to serve as documentation, so by making the two classes share the same file, it was easy to find.&#160; Plus, if you changed your class, you had quick access to your tests. When it came time to deploy, you could just did a RELEASE build, and the unit tests would not be included.&#160; Or, if need be, send out the code with the unit tests included, and then your QA department could run your tests on their environment if desired.</p>
+
+<p>However, I eventually moved away from this, for a couple of reasons:</p>
+
+<p>I was still learning TDD, and I noticed I was doing a lot of thrashing.&#160; This was because my test code is right next to my production code and I found myself falling into a &quot;test last&quot; pattern.&#160; That is to say, I would write my code first, then my tests.&#160; When my code didn't work, I'd change it, and then &quot;fix&quot; my test so that my code would work.&#160; I lacked the discipline and experience to write good, proper tests and I felt that part of the problem was it was to easy to fall back into the &quot;Old Ways&quot;.</p>
+
+<p>I found that by putting my test classes in a separate assembly, I would actually think about what I need, and that would result in better tests and (IMHO) better code.&#160; After all, one of the real benefits about TDD is that it forces you to think about your design up front.&#160; I found that by using a separate assembly to house my unit tests, I ended up changing how I approached TDD.&#160; I spent a bit more time thinking about HOW my test would work, and HOW the code would be structured.&#160; It sounds crazy, but it worked for me.&#160; </p>
+
+<p>In my experience, the good people in QA didn't give two rips about our unit tests.&#160; They added no value to them, as they were using their own tests.&#160; So, if nobody cared to run the tests outside of the developers, there is no value in sending them out.&#160; Think lean here:&#160; no value, so no point to make the developer's unit tests available.</p>
+
+<p>Also, at the time, I didn't like the idea that the code that was being deployed was the code that was being tested.&#160; I'm not a big fan of compile time directives, and compile time directives change your code.&#160; They always seemed to cause pain when you forgot one or misspelled it.&#160; Of course, now that we're older, and using <a href="http://nant.sourceforge.net">Nant</a> zealously, this isn't really an issue.</p>
+
+<p>So, for those reasons, I changed the structure of my solutions.&#160; I briefly experimented with one test assembly per production assembly, but gave that up as to unwieldy.&#160; If you had a project with six assemblies, then you'd double it up with six test assemblies.&#160; Now when you wanted to run tests, you'd have 12 assemblies to compile and six to run the tests on.&#160; Not a lot of fun.&#160; Now imagine going onto a client site with 60 project solutions:&#160; it gets nasty fast.</p>
+
+<p>I eventually settled down to the conventional &quot;...one test assembly to rule them all...&quot; approach, and have been doing that for a while.&#160; It seems to work well enough, and I never worried to much about the &quot;urban sprawl&quot; in my namespaces.&#160; Resharper makes it pretty easy to find classes and such, so if the namespace of my testing assembly didn't quite match up with that of my application, I never considered it to be a big deal. </p>
+
+<p>I was never really concerned about making a class public, or a method public to aid in testability.&#160; Most (all) applications I work on are basically in house line of business applications.&#160; I'm not writing frameworks or API's to be consumed to the general public.&#160; The people that are using my classes can be trusted.&#160; Besides, they all had access to the code anyway, so what is to stop them from just going in and change the class/method from internal to public anyway?</p>
+
+<p>So, where should your tests live?&#160; Really, I don't think it matters.&#160; It seems natural to me to have a separate test project, but that is only because I've been doing it that way for a long time.&#160; I don't really see anything wrong with putting your test fixtures in the same project as your production code.&#160; I'd think it was great that you had unit tests (something one rarely sees here in Edmonton), so if housing tests and production code in the same assembly works for you, then why not?</p>

@@ -1,0 +1,14 @@
+---
+date: "2009-03-26T00:00:00Z"
+meta:
+  _edit_last: "2"
+published: true
+status: publish
+categories:
+- Programming
+tags:
+- android
+title: Getting Started Coding for my Android Dev Phone 1
+type: post
+---
+<p>Figured I was due to spend some time setting up a Linux VM and learning how to program my Android Dev Phone 1.&#160; <a href="http://www.eclipse.org">Eclipse</a> is what is recommended, so I thought I’d give that a try first.&#160; So, with the help of <a href="www.susestudio.com">Suse Studio</a>, I quick built myself a VM with Java 1.6 (<em>Aside:&#160; I love Suse Studio, I can provision a VM in minutes</em>).&#160; I figured it would be pretty straight forward.&#160; The docs on the Android Developer site for <a href="http://developer.android.com/guide/developing/tools/adt.html#installingplugin">installing ADT plug-in</a> seem pretty straight forward and simple, and I remember Eclipse having a very rich ecosystem of plug-ins that were easy to install (something I wish Visual Studio had – hint, hint Microsoft).</p>  <p>However, I ran into some hiccups with the provided documentation.</p>  <p>The first annoying one was item #4 in the list for Eclipse 3.4.&#160; You’re directed to enter the location <a href="https://dl-ssl.google.com/android/eclipse/">https://dl-ssl.google.com/android/eclipse/</a> for the location of the ADT plug in.&#160; This did not work for me.&#160; The location I had to use was&#160; <a title="https://dl-ssl.google.com/android/eclipse/site.xml" href="https://dl-ssl.google.com/android/eclipse/site.xml">https://dl-ssl.google.com/android/eclipse/site.xml</a>.&#160; There is a chance https might not work for you, then use <a title="https://dl-ssl.google.com/android/eclipse/site.xml" href="http://dl-ssl.google.com/android/eclipse/site.xml">http://dl-ssl.google.com/android/eclipse/site.xml</a>.</p>  <p>After overcoming that hurdle, I tried to do the <a href="http://developer.android.com/guide/tutorials/hello-world.html">Hello World</a> sample.&#160; This did not work out so well – Eclipse crashed.&#160; Turns out that the default packages for Eclipse provided by OpenSUSE doesn’t have the <a href="http://www.eclipse.org/webtools/wst/main.php">Web Standard Tools</a>, which is a requirement for using ADT.&#160; So, I went back and uninstalled Eclipse, and download the tarball from the Eclipse website.&#160; Then I installed and setup the ADT plug.</p>

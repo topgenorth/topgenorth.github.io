@@ -1,0 +1,59 @@
+---
+date: "2008-01-22T00:00:00Z"
+meta: {}
+published: true
+status: publish
+categories:
+- Programming
+title: Continous Database Integration With Nant
+type: post
+---
+<p>Last night I spent some quality time looking at <a href="http://code.google.com/p/vincent-vega/">vincent-vega</a>, aka Continuous Database Integration for SQL Server. This is a pretty simple and handy task for Nant that helps bring continous integration to your databases. I use updateSqlDatabase like as part of my integration tests like so:</p>  <ol>   <li>Drop the database </li>    <li>Create a new database </li>    <li>Run some SQL scripts to bring my database up to date </li>    <li>Run various database integration tests, repeating steps 1 -3 as necessary. </li> </ol>  <p>What this project will add a new task you: updateSqlDatabase. With this task, you can do one of three things: Add a database, Create a Database, and Update a database. updateSqlDatabase will look for SQL script files , and will execute those SQL scripts for you in the order they are found. Information about what scripts have been run are kept in a table that updateSqlDatabase creates for you when you create your database.&#160; This will allow you to see the history of when your database was updated, and with scripts.&#160; This   <br />How to get started and use it? First, <a href="http://code.google.com/p/vincent-vega/source">get the code</a> from Google Code. Compile the code. Next copy the output of the build to your Nant bin directory.&#160; See the image below.&#160; You probably won't need log4net.dll or Nant.Core.*.</p>  <p><a href="http://www.opgenorth.net/wp-content/uploads/2010/03/CDBI_BuildFiles.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="CDBI_BuildFiles" border="0" alt="CDBI_BuildFiles" src="http://www.opgenorth.net/wp-content/uploads/2010/03/CDBI_BuildFiles_thumb.png" width="204" height="126" /></a>&#160;</p>  <p>Next use the updateSqlDatabase task to perform the drop/create/update as desired. And how do you do that? Well allow me to use athe build from <a href="http://www.codecampserver.org">Code Camp Server</a> as an example. Here are three targets from the nant script:</p>  <pre style="border-bottom: #cecece 1px solid; border-left: #cecece 1px solid; padding-bottom: 5px; background-color: #fbfbfb; min-height: 40px; padding-left: 5px; width: 650px; padding-right: 5px; overflow: auto; border-top: #cecece 1px solid; border-right: #cecece 1px solid; padding-top: 5px"><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">&lt;</span><span style="color: #800000">target</span> <span style="color: #ff0000">name</span>=<span style="color: #0000ff">&quot;create-database&quot;</span> <span style="color: #ff0000">depends</span>=<span style="color: #0000ff">&quot;version, init&quot;</span><span style="color: #0000ff">&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">echo</span> <span style="color: #ff0000">message</span>=<span style="color: #0000ff">&quot;Creating database ${database.name}...&quot;</span><span style="color: #0000ff">/&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">updateSqlDatabase</span> <span style="color: #ff0000">scriptDirectory</span>=<span style="color: #0000ff">&quot;${database.dir}&quot;</span> <span style="color: #ff0000">action</span>=<span style="color: #0000ff">&quot;Create&quot;</span> <span style="color: #ff0000">server</span>=<span style="color: #0000ff">&quot;${database.server}&quot;</span> <span style="color: #ff0000">database</span>=<span style="color: #0000ff">&quot;${database.name}&quot;</span> <span style="color: #0000ff">/&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">echo</span> <span style="color: #ff0000">message</span>=<span style="color: #0000ff">&quot;Current Database Version: ${usdDatabaseVersion}&quot;</span> <span style="color: #0000ff">/&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">&lt;/</span><span style="color: #800000">target</span><span style="color: #0000ff">&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">&lt;</span><span style="color: #800000">target</span> <span style="color: #ff0000">name</span>=<span style="color: #0000ff">&quot;drop-database&quot;</span><span style="color: #0000ff">&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">echo</span> <span style="color: #ff0000">message</span>=<span style="color: #0000ff">&quot;Dropping database ${database.name}...&quot;</span><span style="color: #0000ff">/&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">updateSqlDatabase</span> <span style="color: #ff0000">action</span>=<span style="color: #0000ff">&quot;Drop&quot;</span> <span style="color: #ff0000">database</span>=<span style="color: #0000ff">&quot;${database.name}&quot;</span> <span style="color: #ff0000">server</span>=<span style="color: #0000ff">&quot;${database.server}&quot;</span> <span style="color: #ff0000">failonerror</span>=<span style="color: #0000ff">&quot;false&quot;</span> <span style="color: #0000ff">/&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">&lt;/</span><span style="color: #800000">target</span><span style="color: #0000ff">&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">&lt;</span><span style="color: #800000">target</span> <span style="color: #ff0000">name</span>=<span style="color: #0000ff">&quot;update-database&quot;</span><span style="color: #0000ff">&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">echo</span> <span style="color: #ff0000">message</span>=<span style="color: #0000ff">&quot;Updating database...&quot;</span><span style="color: #0000ff">/&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">updateSqlDatabase</span> <span style="color: #ff0000">scriptDirectory</span>=<span style="color: #0000ff">&quot;${database.dir}&quot;</span> <span style="color: #ff0000">action</span>=<span style="color: #0000ff">&quot;Update&quot;</span> <span style="color: #ff0000">server</span>=<span style="color: #0000ff">&quot;${database.server}&quot;</span> <span style="color: #ff0000">database</span>=<span style="color: #0000ff">&quot;${database.name}&quot;</span> <span style="color: #0000ff">/&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">echo</span> <span style="color: #ff0000">message</span>=<span style="color: #0000ff">&quot;Current Database Version: ${usdDatabaseVersion}&quot;</span> <span style="color: #0000ff">/&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">&lt;/</span><span style="color: #800000">target</span><span style="color: #0000ff">&gt;</span></pre></pre>
+
+<p>In these samples, we're assuming integrated security. If you were using SQL authentication, you can, but I'm not going to cover that. Look at the code for how to do that.&#160; It's good for you to read other peoples code.&#160; Anyway, here is an explaination of the parameters for the task:</p>
+
+<ul>
+  <li>action: one of Add/Update/Drop. Note that this action is also used by updateSqlDatabase to find the script files to run. </li>
+
+  <li>scriptDirectory: This will hold our database scripts. Note that they must have the .SQL extentsion.&#160; Inside this directory we create one or two folders which will hold our scripts.&#160; So, what are the rules surrounding the locating of SQL script files?&#160; Basically, it goes something like this: 
+    <br /><em>For a Create action</em>:&#160; get the scripts from first the Create folder (if there is one), and then the scripts from the Update folder.&#160; The scripts in the Create folder get run first, then the scripts from the Update folder.
+
+    <br /><em>For an Update action</em>:&#160; get the scripts from the Update folder.&#160; Run them.
+
+    <br /><em>For the Drop action</em>:&#160; Ignore all the folders.&#160; Don't execute any scripts. </li>
+</ul>
+
+<p><a href="http://www.opgenorth.net/wp-content/uploads/2010/03/CDBI_ScriptDirectory.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="CDBI_ScriptDirectory" border="0" alt="CDBI_ScriptDirectory" src="http://www.opgenorth.net/wp-content/uploads/2010/03/CDBI_ScriptDirectory_thumb.png" width="244" height="138" /></a> </p>
+
+<ul>
+  <li>server: The database server that the scripts will be run against. </li>
+</ul>
+
+<ul>
+  <li>database: The database the scripts will be run against. </li>
+</ul>
+
+<p>My only complaint about it is that it's SQL Server only (for now). But, I won't complain to loud, as I suppose on the eighth day I could probably add support for MySQL to the project.</p>
+
+<p>Now, why would I go through all this?&#160; Here is a quick summary of why I think it's worth effort (in case the 'continous integration' didn't give it away):</p>
+
+<ol>
+  <li>It helps me ensure that the database I think I'm testing against is the database that I should be testing against.&#160; It minimizes the friction of integration testing when you don't have to chase down and resolve schema or data issues.&#160; </li>
+
+  <li>Exercise and test any database scripts that might have to be applied in production.&#160; </li>
+
+  <li>I can keep my schema in my source code management tool and manage changes to my database. </li>
+</ol>

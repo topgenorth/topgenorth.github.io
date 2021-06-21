@@ -1,0 +1,14 @@
+---
+date: "2007-07-23T00:00:00Z"
+meta:
+  _edit_last: "2"
+published: true
+status: publish
+categories:
+- Programming
+tags:
+- .NET
+title: VisualSVN and VS2008
+type: post
+---
+<p>So last night I installed Visual Studio 2008 RTM on my laptop.&#160; This was a clean install - I did not have any beta versions of VS2008 installed.&#160; When I went to try and do anything in VS2008, I kept getting the message 'Visual Studio has encountered an unexpected error.&quot;.&#160; This error happens when I try to do anything, including VS2008.&#160; The only way to close VS2008 was using Task Manager.&#160; Most annoying.</p>  <p>A quick search, and I see that <a href="http://www.jpboodhoo.com/blog/VS2008BringingAttentionToAnIssue.aspx">JP Boodhoo has the same problem</a>.&#160; The comments on JP's blog seems to point to <a href="http://www.visualsvn.com/">VisualSVN</a> as being the culprit.&#160; I uninstalled <a href="http://www.visualsvn.com/">VisualSVN</a>, and everything seems to be working again.&#160; So, the problem was the add-in.&#160; I then installed a new version of <a href="http://www.visualsvn.com/">VisualSVN</a> (v1.3.1), and VS2008 seems to be working again.</p>  <p>As an side, I see that the is now a <a href="http://www.visualsvn.com/server/">VisualSVN Server</a> utility (free) from the guys that make <a href="http://www.visualsvn.com">VisualSVN</a>.&#160; It looks like we now have a GUI tool for managing our SVN repositories. </p>

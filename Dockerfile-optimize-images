@@ -1,5 +1,0 @@
-FROM alpine
-RUN apk add jpegoptim && \
-    apk add optipng
-
-

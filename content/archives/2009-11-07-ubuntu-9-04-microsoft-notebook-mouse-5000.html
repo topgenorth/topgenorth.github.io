@@ -1,0 +1,29 @@
+---
+date: "2009-11-07T00:00:00Z"
+meta:
+  _edit_last: "2"
+published: true
+status: publish
+categories:
+- Programming
+tags:
+- Linux
+title: Ubuntu 9.04 & Microsoft Notebook Mouse 5000
+type: post
+---
+<p>A while ago I picked up a <a href="http://www.microsoft.com/hardware/mouseandkeyboard/productdetails.aspx?pid=099">Microsoft Notebook Mouse 5000</a>.&#160; Finally decided to use it on my laptop.&#160; I figured that having a bluetooth mouse would mean that I wouldn’t have a USB receiver hanging off my laptop all the time.&#160; Plus, I thought it would be nice to use <a href="http://blueproximity.sourceforge.net">Blue Proximity</a>.</p>  <p>Now, the hiccup came when setting up the new mouse on Ubuntu 9.04 64-bit.&#160; It seems that you have to do a little bit extra to get the mouse working. I found the solution on the <a href="http://ubuntuforums.org/showpost.php?p=7374310&amp;postcount=8">Ubuntu forums</a>.&#160; For my one selfish purposes, I will repeat the instructions here:</p>  <pre class="prettyprint">1) install the bluez-compat package with terminal
+sudo apt-get install bluez-compat
+
+2)Pair the mouse with the bluetooth manager. The manager will say that the pairing is &quot;successful&quot;
+Although the mouse won't worked... this step has to be done...
+
+3) In the terminal, type :
+
+sudo hidd --search
+
+You should see something like
+
+Searching ...
+Connecting to device 00:XX:XX:XX:XX:XX (your mouse MAC)
+
+Done. Your mouse should be working now.</pre>
