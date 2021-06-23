@@ -51,7 +51,7 @@ disablePathToLower = true
   list = "left"  # Configure layout for list pages
   single = false # Configure layout for single pages
   # Enable widgets in given order
-  widgets = ["ddg-search", "recent", "categories", "taglist", "social", "languages"]
+  widgets = ["recent", "categories", "taglist", "social"]
   # alternatively "ddg-search" can be used, to search via DuckDuckGo
   # widgets = ["ddg-search", "recent", "categories", "taglist", "social", "languages"]
 
@@ -81,3 +81,17 @@ disablePathToLower = true
 # [[Params.widgets.social.custom]]
 #   title = "Opgenorth.NET"
 #   url = "http://www.opgenorth.net"
+
+[menu]
+  [[menu.main]]
+    identifier = "blog"
+    name = "Blog"
+    title = "Blog"
+    url = "/"
+    weight = -110
+  [[menu.main]]
+    identifier = "labradar"
+    name = "Labradar"
+    title = "Labradar"
+    url = "/labradar/"
+    weight = -110
