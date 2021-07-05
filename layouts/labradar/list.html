@@ -1,19 +1,24 @@
 {{ define "main" }}
 
+{{.Content}}
+
 <table>
 	<thead>
-	<tr>
-	<th style="text-align:center">Series Number</th>
-	<th style="text-align:left">Cartridge</th>
-	<th style="text-align:left">Ammo</th>
-	<th style="text-align:left">Firearm</th>
-	<th style="text-align:center">Date</th>
-	</tr>
+		<tr>
+			<th style="text-align:center">Series Number</th>
+			<th style="text-align:left">Cartridge</th>
+			<th style="text-align:left">Ammo</th>
+			<th style="text-align:left">Firearm</th>
+			<th style="text-align:center">Date</th>
+		</tr>
 	</thead>
 	<tbody>
-	{{- range .Paginator.Pages }}
-		{{- .Render "summary" }}
-	{{- end }}
+
+	{{ range $.Site.Data.labradar }}
+		{{ partial "labradarrow.html" . }}
+	{{ end }}		
+
+
 	</tbody>
 </table>
 

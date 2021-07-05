@@ -3,7 +3,7 @@ categories: ["Firearms"]
 tags: ["reloading", "ballistics", "labradar"]
 comments: true
 date: "2021-06-19"
-title: "Ballistic Data"
+title: "Labradar Data"
 sidebar: false
 ---
 

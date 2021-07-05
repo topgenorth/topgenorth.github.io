@@ -1,8 +1,9 @@
 {
-    "labRadar": {
+    "labradar": {
         "deviceId": "LBR-0013797",
-        "dateTime": "07-25-2020;12:14:23",
-        "seriesNumber" : 1,
+        "date": "07-25-2020",
+        "time":"14:23",
+        "seriesNumber" : "0001",
         "totalNumberOfShots": 9,
         "units": {
             "velocity": "fps",
