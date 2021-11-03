@@ -13,7 +13,7 @@ disablePathToLower = true
   avatar = "images/abominable-snowman-1.png"
 
 [Params]
-  description = "Tom Opgenorth's Personal blog about everything" # Site description. Used in meta description
+  description = "Tom Opgenorth's Personal blog, mostly irrelevant" # Site description. Used in meta description
   copyright = "Tom Opgenorth" # Footer copyright holder, otherwise will use site title
   opengraph = true # Enable OpenGraph if true
   schema = true # Enable Schema
