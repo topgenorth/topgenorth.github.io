@@ -1,10 +1,12 @@
-cdbaseurl = "http://localhost:1313"
+baseURL = "https://www.opgenorth.net"
 title = "opgenorth.net"
 languageCode = "en-us"
 theme = "hugo-xmin"
-disqusShortname = "opgenorthnet" 
-googleAnalytics = "1812612" 
 disablePathToLower = true
+
+# Legacy single-value fields kept for compatibility with some themes
+disqusShortname = "opgenorthnet"
+googleAnalytics = "1812612"
 
 [frontmatter]
   publishDate = [":filename", "published", "publishdate", "pubdate", "date"]
@@ -12,7 +14,7 @@ disablePathToLower = true
 [pagination]
   pagerSize = 10
 
-[Params.author]
+[params.author]
   name = "Tom Opgenorth"
   bio = "Just a humble software developer from the Great White North, with a taste for single-malt scotch and an interest in ballistic things."
   avatar = "images/abominable-snowman-1.png"
@@ -26,72 +28,52 @@ disablePathToLower = true
   [services.disqus]
     shortname = "opgenorthnet"
 
-[Params]
-  description = "Tom Opgenorth's Personal blog, mostly irrelevant" # Site description. Used in meta description
-  copyright = "Tom Opgenorth" # Footer copyright holder, otherwise will use site title
-  opengraph = true # Enable OpenGraph if true
-  schema = true # Enable Schema
-  twitter_cards = false # Enable Twitter Cards if true
-  readmore = true # Show "Read more" button in list if true
-  authorbox = false # Show authorbox at bottom of pages if true
-  toc = true # Enable Table of Contents
-  pager = true # Show pager navigation (prev/next links) at the bottom of pages if true
-  post_meta = ["author", "date", "categories", "translations"] # Order of post meta information
-  mainSections = ["post", "blog", "news"] # Specify section pages to show on home page and the "Recent articles" widget
-  dateformat = "2006-01-02" # Change the format of dates
-  mathjax = true # Enable MathJax
-  mathjaxPath = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js" # Specify MathJax path
-  mathjaxConfig = "TeX-AMS-MML_HTMLorMML" # Specify MathJax config
-  googleFontsLink = "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" # Load Google Fonts
-  highlightColor = "" # Deprecated in favor of .Site.Params.style.vars.highlightColor
-  customCSS = ["css/custom.css"] # Include custom CSS files
-  customJS = ["js/custom.js"] # Include custom JS files
+[params]
+  description   = "Tom Opgenorth's Personal blog, mostly irrelevant"
+  copyright     = "Tom Opgenorth"
+  opengraph     = true
+  schema        = true
+  twitter_cards = false
+  readmore      = true
+  authorbox     = false
+  toc           = true
+  pager         = true
+  post_meta     = ["author", "date", "categories", "translations"]
+  mainSections  = ["post", "blog", "news"]
+  dateformat    = "2006-01-02"
+  mathjax       = true
+  mathjaxPath   = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js"
+  mathjaxConfig = "TeX-AMS-MML_HTMLorMML"
+  googleFontsLink = "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700"
+  highlightColor  = "" # Deprecated in favor of .Site.Params.style.vars.highlightColor
+  customCSS       = ["css/custom.css"]
+  customJS        = ["js/custom.js"]
 
-[Params.style.vars]
-  highlightColor = "#e22d30" # Override highlight color
+  [params.style.vars]
+    highlightColor = "#e22d30"
+    fontFamilyPrimary   = "'Open Sans', Helvetica, Arial, sans-serif"
+    fontFamilySecondary = "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace"
 
-  # Override font-family sets. Secondary font-family set responsible for pre, code, kbd, and samp tags font
-  # Take care of different quotes OR escaping symbols in these params if necessary
-  fontFamilyPrimary = "'Open Sans', Helvetica, Arial, sans-serif"
-  fontFamilySecondary = "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace"
+  [params.logo]
+    image    = "images/abominable-snowman-1.jpg"
+    title    = "Opgenorth.NET"
+    subtitle = "Mindless Missives from the Great White North"
 
-[Params.logo]
-  image = "images/abominable-snowman-1.jpg" # Logo image. Path relative to "static"
-  title = "Opgenorth.NET" # Logo title, otherwise will use site title
-  subtitle = "Mindless Missives from the Great White North" # Logo subtitle
+  [params.sidebar]
+    home   = "right"
+    list   = "left"
+    single = false
+    widgets = ["ddg-search", "recent", "categories", "taglist", "social", "languages"]
 
-[Params.sidebar]
-  home = "right" # Configure layout for home page
-  list = "left"  # Configure layout for list pages
-  single = false # Configure layout for single pages
-  # Enable widgets in given order
-  widgets = ["ddg-search", "recent", "categories", "taglist", "social", "languages"]
-  # alternatively "ddg-search" can be used, to search via DuckDuckGo
-  # widgets = ["ddg-search", "recent", "categories", "taglist", "social", "languages"]
+  [params.widgets]
+    recent_num         = 5
+    categories_counter = false
+    tags_counter       = false
 
-[Params.widgets]
-  recent_num = 5 # Set the number of articles in the "Recent articles" widget
-  categories_counter = false # Enable counter for each category in "Categories" widget
-  tags_counter = false # Enable counter for each tag in "Tags" widget
-
-[Params.widgets.social]
-  # Enable parts of social widget
-  facebook = "tom.opgenorth"
-  twitter = "topgenorth"
-  instagram = "topgenorth"
-  linkedin = "tomopgenorth"
-  #telegram = "username"
-  github = "topgenorth"
-  #gitlab = "username"
-  #bitbucket = "username"
-  email = "tom@opgenorth.net"
-
-# Custom social links
-#[[Params.widgets.social.custom]]
-#  title = "Youtube"
-#  url = "https://youtube.com/user/username"
-#  icon = "youtube.svg" # Optional. Path relative to "layouts/partials"
-
-# [[Params.widgets.social.custom]]
-#   title = "Opgenorth.NET"
-#   url = "http://www.opgenorth.net"
+    [params.widgets.social]
+      facebook  = "tom.opgenorth"
+      twitter   = "topgenorth"
+      instagram = "topgenorth"
+      linkedin  = "tomopgenorth"
+      github    = "topgenorth"
+      email     = "tom@opgenorth.net"
