@@ -1,16 +1,30 @@
-baseurl = "http://opgenorth.net/"
+cdbaseurl = "http://localhost:1313"
 title = "opgenorth.net"
 languageCode = "en-us"
-paginate = "10" # Number of posts per page
-theme = "mainroad"
+theme = "hugo-xmin"
 disqusShortname = "opgenorthnet" 
 googleAnalytics = "1812612" 
 disablePathToLower = true
 
-[Author] # Used in authorbox
+[frontmatter]
+  publishDate = [":filename", "published", "publishdate", "pubdate", "date"]
+
+[pagination]
+  pagerSize = 10
+
+[Params.author]
   name = "Tom Opgenorth"
   bio = "Just a humble software developer from the Great White North, with a taste for single-malt scotch and an interest in ballistic things."
   avatar = "images/abominable-snowman-1.png"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[services]
+  [services.disqus]
+    shortname = "opgenorthnet"
 
 [Params]
   description = "Tom Opgenorth's Personal blog, mostly irrelevant" # Site description. Used in meta description

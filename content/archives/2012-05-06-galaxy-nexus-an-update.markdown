@@ -1,6 +1,5 @@
 ---
-categories: ["Personal"]
-categories: ["android"]
+categories: ["Personal", "android"]
 comments: true
 date: "2012-05-06T00:00:00Z"
 title: Galaxy Nexus - an Update
