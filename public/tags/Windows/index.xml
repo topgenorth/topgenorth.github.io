@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Windows on opgenorth.net</title>
+    <link>http://localhost:1313/tags/Windows/</link>
+    <description>Recent content in Windows on opgenorth.net</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 25 Sep 2012 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/Windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows 8 64-bit and Android Debug Bridge (Where is my Galaxy Nexus?)</title>
+      <link>http://localhost:1313/archives/windows-8-64-bit-and-android-debug-bridge-where-is-my-galaxy-nexus/</link>
+      <pubDate>Tue, 25 Sep 2012 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archives/windows-8-64-bit-and-android-debug-bridge-where-is-my-galaxy-nexus/</guid>
+      <description>&lt;p&gt;Setting up a new VM for development - this one based on Windows 8 64 bit. Not that I really want to, but it seems that I need to for work (yes, yes, first world problems). So the usual fun with standing up a new VM:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Install OS&lt;/li&gt;&#xA;&lt;li&gt;Download Chrome and Firefox and ditch IE&lt;/li&gt;&#xA;&lt;li&gt;Download Resharper&lt;/li&gt;&#xA;&lt;li&gt;Remember that you need Visual Studio for Resharper so install that.&lt;/li&gt;&#xA;&lt;li&gt;Install Java SDK&lt;/li&gt;&#xA;&lt;li&gt;Install Android SDK&lt;/li&gt;&#xA;&lt;li&gt;Install Intellij and Eclipse&lt;/li&gt;&#xA;&lt;li&gt;etc.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Of course, then I notice that my phone, a Galaxy Nexus, isn&amp;rsquo;t being recognized by Android Debug Bridge.  This is a problem as I much prefer to develop using a device as opposed slow emulator that Google ships for Android, and you can&amp;rsquo;t deploy to the device without ADB.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Where Windows Beats Linux</title>
+      <link>http://localhost:1313/archives/where-windows-beats-linux/</link>
+      <pubDate>Thu, 09 Oct 2008 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archives/where-windows-beats-linux/</guid>
+      <description>&lt;p&gt;Most who know me are aware that, despite being a .NET developer and a Microsoft MVP, I&#39;m a bit of a Linux freak at heart.&amp;#160; I actually prefer Linux to Windows.&amp;#160; Linux has come a long way in the past 18 years, although I&#39;ve only been tinkering with it off and on for the past 9 years or so.&amp;#160; I will admit that perhaps Linux on the desktop isn&#39;t quite there for the average consumer, but for me it.&amp;#160; And, when it comes to servers, there is no question:&amp;#160;&amp;#160; use Linux unless you&#39;ve got a pretty compelling reason to run Windows.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

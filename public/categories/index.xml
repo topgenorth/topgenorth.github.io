@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on opgenorth.net</title>
+    <link>http://localhost:1313/categories/</link>
+    <description>Recent content in Categories on opgenorth.net</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 19 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Firearms</title>
+      <link>http://localhost:1313/categories/Firearms/</link>
+      <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/Firearms/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Technology</title>
+      <link>http://localhost:1313/categories/Technology/</link>
+      <pubDate>Thu, 24 Sep 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/Technology/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Programming</title>
+      <link>http://localhost:1313/categories/Programming/</link>
+      <pubDate>Mon, 14 Sep 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/Programming/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Personal</title>
+      <link>http://localhost:1313/categories/Personal/</link>
+      <pubDate>Tue, 21 Jul 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/Personal/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android</title>
+      <link>http://localhost:1313/categories/android/</link>
+      <pubDate>Sun, 06 May 2012 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/android/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

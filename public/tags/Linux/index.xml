@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on opgenorth.net</title>
+    <link>http://localhost:1313/tags/Linux/</link>
+    <description>Recent content in Linux on opgenorth.net</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 17 Mar 2011 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/Linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Picking Apart PDF with Ruby and Linux</title>
+      <link>http://localhost:1313/archives/picking-apart-pdf-with-ruby-and-linux/</link>
+      <pubDate>Thu, 17 Mar 2011 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archives/picking-apart-pdf-with-ruby-and-linux/</guid>
+      <description>&lt;p&gt;I ran into a curious problem for a side problem of mine where I had some information in PDF files, both text and images.&amp;#160; What I want to do is display the information from the PDF&#39;s on a mobile (Android) device.&amp;#160; PDF isn&#39;t exactly a mobile friendly format, so I got the idea use HTML.&amp;#160; The next trick then becomes how to get the content out of the PDF&#39;s I want into HTML.&amp;#160; Tux to the rescue!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ubuntu 9.04 &amp; Microsoft Notebook Mouse 5000</title>
+      <link>http://localhost:1313/archives/ubuntu-9-04-microsoft-notebook-mouse-5000/</link>
+      <pubDate>Sat, 07 Nov 2009 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archives/ubuntu-9-04-microsoft-notebook-mouse-5000/</guid>
+      <description>&lt;p&gt;A while ago I picked up a &lt;a href=&#34;http://www.microsoft.com/hardware/mouseandkeyboard/productdetails.aspx?pid=099&#34;&gt;Microsoft Notebook Mouse 5000&lt;/a&gt;.&amp;#160; Finally decided to use it on my laptop.&amp;#160; I figured that having a bluetooth mouse would mean that I wouldn’t have a USB receiver hanging off my laptop all the time.&amp;#160; Plus, I thought it would be nice to use &lt;a href=&#34;http://blueproximity.sourceforge.net&#34;&gt;Blue Proximity&lt;/a&gt;.&lt;/p&gt;  &lt;p&gt;Now, the hiccup came when setting up the new mouse on Ubuntu 9.04 64-bit.&amp;#160; It seems that you have to do a little bit extra to get the mouse working. I found the solution on the &lt;a href=&#34;http://ubuntuforums.org/showpost.php?p=7374310&amp;amp;postcount=8&#34;&gt;Ubuntu forums&lt;/a&gt;.&amp;#160; For my one selfish purposes, I will repeat the instructions here:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Where Windows Beats Linux</title>
+      <link>http://localhost:1313/archives/where-windows-beats-linux/</link>
+      <pubDate>Thu, 09 Oct 2008 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archives/where-windows-beats-linux/</guid>
+      <description>&lt;p&gt;Most who know me are aware that, despite being a .NET developer and a Microsoft MVP, I&#39;m a bit of a Linux freak at heart.&amp;#160; I actually prefer Linux to Windows.&amp;#160; Linux has come a long way in the past 18 years, although I&#39;ve only been tinkering with it off and on for the past 9 years or so.&amp;#160; I will admit that perhaps Linux on the desktop isn&#39;t quite there for the average consumer, but for me it.&amp;#160; And, when it comes to servers, there is no question:&amp;#160;&amp;#160; use Linux unless you&#39;ve got a pretty compelling reason to run Windows.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Experiment, Days 3 &amp; 4</title>
+      <link>http://localhost:1313/archives/the-experiment-days-3-4/</link>
+      <pubDate>Wed, 25 Jun 2008 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archives/the-experiment-days-3-4/</guid>
+      <description>&lt;p&gt;Just a quick recap of days 3 &amp;amp; 4 of running with openSUSE 11 as my primary OS.&amp;#160; By far and large, not a lot of complaints.&amp;#160; As I do most of my work on a laptop, I tend to keep my VM&#39;s on external HDD&#39;s connected via USB2.&amp;#160; I&#39;ve been doing this for a while now, under Windows.&lt;/p&gt;  &lt;p&gt;I&#39;m not to sure I&#39;m a big fan of how openSUSE mounts (or tries to mount) my external HDD.&amp;#160; It just doesn&#39;t seem as...seamless...as how Windows XP does it.&amp;#160; I&#39;m use to just plugging in my external HDD, and not worrying about it until it&#39;s time to disconnect.&amp;#160; openSUSE seems to get a big confused with automounting, and I always seem to have to help it along.&amp;#160; It&#39;s something I can live with for now. &lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Experiment Begins</title>
+      <link>http://localhost:1313/archives/the-experiment-begins/</link>
+      <pubDate>Sun, 22 Jun 2008 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archives/the-experiment-begins/</guid>
+      <description>&lt;p&gt;I&#39;ve decided to try a little experiment, and see how things will go, computing-wise, if I minimize my dependence on Windows.&amp;#160; Now, I don&#39;t want to run out and buy a Mac (not yet, anyway), so I&#39;m taking a middle ground.&lt;/p&gt;  &lt;p&gt;I first repartitioned my hard drive (thanks &lt;a href=&#34;http://gparted.sourceforge.net/&#34;&gt;gparted&lt;/a&gt;), and set aside a 15GB partition.&amp;#160; On this partition, I installed &lt;a href=&#34;http://software.opensuse.org/&#34;&gt;OpenSUSE 11&lt;/a&gt;.&lt;/p&gt;  &lt;p&gt;My plan is to run &lt;a href=&#34;http://software.opensuse.org/&#34;&gt;OpenSUSE 11&lt;/a&gt; as the host OS, and then use &lt;a href=&#34;http://www.vmware.com&#34;&gt;VMware&lt;/a&gt; to run VM&#39;s for my work and such.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ALT.NET Session #5:  Mono â Not Just For Linux</title>
+      <link>http://localhost:1313/archives/alt-net-session-5-mono-not-just-for-linux/</link>
+      <pubDate>Sat, 19 Apr 2008 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archives/alt-net-session-5-mono-not-just-for-linux/</guid>
+      <description>&lt;p&gt;Joe starts polling to see what people want to talk about.&amp;#160; Most seem to be interest the libraries for Mono (being that they also work on Windows/.NET.&amp;#160; So, Joe starts talking about libraries for/from Mono. &lt;/p&gt;  &lt;ol&gt;   &lt;li&gt;&lt;a href=&#34;http://www.mono-project.com/Cecil&#34;&gt;Mono.Cecil&lt;/a&gt;.&amp;#160; For all your reflecting and assembly modification needs. &lt;/li&gt;    &lt;li&gt;&lt;a href=&#34;http://www.mono-project.com/Mono.Addins&#34;&gt;Mono.Addins&lt;/a&gt;.&amp;#160; I&#39;ve been looking at this off and on today, and I have to admit it looks pretty intriguing &lt;/li&gt;    &lt;li&gt;&lt;a href=&#34;http://www.mono-project.com/Rocks&#34;&gt;Mono.Rocks&lt;/a&gt;:&amp;#160; Handy extension methods. &lt;/li&gt;    &lt;li&gt;&lt;a href=&#34;http://www.mono-project.com/Mono.Zeroconf&#34;&gt;Mono.Zeroconf&lt;/a&gt;: Zero configuration networking library &lt;/li&gt;    &lt;li&gt;&lt;a href=&#34;http://www.ndesk.org/DBusSharp&#34;&gt;DBus#&lt;/a&gt;:&amp;#160; A C# implementation of &lt;a href=&#34;http://www.freedesktop.org/wiki/Software/dbus&#34;&gt;D-Bus&lt;/a&gt;. &lt;/li&gt;    &lt;li&gt;&lt;a href=&#34;http://www.mono-project.com/MonoCurses&#34;&gt;MonoCurses&lt;/a&gt;: An API for console based applications &lt;/li&gt;    &lt;li&gt;GTK# vs Windows:      &lt;ul&gt;       &lt;li&gt;My suggestion is to consider the target environment.&amp;#160; If you targeting Windows, stick with WinForms.&amp;#160; If you&#39;re targetting Linux/Mac, go with GTK#.&amp;#160; &lt;/li&gt;        &lt;li&gt;Another issue that might influence your decision is that the documentation for GTK# is pretty sketchy, not very good. &lt;/li&gt;     &lt;/ul&gt;   &lt;/li&gt;    &lt;li&gt;&lt;a href=&#34;http://www.mono-project.com/IOMap&#34;&gt;IOMap&lt;/a&gt;.&amp;#160; Turning this flag on, will help you with some of the cross-platform development issues.&amp;#160; This is a portable library that will help resolve things like directory seperators, case sensitivity in paths, and that sort of thing. &lt;/li&gt; &lt;/ol&gt;  &lt;p&gt;A short session, which isn&#39;t bad.&amp;#160; Gives me a chance to float around to check out some other things.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>VMware and 64-bit Ubuntu</title>
+      <link>http://localhost:1313/archives/vmware-and-64-bit-ubuntu/</link>
+      <pubDate>Wed, 05 Mar 2008 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archives/vmware-and-64-bit-ubuntu/</guid>
+      <description>&lt;p&gt;Today I got a new hard drive for my web server, to replace the one that died back in February.&amp;#160; Hopefully the new 750GB drive will serve me as well as (or better) the old 200GB WD Cavair.&amp;#160; I must admit, I was a bit suprised at how cheap it was to get such a big HD.&lt;/p&gt;  &lt;p&gt;The first order of business was to move my web site off it&#39;s current home and onto it&#39;s new, more permanent one.&amp;#160; I went about installing Ubunutu 7.10 64 bit, and them VMware server 1.0.4 on the new computer.&amp;#160; If you Google it, are a lot of articles on &lt;a href=&#34;http://www.google.ca/search?q=vmware+server+ubuntu+7.10&#34;&gt;installing VMware on Ubunutu&lt;/a&gt;.&amp;#160; However, I did run into one stumbling block:&amp;#160; with 64bit Ubunutu you need one more dependency: ia32-libs&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

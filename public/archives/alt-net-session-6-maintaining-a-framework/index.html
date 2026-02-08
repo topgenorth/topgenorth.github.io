@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><title>opgenorth.net</title></head>
+<body>
+
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">ALT.NET Session #6: Maintaining A Framework</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2008-04-20T00:00:00Z">2008-04-20</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+		</header>
+		<div class="content post__content clearfix">
+			<p><a href="http://codebetter.com/blogs/jeremy.miller/">Jeremy Miller</a> talking about the trials and tribulations of keeping a <a href="http://structuremap.sourceforge.net/Default.htm">codebase</a> viable and useful over the past four years.&#160; A lot of tips and explanations were backed with diagrams on the whiteboard.&#160; Kind of hard to blog that stuff, so this will probably be just a collection of bullets.</p>  <p>Lessons learned - a lot of them relate back to what are considered good, OO practices:</p>  <ul>   <li><a href="http://en.wikipedia.org/wiki/Don't_repeat_yourself">DRY</a>, especially with the very small things.&#160; When Jeremy was adding support for .NET 2.0, the generic support was problematic.&#160;&#160; <br />Example:&#160; Want to resolve a Repository&lt;T&gt;.&#160; You can't just look for the class Repository`1: i.e. was trying to resolve the class by using&#160; typeof(Repository`1).&#160; This did not work. </li>    <li><a href="http://c2.com/cgi/wiki?TellDontAsk">Tell, Don't Ask</a>.&#160; Didn't follow this to heavily at first, and so now effort has to be taken to rewrite code to adhere to this principle. </li>    <li>Using a lot of Double Dispatch (<em>hah!&#160; look Jeremy the picture did turn out</em>):       <br /><a href="http://www.opgenorth.net/wp-content/uploads/2010/03/SSPX0289_2.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="SSPX0289_2" border="0" alt="SSPX0289_2" src="http://www.opgenorth.net/wp-content/uploads/2010/03/SSPX0289_2_thumb.png" width="244" height="222" /></a> </li>    <li>If you need to refactor, do it now.&#160; Procrastination only makes it (refactoring) harder and more costly. </li>    <li>If you want to build a .NET framework and keep it around for four to five years, you should probably learn a bit about the fundamentals of .NET. </li>    <li>Small steps, frequent commits to source code. </li>    <li>Good solid battery of unit tests really helps with major changes. </li>    <li>Moving more towards coarser grained tests.&#160; Does the test check the functionality?&#160; Not to worried about the intermediate steps.      <ul>       <li>Assertions based on side effects really don't work well.&#160; Not very expressive, sometimes hard to figure out what what you're trying to test. </li>     </ul>   </li>    <li>It helps have tooling inside your tests in order to help you quickly create tests, especially the difficult to setup/create tests.&#160; Will result in a faster feedback cycle.&#160; This infrastructure is more strategic, can be very help. </li>    <li>Jeremy recommends &quot;Pragmatic Programmers&quot; </li> </ul>  <p>Brief discussion about where to start learning all these pattern.&#160; Advice is given to learn principles first (DRY, OCP, SRP, SOC, etc) as this will greatly help with the understanding and proper use of design patterns.</p>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/.NET/" rel="tag">.NET</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/ALT.NET/" rel="tag">ALT.NET</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/archives/alt-net-session-4-sprocs-good-or-evil-nhibernate-with-cartoon-bears/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">ALT.NET Session #4: Sprocs Good Or Evil / NHibernate with Cartoon Bears</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/archives/edmug-presentation-on-monorail/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">EDMUG Presentation on MonoRail</p>
+		</a>
+	</div>
+</nav>
+
+
+
+
+
+</body>
+</html>

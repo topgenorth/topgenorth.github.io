@@ -1,7 +1,7 @@
 baseURL = "https://www.opgenorth.net"
 title = "opgenorth.net"
 languageCode = "en-us"
-theme = "hugo-xmin"
+#theme = "mainroad"
 disablePathToLower = true
 
 # Legacy single-value fields kept for compatibility with some themes

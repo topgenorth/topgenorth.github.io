@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C# on opgenorth.net</title>
+    <link>http://localhost:1313/tags/C%23/</link>
+    <description>Recent content in C# on opgenorth.net</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 16 Feb 2014 14:40:03 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/C%23/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using Estimotes with Xamarin.Android</title>
+      <link>http://localhost:1313/post/using-estimotes-with-xamarin-dot-android/</link>
+      <pubDate>Sun, 16 Feb 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/using-estimotes-with-xamarin-dot-android/</guid>
+      <description>&lt;p&gt;I recently bought some &lt;a href=&#34;http://estimote.com/&#34;&gt;Estimote&lt;/a&gt; beacons (a 3rd party iBeacon-like device) - largely because they seem like a cool and nerdy kind of thing. It has an &lt;a href=&#34;https://github.com/Estimote/Android-SDK&#34;&gt;Android SDK&lt;/a&gt; which will allow Android devices to interaction with devices. With a little big of effort, I managed to create &lt;a href=&#34;https://github.com/topgenorth/Estimotes-Xamarin/&#34;&gt;Xamarin.Android binding&lt;/a&gt; and port the sample Android project provided by the Estimote SDK.&lt;/p&gt;&#xA;&lt;p&gt;You can see an example of the app in these screenshots:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://s3.amazonaws.com/opgenorthnet-blog/estimote1.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Animate a ListView deletion in Xamarin.Android</title>
+      <link>http://localhost:1313/post/animate-a-listview-deletion-in-xamarin-dot-android/</link>
+      <pubDate>Thu, 26 Sep 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/animate-a-listview-deletion-in-xamarin-dot-android/</guid>
+      <description>&lt;p&gt;A visually pleasant effect when deleting items from a ListView is to animate the row being deleted by gradually change the &lt;code&gt;.Alpha&lt;/code&gt; value of the view from 1.0 to 0.0. If you&amp;rsquo;ve tried to animate the deletion of a row from a &lt;a href=&#34;http://developer.android.com/reference/android/widget/ListView.html&#34;&gt;ListView&lt;/a&gt; in a Xamarin.Android application, you may observe some curious behaviour when rapidly scrolling through a ListView with many rows: the animation may appear on rows other than then one that is being deleted.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Writing GPS information to a JPEG</title>
+      <link>http://localhost:1313/post/writing-gps-information-to-a-jpeg/</link>
+      <pubDate>Mon, 18 Feb 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/writing-gps-information-to-a-jpeg/</guid>
+      <description>&lt;p&gt;One of the handy things about the JPEG format is the ability to store meta-data inside the image using &lt;a href=&#34;http://en.wikipedia.org/wiki/Exchangeable_image_file_format&#34;&gt;EXIF&lt;/a&gt;. There are a few libraries out there for the various programming languages that can help you out with this, and Android actually has something built in to the SDK - the class &lt;a href=&#34;http://developer.android.com/reference/android/media/ExifInterface.html&#34;&gt;ExifInterface&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Google&amp;rsquo;s documentation on writing latitude and longitude to a JPEG are a bit light on details - they loosely hint at the format that latitude or longitude should have. (See the documentation for &lt;a href=&#34;http://developer.android.com/reference/android/media/ExifInterface.html#TAG_GPS_LATITUDE&#34;&gt;ExifInterface.TAG_GPS_LATITUDE&lt;/a&gt;). The API itself is pretty straight forward, but what Google doesn&amp;rsquo;t tell you is HOW the GPS coordinates should encoded.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>rake your Xamarin.Android Application</title>
+      <link>http://localhost:1313/post/rake-your-mono-for-android-application/</link>
+      <pubDate>Mon, 04 Feb 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/rake-your-mono-for-android-application/</guid>
+      <description>&lt;p&gt;Deploy early, deploy often is a popular goal in Agile methodologies. One easy way to support this to automate your build process. Last year at this time I would just use &lt;a href=&#34;http://www.finalbuilder.com/finalbuilder.aspx&#34;&gt;FinalBuilder&lt;/a&gt; to automate the builds of my Xamarin.Android pet projects. It doesn&amp;rsquo;t take much to set FinalBuilder, and it does provide support for a lot of tasks such as versioning .NET assemblies, manipulating XML, dealing with the file system, and so on.&lt;/p&gt;&#xA;&lt;p&gt;The problem is that FinalBuilder is Windows only. OS X and Linux types are left out in the cold. As I find myself working almost exclusive in OS X when developing my Xamarin.Android applications, I was looking for a Windows free way to automate my builds.&lt;/p&gt;&#xA;&lt;p&gt;Enter &lt;a href=&#34;http://rake.rubyforge.org/&#34;&gt;rake&lt;/a&gt; and &lt;a href=&#34;http://albacorebuild.net/&#34;&gt;albacore&lt;/a&gt;. rake is, of course the build system for Ruby.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

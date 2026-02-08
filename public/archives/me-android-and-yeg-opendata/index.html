@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><title>opgenorth.net</title></head>
+<body>
+
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Me, Android, and YEG OpenData</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2010-04-04T00:00:00Z">2010-04-04</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+		</header>
+		<div class="content post__content clearfix">
+			<a href="http://www.opgenorth.net/wp-content/uploads/2010/04/YegDataList1.png"><img style="display: inline; margin-left: 10px; margin-right: 0px; border: 0px initial initial;" title="YegDataList" src="http://www.opgenorth.net/wp-content/uploads/2010/04/YegDataList_thumb1.png" border="0" alt="YegDataList" width="164" height="244" align="right" /></a>Not that long ago, the City of Edmonton announced it's <a href="http://data.edmonton.ca/">Open Data Catalogue</a>.  I noticed that one of the data catalogues was a list of <a href="http://data.edmonton.ca/DataBrowser.aspx?Container=coe&amp;EntitySet=HistoricalBuildings">historical buildings</a> in the city.  Yeah, I know that some people in other cities might consider this a pretty weak list.  I mean, the oldest building in Edmonton isn’t even 150 years old.  I’d wager that some parts of the world consider 150 year old buildings to be “new construction”.  Anyway, as I've been dabbling with <a href="http://developer.android.com">Android</a> now for about the past year, I thought a handy little project to try out would be to write an app for Android that would show me where the historical buildings are in the city.
+
+I've got the foundation of a simple application started over a GitHub called, not surprisingly, <a href="http://github.com/topgenorth/historicalbuildings">Historical Buildings</a> (if you pull the source code, then just a heads up that I use <a href="http://www.jetbrains.com/idea/">IntelliJ</a> for my Android development).  This application currently works in the emulator, my next step is to installing it on my phone and trying it out for real.  Right now all the application does is present you with a list of buildings.  You click on one, and you'll see on Google Maps where the building.
+
+Some other ideas for features that may or may not happen:
+<ul>
+	<li>Figure out the whole unit testing story in Android.  Then setup a build script.  Then a build server.  CI rocks, but as I’m trying to learn the Android framework and figure out what all the parts are, I’m not to focused on that at the moment.</li>
+	<li>Don’t always fetch the data – store it locally
+<ul>
+	<li>I don’t think the way I’m parsing the JSON result is very efficient or “proper”, but it does get the job done.</li>
+</ul>
+</li>
+	<li>Notify the user when they are within a certain distance of a historical building.</li>
+	<li>Currently YEG has a PDF explaining the significance of the building.  Not very friendly/convenient for mobile devices.  Need something better.
+<ul>
+	<li>One thought would be to create Wikipedia entries and link to that.</li>
+	<li>Another thought is to petition the City of Edmonton to convert their PDF’s to a more neutral format (HTML anyone)?</li>
+	<li>The <a href="http://www.epl.ca">Edmonton Public Library</a> has some information about the “<a href="http://www.epl.ca/EPLPhotoBuildings.cfm">Lost Building of Edmonton</a>”.  Maybe incorporate that somehow – perhaps showing what buildings used to exist at a given address?</li>
+</ul>
+</li>
+	<li>Perhaps allow the user to update their coordinates for YEG’s historical buildings.  I’ve notice (on the emulator) that sometimes the lat/long isn’t exactly accurate.  If you look at the image below for the old Arlington Apartments, you notice that the marker should be over the pile of rubble slightly to the left of where it currently is.</li>
+	<li>Maybe include buildings that aren’t necessarily designated as historical, but are interesting architecturally or otherwise.</li>
+	<li>Instead of using YEG OpenData, perhaps an independent cloud based data store (<a href="http://www.microsoft.com/windowsazure/">Azure</a> maybe?)</li>
+</ul>
+If you’ve got any other suggestions, I’m happy to hear them.
+
+<a href="http://www.opgenorth.net/wp-content/uploads/2010/04/MapList.png"><img style="display: block; float: none; margin-left: auto; margin-right: auto; border: 0px;" title="MapList" src="http://www.opgenorth.net/wp-content/uploads/2010/04/MapList_thumb.png" border="0" alt="MapList" width="219" height="326" /></a>
+<div class="zemanta-pixie"><img class="zemanta-pixie-img" src="http://img.zemanta.com/pixy.gif?x-id=e1a8a615-56c6-883e-b52b-35084586f039" alt="" /></div>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/android/" rel="tag">android</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/YEG/" rel="tag">YEG</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/archives/where-did-the-time-go/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">Where Did the Time Go?</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/archives/mvp-in-c-for-2010/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">MVP in C# For 2010</p>
+		</a>
+	</div>
+</nav>
+
+
+
+
+
+</body>
+</html>

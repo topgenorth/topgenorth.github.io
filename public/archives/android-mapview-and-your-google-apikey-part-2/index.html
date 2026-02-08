@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><title>opgenorth.net</title></head>
+<body>
+
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Android, MapView, and your Google apiKey: Part 2</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2010-08-09T00:00:00Z">2010-08-09</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+		</header>
+		<div class="content post__content clearfix">
+			Just to follow up on my <a href="http://www.opgenorth.net/2010/04/07/android-mapview-and-your-google-apikey-part-1/">last post</a> about embedding Google Maps into your Android application (this part is kind of anti-climatic).
+
+So, by now you’ve signed your application.  This is the “hardest” (i.e. busiest part) of the whole process.  The next part, getting your Goggle apiKey, is the easy part.  First you  need to get the MD5 fingerprint of your keystore:
+
+keytool -list -alias androiddebugkey -keystore &lt;path_to_debug_keystore&gt;.keystore -storepass android -keypass android
+
+Once that is done, you and register for a <a href="http://code.google. com/android/maps-api-signup.html">Google Maps API key</a>.  You need a Google account, and have to agree to some terms of service legal mumbo-jumbo, but it’s pretty simple.  Once you click “Generate API Key”, you will get your key string.  You then simply add the Maps API key to your MapView in your application.  There are a couple of ways to do this, heres how you would do it if you were using the XML layout files:
+
+Of course, after all this is done, the next trick is managing these keys.  You see, when you are working locally, your application is automatically signed using a debug key.  This is fine and dandy for most development.  However, when you deploy your application, you sign the application using your keystore that you created in <a href="http://www.opgenorth.net/2010/04/07/android-mapview-and-your-google-apikey-part-1/">Step 1</a>.  You may have a brief moment of clarity here and realize that the apiKey from your debug keystore and your deployment keystore are different.  I’ve got some ideas on how to deal with that that, but that will be for another day.
+
+<a href="http://code.google.com/android/add-ons/google-apis/mapkey.html">Full documentation</a> for all this can be found on the Android developer’s website.
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/android/" rel="tag">android</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/archives/induction-into-the-android-army-the-aftermath/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">Induction Into the Android Army â the Aftermath</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/archives/javascript-ides/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">Javascript IDE&#39;s</p>
+		</a>
+	</div>
+</nav>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><title>opgenorth.net</title></head>
+<body>
+
+<main class="main list" role="main">
+	<header class="main__header">
+		<h1 class="main__title">Rant</h1>
+	</header><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/so-what-do-you-need-to-do-to-be-considered-agile/" rel="bookmark">
+			So, what do you need to do to be considered Agile?
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2009-09-17T00:00:00Z">2009-09-17</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>One question that has been bouncing around in my mind is what, exactly, does one have to do to be considered Agile?&#160; Let’s look at the <a href="http://agilemanifesto.org/">Agile Manifesto</a>:</p>  <blockquote>   <p>Individuals and interactions over processes and tools      <br />Working software over comprehensive documentation       <br />Customer collaboration over contract negotiation       <br />Responding to change over following a plan</p>    <p>That is, while there is value in the items on      <br />the right, we value the items on the left more. </p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/so-what-do-you-need-to-do-to-be-considered-agile/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/good-bug-reports-and-tracking/" rel="bookmark">
+			Good Bug Reports and Tracking
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2009-09-01T00:00:00Z">2009-09-01</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		Every developer, no matter how experienced, has to dig in and fix bugs.  This is, in my experience, the typical cycle:
+<ol>
+	<li>bug is reported</li>
+	<li>bug is assigned to developer</li>
+	<li>developer thinks the bug is fixed</li>
+	<li>developer marks bug as resolved</li>
+	<li>tester checks to see bug is fixed, but it isn’t.</li>
+	<li>tester reopens bug, assigns it back to developer</li>
+	<li>back to step number two.  Repeat until developer (or tester) climbs to the top of a 307 foot administrative building with high-powered rifles to demonstrate USMC-worthy marksmanship.</li>
+</ol>
+Now, even if you aren’t into the whole Lean Software development philosophy (i.e. eliminating waste), you can probably appreciate that it can be pretty wasteful of time and patience every time that #6 happens, so please indulge me as I elaborate on some of the finer points of bug reporting.  Now, where I say “bug reporter”, I typically mean somebody who is in a QA role – their job is to find bugs and report them.  This doesn’t always have to be the case though.
+
+If you check out most open source projects, you will often find rules/guidelines for reporting bugs.  In the case that doesn’t exist then perhaps the following might be of use: When you log a bug, be explicit, and give lots of details.  Don’t be lazy.  If it’s hard to duplicate your bug, then odds are it either won’t get looked at, or won’t be fixed properly.  And when it doesn’t get fixed properly, there will be a lot of churn.
+
+At the very least, when reporting a bug you should provide:
+<ul>
+	<li><strong>A detailed description of the <em>problem</em></strong>.  Note the emphasis on problem.  Odds are you don’t have the solution, so don’t bother.  Let the programmer figure out the solution.  For example:  Using version 3.1415 of the application on 28-July-2009, I was expected a date to be calculated a certain way based on some values.  The application didn’t crash, but the correct date was not calculated.</li>
+	<li><strong>What you expect to happen</strong>.  If you have some sort of formal spec, repeat it here, and cite how to find the spec.  i.e.  According to Page 1054, in section 1095.4.3.2 the new date is to be calculated as follows :  add the value of  <em>((a - b)- 10) </em>/2 (rounding down) to the date <em>Y</em> for a new date of <em>Z</em>.</li>
+	<li><strong>What actually happened</strong>.  i.e.  Using these values a=300, b= 150 and Y of 1-Sep-2009 I expected that the new date Z should be 2-Oct-2009</li>
+	<li><strong>A step-by-step description</strong> of HOW to duplicate the bug.  This means explaining in excruciating detail HOW the programmer can duplicate what your reporting, i.e.
+<ul>
+	<li>Go to the URL <a href="http://myproblem.com/is/here">http://myproblem.com/is/here</a></li>
+	<li>Click on the text box next to the label “Value A:” and enter a value of 300</li>
+	<li>From the drop down list by “Value B:” and click the value 150 from the drop down list</li>
+	<li>Use the tab key to navigate to the “Calculate new date” button.</li>
+	<li>Hit Enter</li>
+	<li>The text box by the “New Date:” label now has the date of 4-July-1943.  I expected 2-Oct-2009.</li>
+</ul>
+</li>
+	<li><strong>How the developer can get a hold of you</strong>.  This comes in handy when for some reason the developer can’t duplicate your bug or doesn’t understand what you were doing.</li>
+</ul>
+When the developer flags the bug as resolved and it turns out not to be fixed, don’t just re-open the bug with curt “This is still broken”.
+
+Ah, but now aren’t I the smug developer – shifting my inability to quickly resolve a bug to the poor reporting capabilities of my tester.  I’m pretty ungrateful too.  I mean, somebody took the time to test out my application, and then enter a bug like “I tried to calculate the new date and it didn’t work.  Please fix”.  Well, fear not – there is a lot developers should be doing as well, but that is the subject of a later post.
+
+Of course, the key part in all of this is <strong>COMMUNICATION</strong>.  Don’t be afraid, as someone reporting a bug, to actually talk to the developer.  Nothing really beats face-to-face communication (or a phone call) if things seem unclear. Odds are you won’t have an empty whisky bottle thrown at you.  Most likely the personal grooming standards of the developer will be higher than that of a middle age serf during the Black Plague.  In theory, as a tester, you’re on the same side as the developer trying to fix the bug.
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/ruminations/" rel="bookmark">
+			Ruminations
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2008-09-30T00:00:00Z">2008-09-30</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>Today was my last full time day on this contract.&#160; Tomorrow I start up full-time with another.&#160; Personally, I've gotten in the habit of looking a my past contract and conducting my own personal retrospective on what I learned or how I would do things differently.&#160; I figured that because my memory is getting worse in my old age, I'd started putting these things down on my blog.</p>  <p><strong>For a greenfield project, don't use the database someone hands off to you</strong></p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/ruminations/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/squawking-about-the-manning-early-access-program/" rel="bookmark">
+			Squawking About The Manning Early Access Program
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2008-08-23T00:00:00Z">2008-08-23</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p><em>Note:&#160; I originally wrote this post on August 23, 2008.&#160; As things change with the book NHibernate in Action, I will be updating this post and resetting the date.&#160; </em></p>  <p>I'd like to take a break from boring you two readers of my blog about my experience with Linux and VMware, and take a moment to annoy you with a rant.&#160; Diversity is the spice of life after all.</p>  <p>This little remonstration of mine is about the <a href="http://www.manning.com/about/meap.html">Manning Early Access Program</a> (MEAP).&#160; Well, specifically just&#160; <a href="http://www.manning.com/kuate/">one book</a>.&#160; I've got my eye on a couple of other books available with MEAP to see how they pan out before considering the whole &quot;early access&quot; useless.&#160; Anyway...</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/squawking-about-the-manning-early-access-program/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/on-stored-procedures/" rel="bookmark">
+			On Stored Procedures
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2008-04-18T00:00:00Z">2008-04-18</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>Yesterday myself, <a href="http://www.igloocoder.com">Don</a>, <a href="http://geekswithblogs.net/dlussier/Default.aspx">D'Arcy</a>, and Eric were wandering around Seattle, just checking out the sights after the MVP Summit.&#160; We took a break from the usual &quot;run down D'Arcy and Manitoba&quot; shtick, and actually had a serious conversation on the relevance of stored procedures for your typical database development/line of business app.&#160; D'Arcy <a href="http://geekswithblogs.net/dlussier/archive/2008/04/18/121341.aspx">blogged</a> take on it already.&#160; I was going to reply in his comments, but as the comments grew, I figured my own post was in order.</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/on-stored-procedures/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/we-dont-want-external-code/" rel="bookmark">
+			We Donât Want External Code
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2007-12-14T00:00:00Z">2007-12-14</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>One of the biggest discussions that I typically get when I try to introduce things like NHibernate (i.e. OSS) on a new contract goes like this:</p>  <p>&quot;<em>We're a bit reluctant to use that because it will introduce more code into our code base that isn't ours. Because it's OSS, there's no support, and if there was a bug in it, we'd have to maintain it ourselves. That being case, we'd rather just write our own code, because that way we know what is going on with it and can maintain it better. We don't want to have to figure out somebody elses code.</em>&quot;</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/we-dont-want-external-code/">Read more…</a>
+	</div>
+</article>
+</main>
+
+
+</body>
+</html>

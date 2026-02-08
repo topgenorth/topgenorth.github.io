@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><title>opgenorth.net</title></head>
+<body>
+
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Getting Started Coding for my Android Dev Phone 1</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2009-03-26T00:00:00Z">2009-03-26</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+		</header>
+		<div class="content post__content clearfix">
+			<p>Figured I was due to spend some time setting up a Linux VM and learning how to program my Android Dev Phone 1.&#160; <a href="http://www.eclipse.org">Eclipse</a> is what is recommended, so I thought I’d give that a try first.&#160; So, with the help of <a href="www.susestudio.com">Suse Studio</a>, I quick built myself a VM with Java 1.6 (<em>Aside:&#160; I love Suse Studio, I can provision a VM in minutes</em>).&#160; I figured it would be pretty straight forward.&#160; The docs on the Android Developer site for <a href="http://developer.android.com/guide/developing/tools/adt.html#installingplugin">installing ADT plug-in</a> seem pretty straight forward and simple, and I remember Eclipse having a very rich ecosystem of plug-ins that were easy to install (something I wish Visual Studio had – hint, hint Microsoft).</p>  <p>However, I ran into some hiccups with the provided documentation.</p>  <p>The first annoying one was item #4 in the list for Eclipse 3.4.&#160; You’re directed to enter the location <a href="https://dl-ssl.google.com/android/eclipse/">https://dl-ssl.google.com/android/eclipse/</a> for the location of the ADT plug in.&#160; This did not work for me.&#160; The location I had to use was&#160; <a title="https://dl-ssl.google.com/android/eclipse/site.xml" href="https://dl-ssl.google.com/android/eclipse/site.xml">https://dl-ssl.google.com/android/eclipse/site.xml</a>.&#160; There is a chance https might not work for you, then use <a title="https://dl-ssl.google.com/android/eclipse/site.xml" href="http://dl-ssl.google.com/android/eclipse/site.xml">http://dl-ssl.google.com/android/eclipse/site.xml</a>.</p>  <p>After overcoming that hurdle, I tried to do the <a href="http://developer.android.com/guide/tutorials/hello-world.html">Hello World</a> sample.&#160; This did not work out so well – Eclipse crashed.&#160; Turns out that the default packages for Eclipse provided by OpenSUSE doesn’t have the <a href="http://www.eclipse.org/webtools/wst/main.php">Web Standard Tools</a>, which is a requirement for using ADT.&#160; So, I went back and uninstalled Eclipse, and download the tarball from the Eclipse website.&#160; Then I installed and setup the ADT plug.</p>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/android/" rel="tag">android</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/archives/common-service-locator/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">Common Service Locator</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/archives/nas-less-in-the-north/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">NAS-less in the North</p>
+		</a>
+	</div>
+</nav>
+
+
+
+
+
+</body>
+</html>

@@ -1,9 +1,0 @@
-[submodule "themes/mainroad"]
-	path = themes/mainroad
-	url = https://github.com/vimux/mainroad
-[submodule "themes/hugo-xmin"]
-	path = themes/hugo-xmin
-	url = https://github.com/yihui/hugo-xmin.git
-[submodule "themes/beautifulhugo"]
-	path = themes/beautifulhugo
-	url = https://github.com/halogenica/beautifulhugo.git

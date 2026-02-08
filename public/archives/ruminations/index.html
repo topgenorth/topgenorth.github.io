@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><title>opgenorth.net</title></head>
+<body>
+
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Ruminations</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2008-09-30T00:00:00Z">2008-09-30</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+		</header>
+		<div class="content post__content clearfix">
+			<p>Today was my last full time day on this contract.&#160; Tomorrow I start up full-time with another.&#160; Personally, I've gotten in the habit of looking a my past contract and conducting my own personal retrospective on what I learned or how I would do things differently.&#160; I figured that because my memory is getting worse in my old age, I'd started putting these things down on my blog.</p>  <p><strong>For a greenfield project, don't use the database someone hands off to you</strong></p>  <p>The project I was working on was greenfield - almost.&#160; The business analyst spent a lot of time and effort gathering requirements, and this spilled out into him creating the database for us.&#160; On the surface, to most people, this seems like a good idea.&#160; In reality, I'd rate it slightly above mixing nuts and chewing gum for a snack.&#160; Why do I say that?&#160; Because, the database schema that was handed to me was highly normalized and (so I was told) optimized for reporting purposes - at the expense of the application.&#160; This application was more like an order-entry system, with snapshots of the data at points in time being very relevant.&#160; This &quot;...optimization for reporting...&quot; cause a lot of unnecessary work on the part of us poor developers.</p>  <p>The argument of &quot;...the schema is this way to make reporting easy...&quot; doesn't fly with me.&#160; First off, we don't have any reports defined.&#160; In fact, reporting wasn't within the scope of this project.&#160; So, why are we worrying about it?&#160; Secondly, if a certain schema was necessary for reporting, then that is where views and stored procedures come into play.&#160; </p>  <p>I very much wish that we would have said, &quot;Thanks for the effort, but we will create the schema we need to delivery the product.&quot;.&#160; </p>  <p><em>Lesson learned for future projects</em>:&#160; Greenfield projects should not accept databases designed by someone who has no stake/input/authority on the application architecture.</p>  <p><strong>People are inherently obsessed with local optimization at the expense of the whole.</strong></p>  <p>One example of this I've already quoted:&#160; effort was expended to create an academically pure database that would be good for reporting.&#160; This local optima cost the project in the whole, because it incurred extra effort in developing the application.</p>  <p>A second example in support of this claim is a touch more elusive.&#160; I witnessed a fair bit of &quot;requirements dickering&quot;.&#160; Rather than looking at the project as a whole and trying to get the most bang for the buck (this project had a hard limit on dollars, but not on time), a lot of time was spent on arguing requirements.&#160; There was a perception that unless everything that was in the requirements document was done, &quot;professionally&quot; tested, and properly signed off, the application as a whole was not useful.&#160; It seemed that everything was important and had to be done.&#160; This obsession with getting everything done was, in my opinion, getting in the way of getting things of value done.</p>  <p>To misquote Napoleon:&#160; he who defends everywhere defends nowhere.</p>  <p><em>Lesson learned for future projects</em>:&#160; Really to me, this experience did provide more anecdotal evidence supporting the <a href="http://www.agilemanifesto.org/">Agile Manifesto</a> and agile techniques.&#160; Being a lowly contract developer, I was in no position to dictate priority or importance of work.&#160; I'm kind of used to that as a consultant.&#160; My opinion and advice was provided and the project leadership did with it what the wanted.&#160; However, the process did open my eyes a lot.&#160; I hope that if I ever find myself running the show in similar circumstances, I have the wisdom and the patience to see the big picture, and not the black and white words of some document written almost a year ago.</p>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/rant/" rel="tag">rant</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/archives/whats-in-a-name/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">Whatâs In A Name?</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/archives/where-windows-beats-linux/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">Where Windows Beats Linux</p>
+		</a>
+	</div>
+</nav>
+
+
+
+
+
+</body>
+</html>

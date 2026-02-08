@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><title>opgenorth.net</title></head>
+<body>
+
+<main class="main list" role="main">
+	<header class="main__header">
+		<h1 class="main__title">Xamarin</h1>
+	</header><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/using-estimotes-with-xamarin-dot-android/" rel="bookmark">
+			Using Estimotes with Xamarin.Android
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2014-02-16T14:40:03Z">2014-02-16</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>I recently bought some <a href="http://estimote.com/">Estimote</a> beacons (a 3rd party iBeacon-like device) - largely because they seem like a cool and nerdy kind of thing. It has an <a href="https://github.com/Estimote/Android-SDK">Android SDK</a> which will allow Android devices to interaction with devices. With a little big of effort, I managed to create <a href="https://github.com/topgenorth/Estimotes-Xamarin/">Xamarin.Android binding</a> and port the sample Android project provided by the Estimote SDK.</p>
+<p>You can see an example of the app in these screenshots:</p>
+<p><img src="https://s3.amazonaws.com/opgenorthnet-blog/estimote1.png" alt="image"></p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/using-estimotes-with-xamarin-dot-android/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/animate-a-listview-deletion-in-xamarin-dot-android/" rel="bookmark">
+			Animate a ListView deletion in Xamarin.Android
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2013-09-26T00:00:00Z">2013-09-26</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>A visually pleasant effect when deleting items from a ListView is to animate the row being deleted by gradually change the <code>.Alpha</code> value of the view from 1.0 to 0.0. If you&rsquo;ve tried to animate the deletion of a row from a <a href="http://developer.android.com/reference/android/widget/ListView.html">ListView</a> in a Xamarin.Android application, you may observe some curious behaviour when rapidly scrolling through a ListView with many rows: the animation may appear on rows other than then one that is being deleted.</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/animate-a-listview-deletion-in-xamarin-dot-android/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/writing-gps-information-to-a-jpeg/" rel="bookmark">
+			Writing GPS information to a JPEG
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2013-02-18T00:00:00Z">2013-02-18</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>One of the handy things about the JPEG format is the ability to store meta-data inside the image using <a href="http://en.wikipedia.org/wiki/Exchangeable_image_file_format">EXIF</a>. There are a few libraries out there for the various programming languages that can help you out with this, and Android actually has something built in to the SDK - the class <a href="http://developer.android.com/reference/android/media/ExifInterface.html">ExifInterface</a>.</p>
+<p>Google&rsquo;s documentation on writing latitude and longitude to a JPEG are a bit light on details - they loosely hint at the format that latitude or longitude should have. (See the documentation for <a href="http://developer.android.com/reference/android/media/ExifInterface.html#TAG_GPS_LATITUDE">ExifInterface.TAG_GPS_LATITUDE</a>). The API itself is pretty straight forward, but what Google doesn&rsquo;t tell you is HOW the GPS coordinates should encoded.</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/writing-gps-information-to-a-jpeg/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/rake-your-mono-for-android-application/" rel="bookmark">
+			rake your Xamarin.Android Application
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2013-02-04T00:00:00Z">2013-02-04</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>Deploy early, deploy often is a popular goal in Agile methodologies. One easy way to support this to automate your build process. Last year at this time I would just use <a href="http://www.finalbuilder.com/finalbuilder.aspx">FinalBuilder</a> to automate the builds of my Xamarin.Android pet projects. It doesn&rsquo;t take much to set FinalBuilder, and it does provide support for a lot of tasks such as versioning .NET assemblies, manipulating XML, dealing with the file system, and so on.</p>
+<p>The problem is that FinalBuilder is Windows only. OS X and Linux types are left out in the cold. As I find myself working almost exclusive in OS X when developing my Xamarin.Android applications, I was looking for a Windows free way to automate my builds.</p>
+<p>Enter <a href="http://rake.rubyforge.org/">rake</a> and <a href="http://albacorebuild.net/">albacore</a>. rake is, of course the build system for Ruby.</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/post/rake-your-mono-for-android-application/">Read more…</a>
+	</div>
+</article>
+</main>
+
+
+</body>
+</html>

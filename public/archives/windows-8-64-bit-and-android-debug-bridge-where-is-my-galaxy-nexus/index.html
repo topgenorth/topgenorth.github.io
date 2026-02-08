@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><title>opgenorth.net</title></head>
+<body>
+
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Windows 8 64-bit and Android Debug Bridge (Where is my Galaxy Nexus?)</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2012-09-25T00:00:00Z">2012-09-25</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Personal/" rel="category">Personal</a>
+	</span>
+</div></div>
+		</header>
+		<div class="content post__content clearfix">
+			<p>Setting up a new VM for development - this one based on Windows 8 64 bit. Not that I really want to, but it seems that I need to for work (yes, yes, first world problems). So the usual fun with standing up a new VM:</p>
+<ul>
+<li>Install OS</li>
+<li>Download Chrome and Firefox and ditch IE</li>
+<li>Download Resharper</li>
+<li>Remember that you need Visual Studio for Resharper so install that.</li>
+<li>Install Java SDK</li>
+<li>Install Android SDK</li>
+<li>Install Intellij and Eclipse</li>
+<li>etc.</li>
+</ul>
+<p>Of course, then I notice that my phone, a Galaxy Nexus, isn&rsquo;t being recognized by Android Debug Bridge.  This is a problem as I much prefer to develop using a device as opposed slow emulator that Google ships for Android, and you can&rsquo;t deploy to the device without ADB.</p>
+<p>The answer to the problem can be found over on this thread at <a href="http://forum.xda-developers.com/showthread.php?t=1583801">XDA-Developers</a>.  Here&rsquo;s the short version:</p>
+<ol>
+<li>Download the <a href="http://www.mediafire.com/download.php?2tunwdxr3q2q8ec">USB drivers</a>.</li>
+<li>Reboot the computer. This isn&rsquo;t your usually reboot. You&rsquo;ll need to <a href="http://www.tips-trick.com/use-access-windows-8-boot-loader-advanced-boot-options/">access the Windows 8 Boot Loader and Advanced Boot Options</a>. Basically, go to a command prompt and reboot using <code>shutdown.exe /r /o</code>. You;ll want to change the driver signing settings to allow unsigned or unverified driver installation.</li>
+<li>Once you allow unsigned/unverified drivers to be installed, you can reboot into Windows 8 and connect your Galaxy Nexus.</li>
+<li>Run <code>devmgmt.msc</code>. You&rsquo;ll see that your Galaxy Nexus has the yellow triangle over it.  Install the drivers you download in step #1 (it&rsquo;s a self extracting EXE).</li>
+</ol>
+<p>Viola! Now your Galaxy Nexus will be recognized by ADB.</p>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/android/" rel="tag">android</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/Windows/" rel="tag">Windows</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/archives/preferencefragment-getpreferencesfromintent/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">PreferenceFragment.getPreferencesFromIntent</p>
+		</a>
+	</div>
+</nav>
+
+
+
+
+
+</body>
+</html>

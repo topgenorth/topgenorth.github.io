@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><title>opgenorth.net</title></head>
+<body>
+
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Gotta Love JetBrains</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2010-05-22T00:00:00Z">2010-05-22</time></div></div>
+		</header>
+		<div class="content post__content clearfix">
+			Gotta love companies that "get it".  Late last night I was hacking away on some Android stuff using IntelliJ 9.0.2 (on Ubuntu 10.04). For reasons unknown to me, none of my breakpoints seemed to be working.  In fact, IntelliJ just didn't seem to be working.  I narrowed it down to the breakpoints I was setting - it seemed that every time the breakpoints were being hit.  I managed to narrow it down to this error:
+<blockquote><span class="Apple-style-span" style="border-collapse: separate; color: #000000; font-family: 'Times New Roman'; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; font-size: medium;"><span class="Apple-style-span" style="border-collapse: collapse; color: #444444; font-family: arial,sans-serif; font-size: 13px;">[ 166030]  ERROR - lij.debugger.impl.InvokeThread - null
+java.lang.UnsupportedOperationException
+at com.sun.tools.jdi.ReferenceTypeImpl.sourceDebugExtension(ReferenceTypeImpl.java:774)
+at org.jetbrains.plugins.ruby.jruby.debug.JRubyPositionManager.getPath(JRubyPositionManager.java:141)
+at org.jetbrains.plugins.ruby.jruby.debug.JRubyPositionManager.getPsiFileByLocation(JRubyPositionManager.java:156)
+at org.jetbrains.plugins.ruby.jruby.debug.JRubyPositionManager.getSourcePosition(JRubyPositionManager.java:51)
+at com.intellij.debugger.engine.CompoundPositionManager.getSourcePosition(CompoundPositionManager.java:51)
+at com.intellij.debugger.engine.ContextUtil.getSourcePosition(ContextUtil.java:63)
+at com.intellij.debugger.impl.DebuggerSession$MyDebugProcessListener$2.compute(DebuggerSession.java:462)
+at com.intellij.debugger.impl.DebuggerSession$MyDebugProcessListener$2.compute(DebuggerSession.java:460)
+at com.intellij.psi.impl.PsiDocumentManagerImpl$3.run(PsiDocumentManagerImpl.java:298)
+at com.intellij.psi.impl.PsiDocumentManagerImpl$4.run(PsiDocumentManagerImpl.java:321)
+at com.intellij.openapi.application.impl.ApplicationImpl.runReadAction(ApplicationImpl.java:695)
+at com.intellij.psi.impl.PsiDocumentManagerImpl.commitAndRunReadAction(PsiDocumentManagerImpl.java:317)
+at com.intellij.psi.impl.PsiDocumentManagerImpl.commitAndRunReadAction(PsiDocumentManagerImpl.java:296)
+at com.intellij.debugger.impl.DebuggerSession$MyDebugProcessListener.paused(DebuggerSession.java:460)
+at com.intellij.debugger.engine.DebugProcessAdapterImpl.paused(DebugProcessAdapterImpl.java:28)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:616)
+at com.intellij.util.EventDispatcher.dispatch(EventDispatcher.java:87)
+at com.intellij.util.EventDispatcher.access$100(EventDispatcher.java:33)
+at com.intellij.util.EventDispatcher$1.invoke(EventDispatcher.java:64)
+at $Proxy84.paused(Unknown Source)
+at com.intellij.debugger.engine.SuspendManagerImpl.notifyPaused(SuspendManagerImpl.java:306)
+at com.intellij.debugger.engine.SuspendManagerImpl.b(SuspendManagerImpl.java:299)
+at com.intellij.debugger.engine.SuspendManagerImpl.voteSuspend(SuspendManagerImpl.java:318)
+at com.intellij.debugger.engine.DebugProcessEvents$1.contextAction(DebugProcessEvents.java:412)
+at com.intellij.debugger.engine.events.SuspendContextCommandImpl.action(SuspendContextCommandImpl.java:62)
+at com.intellij.debugger.engine.events.DebuggerCommandImpl.run(DebuggerCommandImpl.java:44)
+at com.intellij.debugger.engine.DebuggerManagerThreadImpl.processEvent(DebuggerManagerThreadImpl.java:148)
+at com.intellij.debugger.engine.DebuggerManagerThreadImpl.processEvent(DebuggerManagerThreadImpl.java:36)
+at com.intellij.debugger.impl.InvokeThread.run(InvokeThread.java:135)
+at com.intellij.debugger.impl.InvokeThread$WorkerThreadRequest.run(InvokeThread.java:52)
+at com.intellij.openapi.application.impl.ApplicationImpl$5.run(ApplicationImpl.java:329)
+at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334)
+at java.util.concurrent.FutureTask.run(FutureTask.java:166)
+at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+at java.lang.Thread.run(Thread.java:636)
+at com.intellij.openapi.application.impl.ApplicationImpl$1$1.run(ApplicationImpl.java:125)
+[ 166036]  ERROR - lij.debugger.impl.InvokeThread - IntelliJ IDEA 9.0.2  Build #IU-95.66
+[ 166036]  ERROR - lij.debugger.impl.InvokeThread - JDK: 1.6.0_18
+[ 166036]  ERROR - lij.debugger.impl.InvokeThread - VM: OpenJDK Server VM
+[ 166036]  ERROR - lij.debugger.impl.InvokeThread - Vendor: Sun Microsystems Inc.
+[ 166036]  ERROR - lij.debugger.impl.InvokeThread - OS: Linux
+[ 166036]  ERROR - lij.debugger.impl.InvokeThread - Last Action: Debug</span></span></blockquote>
+So, the problem to me seemed to be something wonky with IntelliJ.  I e-mailed Jetbrains, explaining the symptoms and the above stack trace.  This morning, I was pleased to find an e-mail from Serge  at Jetbrains.  He suggests disabling the Ruby plug-in that I have installed.
+
+BINGO!
+
+Worked like a charm.  Problem goes away, and in less than 12 hours since I asked for help.
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/Android/" rel="tag">Android</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/archives/quick-update-to-historicalbuildings/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">Quick Update to HistoricalBuildings</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/archives/the-tulips-are-lovely-this-time-of-year/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">The Tulips are Lovely this Time of Year</p>
+		</a>
+	</div>
+</nav>
+
+
+
+
+
+</body>
+</html>
