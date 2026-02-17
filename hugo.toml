@@ -2,12 +2,12 @@ baseURL = 'https://www.opgenorth.net/'
 languageCode = 'en-us'
 title = 'Opgenorth.NET'
 
-theme = ""
-
 [module]
   [[module.imports]]
     path = "github.com/Vimux/Mainroad"
 
+# Theme AFTER imports
+theme = ["Mainroad"]  # Matches import path basename
 
 [[menu.main]]
   name = "Blog"
