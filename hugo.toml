@@ -1,0 +1,32 @@
+baseURL = 'https://www.opgenorth.net/'
+languageCode = 'en-us'
+title = 'Opgenorth.NET'
+
+[[module.imports]]
+  path = "github.com/vimux/Mainroad"
+
+[[menu.main]]
+  name = "Blog"
+  url = "/posts/"
+  weight = 1
+
+[[menu.main]]
+  name = "Travel Gallery"
+  url = "/gallery/"
+  weight = 2
+
+[params]
+  description = "Mindless missives from the Great White North."
+  avatar = "abominable-snowman-1.png"
+  favicon = "favicon.ico"
+  author = "Tom Opgenorth"
+  dateFormat = "2006-Jan-02"
+  hideAuthor = true
+  hideDate = false
+  mathjax = false
+
+  [params.sidebar]
+    home = "right"
+    list = "right"
+    single = "right"
+    widgets = ["search", "recent", "categories", "taglist"]
