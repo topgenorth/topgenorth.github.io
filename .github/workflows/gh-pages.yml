@@ -2,18 +2,17 @@ name: github pages
 
 on:
   push:
-    branches:
-      - main # Set a branch to deploy
+    branches: [ main ]
   pull_request:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout
+      uses: actions/checkout@v4
       with:
-        submodules: true # Fetch Hugo themes (true OR recursive)
-        fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
+        submodules: recursive  # Full init/update themes
 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v3
@@ -21,8 +20,11 @@ jobs:
         hugo-version: '0.155.3'
         extended: true
 
+    - name: Update Modules  # Hugo mod cache
+      run: hugo mod get -u
+
     - name: Build
-      run: hugo --minify
+      run: hugo --gc --minify  # Re-enable minify
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v4
