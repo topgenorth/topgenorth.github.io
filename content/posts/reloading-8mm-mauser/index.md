@@ -1,14 +1,14 @@
 ---
 aliases:
-- /post/2015-07-03-reloading-8mm-mauser/
+    - /post/2015-07-03-reloading-8mm-mauser/
 categories:
-- Firearms
+    - Firearms
 comments: true
 date: '2015-07-03T20:36:32Z'
 draft: true
 tags:
-- reloading
-- 7.92x57
+    - reloading
+    - 7.92x57
 title: Reloading 8mm Mauser
 ---
 8mm Mauser is a great round, problem is that in North America it's not always easy to find good 8x57mm ammunition. When you do manage to find it, it tends to bit a bit expensive, > $1.00/round. Here is where hand loading pays itself off. I used to handload my own 8x57mm, however I stopped for a few years and now I can't seem to find my old load data.  This isn't a horrible thing as it means I get to go to the range to test out new recipes.

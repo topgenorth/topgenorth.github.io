@@ -1,15 +1,14 @@
 ---
 aliases:
-- /post/2013-02-04-rake-your-mono-for-android-application/
+    - /post/2013-02-04-rake-your-mono-for-android-application/
 categories:
-- Programming
-comments: true
+    - Programming
 date: '2013-02-04T00:00:00Z'
 draft: true
 tags:
-- Xamarin
-- android
-- 'C#'
+    - Xamarin
+    - android
+    - 'C#'
 title: Rake your Xamarin.Android Application
 ---
 

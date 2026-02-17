@@ -1,14 +1,13 @@
 ---
 aliases:
-- /post/2017-05-15-norinco-762x51-ballistics/
+    - /post/2017-05-15-norinco-762x51-ballistics/
 categories:
-- Firearms
+    - Firearms
 comments: true
 date: '2017-05-15T18:14:00Z'
-draft: true
 tags:
-- 7.62x51
-- ballistics
+    - 7.62x51
+    - ballistics
 title: Ballistics of Norinco 7.62x51
 ---
 

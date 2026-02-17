@@ -1,13 +1,13 @@
 ---
 aliases:
-- /post/2013-03-09-sublime-text-2-and-arduino/
+    - /post/2013-03-09-sublime-text-2-and-arduino/
 categories:
-- Programming
+    - Programming
 comments: true
 date: '2013-03-09T00:00:00Z'
 tags:
-- Arduino
-- technology
+    - Arduino
+    - technology
 title: Sublime Text 2 and Arduino
 ---
 

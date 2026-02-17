@@ -1,11 +1,10 @@
 ---
 aliases:
-- /post/2017-05-06-norinco-762x39-ballistics/
+    - /post/2017-05-06-norinco-762x39-ballistics/
 comments: true
 date: '2017-05-06T19:10:00Z'
-draft: true
-tags:
-- ballistics
+tags:   
+    - ballistics
 title: Ballistics of Norinco 7.62x39
 ---
 

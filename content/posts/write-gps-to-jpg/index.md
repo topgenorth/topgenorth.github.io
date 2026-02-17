@@ -1,14 +1,14 @@
 ---
 aliases:
-- /2013-02-18-writing-gps-information-to-a-jpeg/
+    - /2013-02-18-writing-gps-information-to-a-jpeg/
 categories:
-- Programming
+    - Programming
 comments: true
 date: '2013-02-18T00:00:00Z'
 tags:
-- android
-- Xamarin
-- 'C#'
+    - android
+    - Xamarin
+    - 'C#'
 title: Embed GPS in a JPEG
 ---
 

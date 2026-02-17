@@ -1,14 +1,13 @@
 ---
 aliases:
-- /post/2018-09-28-reforming-brass-for-8mm/
+    - /post/2018-09-28-reforming-brass-for-8mm/
 categories:
 - Firearms
 comments: true
 date: '2018-09-28T09:09:54-07:00'
-draft: true
 tags:
-- reloading
-- 7.92x57
+    - reloading
+    - 7.92x57
 title: Reforming brass for the Mauser 98k
 ---
 

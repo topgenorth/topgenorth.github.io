@@ -1,11 +1,10 @@
 ---
 aliases:
-- /post/2015-09-08-wiring-up-a-nest/
+    - /post/2015-09-08-wiring-up-a-nest/
 categories:
-- Technology
+    - Technology
 comments: true
 date: '2015-09-08T00:00:00Z'
-draft: true
 title: Wiring Up a 2nd Generation Nest
 ---
 
