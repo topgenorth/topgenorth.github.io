@@ -36,6 +36,10 @@ jobs:
       - name: Install LFS
         run: git lfs install
 
+      - name: Clean
+        run: rm -rf go.sum resources/ themes/
+
+
       - name: Update modules
         run: hugo mod get -u
 
