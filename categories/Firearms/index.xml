@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Firearms on opgenorth.net</title>
+    <link>http://localhost:1313/categories/Firearms/</link>
+    <description>Recent content in Firearms on opgenorth.net</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 19 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/Firearms/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ballistic Data</title>
+      <link>http://localhost:1313/labradar/</link>
+      <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/labradar/</guid>
+      <description>&lt;p&gt;The data files from my  &lt;a href=&#34;http://mylabradar.com&#34;&gt;Labradar&lt;/a&gt; for various ammunition.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>.22LR Ammo Evaluation - Sterling Cross</title>
+      <link>http://localhost:1313/post/22LR-ammo-sterling-cross/</link>
+      <pubDate>Mon, 22 Apr 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/22LR-ammo-sterling-cross/</guid>
+      <description>&lt;p&gt;Over the past couple of years there has been a surge of interest in .22 Rimfire in Canada (at least from my perspective). Arguably, it could be traced to the start of &lt;a href=&#34;http://www.mapleseedrifleman.com&#34;&gt;Project Mapleseed&lt;/a&gt; back in 2017, which then spawned the &lt;a href=&#34;https://rimfireprecision.ca&#34;&gt;Canadian Rimfire Precision Series&lt;/a&gt; in 2018, and now this year the &lt;a href=&#34;https://outlawrimfire.com&#34;&gt;Outlaw Rimfire Precision Series&lt;/a&gt;. My friends south of the border have &lt;a href=&#34;https://appleseedinfo.org&#34;&gt;Project Appleseed&lt;/a&gt; and the &lt;a href=&#34;https://nrl-22.org&#34;&gt;National Rimfire League&lt;/a&gt;. As you can see, plenty of opportunity to participate/compete with the humble .22LR cartridge.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Reforming Brass: From One Cartridge to Another</title>
+      <link>http://localhost:1313/post/reforming-brass-for-8mm/</link>
+      <pubDate>Fri, 28 Sep 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/reforming-brass-for-8mm/</guid>
+      <description>&lt;p&gt;The 8mm Mauser (7.92x57mm) round, in it&amp;rsquo;s current incarnation, has been around since 1903. It is a improvement of the original 7.92x57mm cartridge that was developed in 1888 by Peter Paul Mauser.  Arguably, 8mm Mauser has been one of the world&amp;rsquo;s most popular cartridges, having seen significant military and civilian use over the past 100+ year. It also influenced the design of many of today&amp;rsquo;s cartridges, such as .30-06.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/2018-09-28-reforming-brass-for-8mm/01.png&#34; alt=&#34;8mm Mauser cartridges&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ballistics of the Norinco 7.62x51</title>
+      <link>http://localhost:1313/post/norinco-762x51-ballistics/</link>
+      <pubDate>Mon, 15 May 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/norinco-762x51-ballistics/</guid>
+      <description>&lt;p&gt;After an amateur attempt at trying to calculate the &lt;a href=&#34;http://localhost:1313/blog/2017/05/07/norinco-762x39-ballistics/&#34;&gt;BC of the Norinco 7.62x39mm&lt;/a&gt; ammunition, I thought I would do the same thing with Norinco&amp;rsquo;s 7.62x51mm ammo. As one would expect, this stuff is fairly inexpensive as well, running aroun $0.50/round. I don&amp;rsquo;t think this is &amp;ldquo;precision ammo&amp;rdquo;, but it works well enough in my rifle.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Norc76251.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;First off, I pulled one bullet apart, and weight it. The projecticle itself weight 146.1 grains, so I guess this is supposed to be 147gr ammo. I measured ~ 42.0 grains of &amp;ldquo;mystery gun powder&amp;rdquo;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ballistics of the Norinco 7.62x39</title>
+      <link>http://localhost:1313/post/norinco-762x39-ballistics/</link>
+      <pubDate>Sat, 06 May 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/norinco-762x39-ballistics/</guid>
+      <description>&lt;p&gt;On of the great things about 7.62x39mm rifles (like the SKS) is that (for the time being) ammo is fairly inexpensive. A fellow who keeps his eye open for a deal can find 7.62x39mm in the range of $0.16CAD (for corrosive) to $0.30CAD (for non-corrosive) ammo. Of course being surplus ammo, finding ballistics data on this ammunition can be a bit of a trick. Granted, the 7.62x39 cartridge isn&amp;rsquo;t exactly a &amp;ldquo;precision&amp;rdquo; round, but intellectual curiousity had me wondering what the ballistic coefficient (BC) of this Norinco ammo was.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Reloading 8mm Mauser</title>
+      <link>http://localhost:1313/post/reloading-8mm-mauser/</link>
+      <pubDate>Fri, 03 Jul 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/reloading-8mm-mauser/</guid>
+      <description>&lt;p&gt;8mm Mauser is a great round, problem is that in North America it&amp;rsquo;s not always easy to find good 8x57mm ammunition. When you do manage to find it, it tends to bit a bit expensive, &amp;gt; $1.00/round. Here is where hand loading pays itself off. I used to handload my own 8x57mm, however I stopped for a few years and now I can&amp;rsquo;t seem to find my old load data.  This isn&amp;rsquo;t a horrible thing as it means I get to go to the range to test out new recipes.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

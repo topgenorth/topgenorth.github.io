@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ALT.NET on Opgenorth.NET</title><link>https://topgenorth.github.io/tags/alt.net/</link><description>Recent content in ALT.NET on Opgenorth.NET</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 20 Apr 2008 00:00:00 +0000</lastBuildDate><atom:link href="https://topgenorth.github.io/tags/alt.net/index.xml" rel="self" type="application/rss+xml"/><item><title>ALT.NET Session \#6: Maintaining A Framework</title><link>https://topgenorth.github.io/posts/2008-04-20-alt-net-session-6-maintaining-a-framework/</link><pubDate>Sun, 20 Apr 2008 00:00:00 +0000</pubDate><guid>https://topgenorth.github.io/posts/2008-04-20-alt-net-session-6-maintaining-a-framework/</guid><description>&lt;p&gt;&lt;a href="http://codebetter.com/blogs/jeremy.miller/"&gt;Jeremy Miller&lt;/a&gt; talking about the trials and tribulations of keeping a &lt;a href="http://structuremap.sourceforge.net/Default.htm"&gt;codebase&lt;/a&gt; viable and useful over the past four years.  A lot of tips and explanations were backed with diagrams on the whiteboard.  Kind of hard to blog that stuff, so this will probably be just a collection of bullets.&lt;/p&gt;
+&lt;p&gt;Lessons learned - a lot of them relate back to what are considered good, OO practices:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://en.wikipedia.org/wiki/Don't_repeat_yourself"&gt;DRY&lt;/a&gt;, especially with the very small things.  When Jeremy was adding support for .NET 2.0, the generic support was problematic.  &lt;br&gt;
+Example:  Want to resolve a Repository&amp;lt;T&amp;gt;.  You can&amp;rsquo;t just look for the class Repository`1: i.e. was trying to resolve the class by using  typeof(Repository`1).  This did not work.&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://c2.com/cgi/wiki?TellDontAsk"&gt;Tell, Don&amp;rsquo;t Ask&lt;/a&gt;.  Didn&amp;rsquo;t follow this to heavily at first, and so now effort has to be taken to rewrite code to adhere to this principle.&lt;/li&gt;
+&lt;li&gt;Using a lot of Double Dispatch (&lt;em&gt;hah!  look Jeremy the picture did turn out&lt;/em&gt;):&lt;/li&gt;
+&lt;li&gt;If you need to refactor, do it now.  Procrastination only makes it (refactoring) harder and more costly.&lt;/li&gt;
+&lt;li&gt;If you want to build a .NET framework and keep it around for four to five years, you should probably learn a bit about the fundamentals of .NET.&lt;/li&gt;
+&lt;li&gt;Small steps, frequent commits to source code.&lt;/li&gt;
+&lt;li&gt;Good solid battery of unit tests really helps with major changes.&lt;/li&gt;
+&lt;li&gt;Moving more towards coarser grained tests.  Does the test check the functionality?  Not to worried about the intermediate steps.
+&lt;ul&gt;
+&lt;li&gt;Assertions based on side effects really don&amp;rsquo;t work well.  Not very expressive, sometimes hard to figure out what what you&amp;rsquo;re trying to test.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;It helps have tooling inside your tests in order to help you quickly create tests, especially the difficult to setup/create tests.  Will result in a faster feedback cycle.  This infrastructure is more strategic, can be very help.&lt;/li&gt;
+&lt;li&gt;Jeremy recommends &amp;ldquo;Pragmatic Programmers&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Brief discussion about where to start learning all these pattern.  Advice is given to learn principles first (DRY, OCP, SRP, SOC, etc) as this will greatly help with the understanding and proper use of design patterns.&lt;/p&gt;</description></item><item><title>ALT.NET Session #4: Sprocs Good Or Evil / NHibernate with Cartoon Bears</title><link>https://topgenorth.github.io/posts/2008-04-19-alt-net-session-4-sprocs-good-or-evil-nhibernate-with-cartoon-bears/</link><pubDate>Sat, 19 Apr 2008 00:00:00 +0000</pubDate><guid>https://topgenorth.github.io/posts/2008-04-19-alt-net-session-4-sprocs-good-or-evil-nhibernate-with-cartoon-bears/</guid><description>&lt;p&gt;Two topics merged into one.  Rod Paddock wants to talk about stored procs, and others want to learn how to explain NHibernate to other people who aren&amp;rsquo;t familiar with it (and minimize the jargon).&lt;/p&gt;
+&lt;p&gt;Rod uses a custom code-gen solution based heavily on sprocs - a data driven approach.  Sounds like it works well for him.  Oren concurs that this technique could be very effective in certain circumstances.  It will have problems with complex situations that deal with convoluted/difficult data scenarios.  He&amp;rsquo;s giving an example, but I just can&amp;rsquo;t keep up with him.  The point of Oren&amp;rsquo;s story is that a domain driven approach will would better when you&amp;rsquo;re not dealing with data but with data and behavior.&lt;/p&gt;</description></item><item><title>ALT.NET Session #5: Mono - Not Just For Linux</title><link>https://topgenorth.github.io/posts/2008-04-19-alt-net-session-5-mono-not-just-for-linux/</link><pubDate>Sat, 19 Apr 2008 00:00:00 +0000</pubDate><guid>https://topgenorth.github.io/posts/2008-04-19-alt-net-session-5-mono-not-just-for-linux/</guid><description>&lt;p&gt;Joe starts polling to see what people want to talk about.  Most seem to be interest the libraries for Mono (being that they also work on Windows/.NET.  So, Joe starts talking about libraries for/from Mono.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="http://www.mono-project.com/Cecil"&gt;Mono.Cecil&lt;/a&gt;.  For all your reflecting and assembly modification needs.&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.mono-project.com/Mono.Addins"&gt;Mono.Addins&lt;/a&gt;.  I&amp;rsquo;ve been looking at this off and on today, and I have to admit it looks pretty intriguing&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.mono-project.com/Rocks"&gt;Mono.Rocks&lt;/a&gt;:  Handy extension methods.&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.mono-project.com/Mono.Zeroconf"&gt;Mono.Zeroconf&lt;/a&gt;: Zero configuration networking library&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.ndesk.org/DBusSharp"&gt;DBus#&lt;/a&gt;:  A C# implementation of &lt;a href="http://www.freedesktop.org/wiki/Software/dbus"&gt;D-Bus&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.mono-project.com/MonoCurses"&gt;MonoCurses&lt;/a&gt;: An API for console based applications&lt;/li&gt;
+&lt;li&gt;GTK# vs Windows:
+&lt;ul&gt;
+&lt;li&gt;My suggestion is to consider the target environment.  If you targeting Windows, stick with WinForms.  If you&amp;rsquo;re targetting Linux/Mac, go with GTK#. &lt;/li&gt;
+&lt;li&gt;Another issue that might influence your decision is that the documentation for GTK# is pretty sketchy, not very good.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.mono-project.com/IOMap"&gt;IOMap&lt;/a&gt;.  Turning this flag on, will help you with some of the cross-platform development issues.  This is a portable library that will help resolve things like directory seperators, case sensitivity in paths, and that sort of thing.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;A short session, which isn&amp;rsquo;t bad.  Gives me a chance to float around to check out some other things.&lt;/p&gt;</description></item></channel></rss>

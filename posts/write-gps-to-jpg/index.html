@@ -1,0 +1,79 @@
+<!doctype html><html class=no-js lang=en><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Embed GPS in a JPEG - Opgenorth.NET</title><script>(function(e,t){e[t]=e[t].replace("no-js","js")})(document.documentElement,"className")</script><meta name=description content><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=dns-prefetch href=//fonts.googleapis.com><link rel=dns-prefetch href=//fonts.gstatic.com><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700"><link rel=stylesheet href=/css/style.css><link rel="shortcut icon" href=/favicon.ico></head><body class=body><div class="container container--outer"><header class=header><div class="container header__container"><div class=logo><a class=logo__link href=/ title=Opgenorth.NET rel=home><div class="logo__item logo__text"><div class=logo__title>Opgenorth.NET</div></div></a></div><nav class=menu><button class=menu__btn aria-haspopup=true aria-expanded=false tabindex=0>
+<span class=menu__btn-title tabindex=-1>Menu</span></button><ul class=menu__list><li class=menu__item><a class=menu__link href=/posts/><span class=menu__text>Blog</span></a></li><li class=menu__item><a class=menu__link href=/gallery/><span class=menu__text>Travel Gallery</span></a></li></ul></nav></div></header><div class="wrapper flex"><div class=primary><main class=main role=main><article class=post><header class=post__header><h1 class=post__title>Embed GPS in a JPEG</h1></header><div class="content post__content clearfix"><p>One of the handy things about the JPEG format is the ability to store meta-data inside the image using <a href=http://en.wikipedia.org/wiki/Exchangeable_image_file_format>EXIF</a>. There are a few libraries out there for the various programming languages that can help you out with this, and Android actually has something built in to the SDK - the class <a href=http://developer.android.com/reference/android/media/ExifInterface.html>ExifInterface</a>.</p><p>Google&rsquo;s documentation on writing latitude and longitude to a JPEG are a bit light on details - they loosely hint at the format that latitude or longitude should have. (See the documentation for <a href=http://developer.android.com/reference/android/media/ExifInterface.html#TAG_GPS_LATITUDE>ExifInterface.TAG_GPS_LATITUDE</a>). The API itself is pretty straight forward, but what Google doesn&rsquo;t tell you is HOW the GPS coordinates should encoded.</p><p>There are a few articles out there that explain the different ways latitude and longitude may be expressed. You might want to <a href=http://www.geomidpoint.com/latlon.html>quickly read</a> one of these articles to familiarize yourself with the different formats.</p><p>EXIF expects GPS coordinates to be encoded using geographical coordinates (degrees/minutes/seconds). There is <a href=http://en.wikipedia.org/wiki/Geographic_coordinate_conversion>Wikipedia article</a> that explains how to do the conversion and provides a Java sample. For the C# types in the crowd, here is an extension method that will convert a <code>double</code> to the DMS format that EXIF expects:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>GpsHelpers</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>string</span> ToDMS(<span style=color:#66d9ef>this</span> <span style=color:#66d9ef>double</span> coord)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// gets the modulus the coordinate divided by one (MOD1).</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// in other words gets all the numbers after the decimal point.</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// e.g. mod = 87.728056 % 1 == 0.728056</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// next get the integer part of the coord. On other words the whole number part.</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// e.g. intPart = 87</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> mod = coord % <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> intPart = (<span style=color:#66d9ef>int</span>)coord;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//set degrees to the value of intPart</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//e.g. degrees = &#34;87&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> degrees = intPart.ToString();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// next time the MOD1 of degrees by 60 so we can find the integer part for minutes.</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// get the MOD1 of the new coord to find the numbers after the decimal point</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// e.g. coord = 0.728056 * 60 == 43.68336</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//      mod = 43.68336 % 1 == 0.68336</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// next get the value of the integer part of the coord.</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// e.g. intPart = 43</span>
+</span></span><span style=display:flex><span>        coord = mod * <span style=color:#ae81ff>60</span>;
+</span></span><span style=display:flex><span>        mod = coord % <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>        intPart = (<span style=color:#66d9ef>int</span>)coord;
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// set minutes to the value of intPart</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// e.g. minutes = &#34;43&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> minutes = intPart.ToString();
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//do the same again for minutes</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//e.g. coord = 0.68336 * 60 == 41.0016</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//e.g. intPart = 41</span>
+</span></span><span style=display:flex><span>        coord = mod * <span style=color:#ae81ff>60</span>;
+</span></span><span style=display:flex><span>        intPart = (<span style=color:#66d9ef>int</span>)coord;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// set seconds to the value of intPart.</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// e.g. seconds = &#34;41&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> seconds = intPart.ToString();
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> output = String.Format(<span style=color:#e6db74>&#34;{0}/1,{1}/1,{2}/1&#34;</span>, degrees, minutes, seconds);
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> output;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>This next C# code snippet will show you how to use ExifInterface to write/update the GPS information to your JPG:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#66d9ef>var</span> exif = <span style=color:#66d9ef>new</span> ExifInterface(<span style=color:#e6db74>&#34;path to file&#34;</span>);
+</span></span><span style=display:flex><span>exif.SetAttribute(ExifInterface.TagGpsProcessingMethod, <span style=color:#e6db74>&#34;GPS&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// the variable latitude is a double that has been initialized elsewhere.</span>
+</span></span><span style=display:flex><span>exif.SetAttribute(ExifInterface.TagGpsLatitude, latitude.ToDMS());
+</span></span><span style=display:flex><span>exif.SetAttribute(ExifInterface.TagGpsLatitudeRef, latitude &gt; <span style=color:#ae81ff>0</span> ? <span style=color:#e6db74>&#34;N&#34;</span> : <span style=color:#e6db74>&#34;S&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// The variable longitude is a double that has been initialized elsewhere.</span>
+</span></span><span style=display:flex><span>exif.SetAttribute(ExifInterface.TagGpsLongitude, graffiti.Longitude.ToDMS());
+</span></span><span style=display:flex><span>exif.SetAttribute(ExifInterface.TagGpsLongitudeRef, graffiti.Longitude &gt; <span style=color:#ae81ff>0</span> ? <span style=color:#e6db74>&#34;E&#34;</span> : <span style=color:#e6db74>&#34;W&#34;</span>);
+</span></span></code></pre></div></div><footer class=post__footer><div class="post__tags tags clearfix"><svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 000-6 3 3 0 000 6"/></svg><ul class=tags__list><li class=tags__item><a class="tags__link btn" href=/tags/android/ rel=tag>android</a></li><li class=tags__item><a class="tags__link btn" href=/tags/xamarin/ rel=tag>Xamarin</a></li><li class=tags__item><a class="tags__link btn" href=/tags/c/ rel=tag>C#</a></li></ul></div></footer></article></main></div><aside class=sidebar><div class="widget-search widget"><form class=widget-search__form role=search method=get action=https://google.com/search><input class=widget-search__field type=search placeholder=Search… name=q aria-label=Search…>
+<input class=widget-search__submit type=submit value=Search>
+<input type=hidden name=sitesearch value=https://topgenorth.github.io/></form></div><div class="widget-recent widget"><h4 class=widget__title>Recent Posts</h4><div class=widget__content><ul class=widget__list><li class=widget__item><a class=widget__link href=/posts/reforming-brass/>Reforming brass for the Mauser 98k</a></li><li class=widget__item><a class=widget__link href=/posts/ballistics-of-norinco-762x51/>Ballistics of Norinco 7.62x51</a></li><li class=widget__item><a class=widget__link href=/posts/ballistics-of-norinco-762x39/>Ballistics of Norinco 7.62x39</a></li><li class=widget__item><a class=widget__link href=/posts/wiring-up-a-nest/>Wiring Up a 2nd Generation Nest</a></li><li class=widget__item><a class=widget__link href=/posts/measure-distance-with-arduino/>Measuring Distance with Arduino</a></li><li class=widget__item><a class=widget__link href=/posts/sublime-text-and-arduino/>Sublime Text 2 and Arduino</a></li><li class=widget__item><a class=widget__link href=/posts/write-gps-to-jpg/>Embed GPS in a JPEG</a></li></ul></div></div><div class="widget-categories widget"><h4 class=widget__title>Categories</h4><div class=widget__content><ul class=widget__list><li class=widget__item><a class=widget__link href=/categories/firearms/>Firearms</a></li><li class=widget__item><a class=widget__link href=/categories/personal/>Personal</a></li><li class=widget__item><a class=widget__link href=/categories/programming/>Programming</a></li><li class=widget__item><a class=widget__link href=/categories/technology/>Technology</a></li></ul></div></div><div class="widget-taglist widget"><h4 class=widget__title>Tags</h4><div class=widget__content><a class="widget-taglist__link widget__link btn" href=/tags/.net/ title=.NET>.NET</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/7.62x51/ title=7.62x51>7.62x51</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/7.92x57/ title=7.92x57>7.92x57</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/alt.net/ title=ALT.NET>ALT.NET</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/android/ title=Android>Android</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/arduino/ title=Arduino>Arduino</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/ballistics/ title=Ballistics>Ballistics</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/c%23/ title=C#>C#</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/javascript/ title=JavaScript>JavaScript</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/linux/ title=Linux>Linux</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/mono/ title=Mono>Mono</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/rant/ title=Rant>Rant</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/reloading/ title=Reloading>Reloading</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/samoyed/ title=Samoyed>Samoyed</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/tdd/ title=TDD>TDD</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/technology/ title=Technology>Technology</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/windows/ title=Windows>Windows</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/xamarin/ title=Xamarin>Xamarin</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/yeg/ title=YEG>YEG</a></div></div></aside></div><footer class=footer><div class="container footer__container flex"><div class=footer__copyright>&copy; 2026 Opgenorth.NET.
+<span class=footer__copyright-credits>Generated with <a href=https://gohugo.io/ rel="nofollow noopener" target=_blank>Hugo</a> and <a href=https://github.com/Vimux/Mainroad/ rel="nofollow noopener" target=_blank>Mainroad</a> theme.</span></div></div></footer></div><script async defer src=/js/menu.js></script></body></html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><title>opgenorth.net</title></head>
+<body>
+
+<main class="main list" role="main">
+	<header class="main__header">
+		<h1 class="main__title">Android</h1>
+	</header><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/gotta-love-jetbrains/" rel="bookmark">
+			Gotta Love JetBrains
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2010-05-22T00:00:00Z">2010-05-22</time></div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		Gotta love companies that "get it".  Late last night I was hacking away on some Android stuff using IntelliJ 9.0.2 (on Ubuntu 10.04). For reasons unknown to me, none of my breakpoints seemed to be working.  In fact, IntelliJ just didn't seem to be working.  I narrowed it down to the breakpoints I was setting - it seemed that every time the breakpoints were being hit.  I managed to narrow it down to this error:
+<blockquote><span class="Apple-style-span" style="border-collapse: separate; color: #000000; font-family: 'Times New Roman'; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; font-size: medium;"><span class="Apple-style-span" style="border-collapse: collapse; color: #444444; font-family: arial,sans-serif; font-size: 13px;">[ 166030]  ERROR - lij.debugger.impl.InvokeThread - null
+java.lang.UnsupportedOperationException
+at com.sun.tools.jdi.ReferenceTypeImpl.sourceDebugExtension(ReferenceTypeImpl.java:774)
+at org.jetbrains.plugins.ruby.jruby.debug.JRubyPositionManager.getPath(JRubyPositionManager.java:141)
+at org.jetbrains.plugins.ruby.jruby.debug.JRubyPositionManager.getPsiFileByLocation(JRubyPositionManager.java:156)
+at org.jetbrains.plugins.ruby.jruby.debug.JRubyPositionManager.getSourcePosition(JRubyPositionManager.java:51)
+at com.intellij.debugger.engine.CompoundPositionManager.getSourcePosition(CompoundPositionManager.java:51)
+at com.intellij.debugger.engine.ContextUtil.getSourcePosition(ContextUtil.java:63)
+at com.intellij.debugger.impl.DebuggerSession$MyDebugProcessListener$2.compute(DebuggerSession.java:462)
+at com.intellij.debugger.impl.DebuggerSession$MyDebugProcessListener$2.compute(DebuggerSession.java:460)
+at com.intellij.psi.impl.PsiDocumentManagerImpl$3.run(PsiDocumentManagerImpl.java:298)
+at com.intellij.psi.impl.PsiDocumentManagerImpl$4.run(PsiDocumentManagerImpl.java:321)
+at com.intellij.openapi.application.impl.ApplicationImpl.runReadAction(ApplicationImpl.java:695)
+at com.intellij.psi.impl.PsiDocumentManagerImpl.commitAndRunReadAction(PsiDocumentManagerImpl.java:317)
+at com.intellij.psi.impl.PsiDocumentManagerImpl.commitAndRunReadAction(PsiDocumentManagerImpl.java:296)
+at com.intellij.debugger.impl.DebuggerSession$MyDebugProcessListener.paused(DebuggerSession.java:460)
+at com.intellij.debugger.engine.DebugProcessAdapterImpl.paused(DebugProcessAdapterImpl.java:28)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:616)
+at com.intellij.util.EventDispatcher.dispatch(EventDispatcher.java:87)
+at com.intellij.util.EventDispatcher.access$100(EventDispatcher.java:33)
+at com.intellij.util.EventDispatcher$1.invoke(EventDispatcher.java:64)
+at $Proxy84.paused(Unknown Source)
+at com.intellij.debugger.engine.SuspendManagerImpl.notifyPaused(SuspendManagerImpl.java:306)
+at com.intellij.debugger.engine.SuspendManagerImpl.b(SuspendManagerImpl.java:299)
+at com.intellij.debugger.engine.SuspendManagerImpl.voteSuspend(SuspendManagerImpl.java:318)
+at com.intellij.debugger.engine.DebugProcessEvents$1.contextAction(DebugProcessEvents.java:412)
+at com.intellij.debugger.engine.events.SuspendContextCommandImpl.action(SuspendContextCommandImpl.java:62)
+at com.intellij.debugger.engine.events.DebuggerCommandImpl.run(DebuggerCommandImpl.java:44)
+at com.intellij.debugger.engine.DebuggerManagerThreadImpl.processEvent(DebuggerManagerThreadImpl.java:148)
+at com.intellij.debugger.engine.DebuggerManagerThreadImpl.processEvent(DebuggerManagerThreadImpl.java:36)
+at com.intellij.debugger.impl.InvokeThread.run(InvokeThread.java:135)
+at com.intellij.debugger.impl.InvokeThread$WorkerThreadRequest.run(InvokeThread.java:52)
+at com.intellij.openapi.application.impl.ApplicationImpl$5.run(ApplicationImpl.java:329)
+at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334)
+at java.util.concurrent.FutureTask.run(FutureTask.java:166)
+at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+at java.lang.Thread.run(Thread.java:636)
+at com.intellij.openapi.application.impl.ApplicationImpl$1$1.run(ApplicationImpl.java:125)
+[ 166036]  ERROR - lij.debugger.impl.InvokeThread - IntelliJ IDEA 9.0.2  Build #IU-95.66
+[ 166036]  ERROR - lij.debugger.impl.InvokeThread - JDK: 1.6.0_18
+[ 166036]  ERROR - lij.debugger.impl.InvokeThread - VM: OpenJDK Server VM
+[ 166036]  ERROR - lij.debugger.impl.InvokeThread - Vendor: Sun Microsystems Inc.
+[ 166036]  ERROR - lij.debugger.impl.InvokeThread - OS: Linux
+[ 166036]  ERROR - lij.debugger.impl.InvokeThread - Last Action: Debug</span></span></blockquote>
+So, the problem to me seemed to be something wonky with IntelliJ.  I e-mailed Jetbrains, explaining the symptoms and the above stack trace.  This morning, I was pleased to find an e-mail from Serge  at Jetbrains.  He suggests disabling the Ruby plug-in that I have installed.
+
+BINGO!
+
+Worked like a charm.  Problem goes away, and in less than 12 hours since I asked for help.
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/quick-update-to-historicalbuildings/" rel="bookmark">
+			Quick Update to HistoricalBuildings
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2010-04-10T00:00:00Z">2010-04-10</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		I just <a href="http://www.opgenorth.net/misc/HistoricalBuildings.apk">uploaded an update</a> to <a href="http://github.com/topgenorth/historicalbuildings">HistoricalBuildings</a>.&nbsp; The list of historical buildings used to be sorted alphabetically, by name.&nbsp; Now they are sorted by the distance from your current location (assuming the GPS can figure that out).<br /><br /><div class="zemanta-pixie"><img class="zemanta-pixie-img" alt="" src="http://img.zemanta.com/pixy.gif?x-id=fd558971-287a-8b68-8a02-ced06dd1630f" /></div>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/historical-buildings/" rel="bookmark">
+			YEG OpenData and their Historical Buildings on your Android phone
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2010-04-08T00:00:00Z">2010-04-08</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p><a href="http://www.opgenorth.net/wp-content/uploads/2010/04/worksonmymachinestarburst.jpg"><img style="border-bottom: 0px; border-left: 0px; margin: 0px 10px 0px 0px; display: inline; border-top: 0px; border-right: 0px" title="works-on-my-machine-starburst" border="0" alt="works-on-my-machine-starburst" align="left" src="http://www.opgenorth.net/wp-content/uploads/2010/04/worksonmymachinestarburst_thumb.jpg" width="154" height="149" /></a> Well, for the brave, criminally insane, curious, or otherwise bored I have a alpha version of Historical Buildings – <a href="http://www.opgenorth.net/misc/HistoricalBuildings.apk">download the APK</a> if you want to try it out.&#160; This is just, at this time, the application just shows a simple list of <a href="http://data.edmonton.ca/DataBrowser.aspx?Container=coe&amp;EntitySet=HistoricalBuildings">historical buildings</a> in Edmonton (according to the <a href="http://data.edmonton.ca/">City of Edmonton's Open Data Catalogue</a>).&#160; Click on a building, and it will show you on Google Maps where the building is in the city.&#160; The <a href="http://github.com/topgenorth/historicalbuildings">code</a> for this is, in my opinion (and to say the least) - rough.&#160; But it is a start.&#160; Definitely needs some improvement.&#160; Or maybe I just need to change my thinking to more of a Android/Java mindset.&#160; Anyway the usual caveats apply:&#160; use at your own risk / batteries not include / do not eat / void where prohibited by law, etc, etc, etc</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/historical-buildings/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/android-mapview-and-your-google-apikey-part-1/" rel="bookmark">
+			Android, MapView, and your Google apiKey: Part 1
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2010-04-07T00:00:00Z">2010-04-07</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p><a href="http://www.opgenorth.net/wp-content/uploads/2010/04/MapList1.png"><img style="display: inline; margin-left: 10px; margin-right: 0px" title="MapList" border="0" alt="MapList" align="right" src="http://www.opgenorth.net/wp-content/uploads/2010/04/MapList_thumb1.png" width="164" height="244" /></a></p>  <p>Thanks to the <a href="http://developer.android.com/guide/tutorials/views/hello-mapview.html">MapView</a>, it’s drop dead easy to put Google Maps into your application.&#160; There are lots of posts out there how to do it.&#160; Interestingly (to me anyway), when I did a quick search of the Android developers mailing list, I was surprised to see that a lot of people had the same problem:&#160; basically, when you look at your MapView, you end up with a grid of white squares.&#160; It kind of sucks.&#160; There are a lot of blog posts and articles out there on how to fix this problem, but this one is for me, and to help me remember it.</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/android-mapview-and-your-google-apikey-part-1/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/me-android-and-yeg-opendata/" rel="bookmark">
+			Me, Android, and YEG OpenData
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2010-04-04T00:00:00Z">2010-04-04</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<a href="http://www.opgenorth.net/wp-content/uploads/2010/04/YegDataList1.png"><img style="display: inline; margin-left: 10px; margin-right: 0px; border: 0px initial initial;" title="YegDataList" src="http://www.opgenorth.net/wp-content/uploads/2010/04/YegDataList_thumb1.png" border="0" alt="YegDataList" width="164" height="244" align="right" /></a>Not that long ago, the City of Edmonton announced it's <a href="http://data.edmonton.ca/">Open Data Catalogue</a>.  I noticed that one of the data catalogues was a list of <a href="http://data.edmonton.ca/DataBrowser.aspx?Container=coe&amp;EntitySet=HistoricalBuildings">historical buildings</a> in the city.  Yeah, I know that some people in other cities might consider this a pretty weak list.  I mean, the oldest building in Edmonton isn’t even 150 years old.  I’d wager that some parts of the world consider 150 year old buildings to be “new construction”.  Anyway, as I've been dabbling with <a href="http://developer.android.com">Android</a> now for about the past year, I thought a handy little project to try out would be to write an app for Android that would show me where the historical buildings are in the city.
+
+I've got the foundation of a simple application started over a GitHub called, not surprisingly, <a href="http://github.com/topgenorth/historicalbuildings">Historical Buildings</a> (if you pull the source code, then just a heads up that I use <a href="http://www.jetbrains.com/idea/">IntelliJ</a> for my Android development).  This application currently works in the emulator, my next step is to installing it on my phone and trying it out for real.  Right now all the application does is present you with a list of buildings.  You click on one, and you'll see on Google Maps where the building.
+
+Some other ideas for features that may or may not happen:
+<ul>
+	<li>Figure out the whole unit testing story in Android.  Then setup a build script.  Then a build server.  CI rocks, but as I’m trying to learn the Android framework and figure out what all the parts are, I’m not to focused on that at the moment.</li>
+	<li>Don’t always fetch the data – store it locally
+<ul>
+	<li>I don’t think the way I’m parsing the JSON result is very efficient or “proper”, but it does get the job done.</li>
+</ul>
+</li>
+	<li>Notify the user when they are within a certain distance of a historical building.</li>
+	<li>Currently YEG has a PDF explaining the significance of the building.  Not very friendly/convenient for mobile devices.  Need something better.
+<ul>
+	<li>One thought would be to create Wikipedia entries and link to that.</li>
+	<li>Another thought is to petition the City of Edmonton to convert their PDF’s to a more neutral format (HTML anyone)?</li>
+	<li>The <a href="http://www.epl.ca">Edmonton Public Library</a> has some information about the “<a href="http://www.epl.ca/EPLPhotoBuildings.cfm">Lost Building of Edmonton</a>”.  Maybe incorporate that somehow – perhaps showing what buildings used to exist at a given address?</li>
+</ul>
+</li>
+	<li>Perhaps allow the user to update their coordinates for YEG’s historical buildings.  I’ve notice (on the emulator) that sometimes the lat/long isn’t exactly accurate.  If you look at the image below for the old Arlington Apartments, you notice that the marker should be over the pile of rubble slightly to the left of where it currently is.</li>
+	<li>Maybe include buildings that aren’t necessarily designated as historical, but are interesting architecturally or otherwise.</li>
+	<li>Instead of using YEG OpenData, perhaps an independent cloud based data store (<a href="http://www.microsoft.com/windowsazure/">Azure</a> maybe?)</li>
+</ul>
+If you’ve got any other suggestions, I’m happy to hear them.
+
+<a href="http://www.opgenorth.net/wp-content/uploads/2010/04/MapList.png"><img style="display: block; float: none; margin-left: auto; margin-right: auto; border: 0px;" title="MapList" src="http://www.opgenorth.net/wp-content/uploads/2010/04/MapList_thumb.png" border="0" alt="MapList" width="219" height="326" /></a>
+<div class="zemanta-pixie"><img class="zemanta-pixie-img" src="http://img.zemanta.com/pixy.gif?x-id=e1a8a615-56c6-883e-b52b-35084586f039" alt="" /></div>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/where-did-the-time-go/" rel="bookmark">
+			Where Did the Time Go?
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2010-01-28T00:00:00Z">2010-01-28</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p><a href="http://www.opgenorth.net/wp-content/uploads/2010/01/tumbleweed1.jpg"><img title="tumbleweed" style="border-right: 0px; border-top: 0px; display: inline; margin-left: 0px; border-left: 0px; margin-right: 0px; border-bottom: 0px" height="75" alt="tumbleweed" src="http://www.opgenorth.net/wp-content/uploads/2010/01/tumbleweed_thumb1.jpg" width="90" align="left" border="0" /></a>Yeah, I’ve been kind of quiet as of late.&#160; So quiet, I suspect that some people might be wondering if something happened.&#160; I was a bit surprised to see that the last time I had blogged was after TechDays in Calgary.&#160; Well, nothing significant has happened - just a bit of laziness augmented by a touch of tech-burnout compounded by the odd bit of single malt scotch.</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/where-did-the-time-go/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/getting-starting-with-my-adp1/" rel="bookmark">
+			Getting Starting with my ADP1
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2009-09-15T00:00:00Z">2009-09-15</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>After a bit of tinkering, I managed to provision my ADP1 setup without a SIM card.&#160; A bit of google, and here is what I did</p>  <ol>   <li>Download the Android SDK.&#160; In my case, I unzipped it to C:\android-sdk-windows-1.1_r1. </li>    <li>Connection the phone via the USB cable to my computer.&#160; When the phone asks for a device. </li>    <li>You’ll get the new hardware dialog, when prompted for the drivers, you’ll need to specify the location.&#160; The Android SDK has the drivers, in my case they were at C:\android-sdk-windows-1.1_r1\usb_driver\x86. </li>    <li>Once you have the drivers installed cd to c:\android-sdk-windows-1.1_r1\tools. </li>    <li>Type adb devices.&#160; This should list all the Android devices that you have connected.&#160; If you don’t see any devices listed, then you have a problem. </li>    <li>Type adb shell.&#160; This will direct your commands to your ADP1 </li>    <li>Now while at the adb shell, su to root, then :&#160; </li>    <li>cd /data/data/com.android/providers.settings/databases/ </li>    <li>sqlite3 settings.db </li>    <li>INSERT INTO system (name, value) VALUES (‘device_provisioned’, 1); </li>    <li>.quit </li>    <li>Reboot the phone </li>    <li>adb shell </li>    <li>am start –a android.intent.action.MAIN –n com.android.settings/.Settings </li> </ol>  <p>Once all that is done, you should be enable to use your ADP1 as if you had a SIM card in it (we’ll except for the phoning part).</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/getting-starting-with-my-adp1/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/using-intellij-for-android-development-2/" rel="bookmark">
+			Using IntelliJ for Android Development
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2009-06-19T00:00:00Z">2009-06-19</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p><em>(Note:&#160; this article is pretty dated, and used IntelliJ 8.&#160; I plan a follow-up covering IntelliJ 9)</em></p>  <p>So I have this semi-fancy Google <a href="http://developer.android.com/guide/developing/device.html">Android Dev Phone 1</a>.&#160; Lately I've been devoting part of my spare time to learning about programming for <a href="http://www.android.com/">Android</a> (the OS of the phone).&#160; Google (probably because they didn't ask for my opinion and/or input) decided to use Java as the lingua franca for Android programming.&#160; If you ask me - and I know you will - they should have used C# and Mono (I might be a bit biased here).&#160; Luckily, years ago I had done Java programming, so I wasn't that intimidated by the use of Java on Android.</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/using-intellij-for-android-development-2/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/getting-started-coding-for-my-android-dev-phone-1/" rel="bookmark">
+			Getting Started Coding for my Android Dev Phone 1
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2009-03-26T00:00:00Z">2009-03-26</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>Figured I was due to spend some time setting up a Linux VM and learning how to program my Android Dev Phone 1.&#160; <a href="http://www.eclipse.org">Eclipse</a> is what is recommended, so I thought I’d give that a try first.&#160; So, with the help of <a href="www.susestudio.com">Suse Studio</a>, I quick built myself a VM with Java 1.6 (<em>Aside:&#160; I love Suse Studio, I can provision a VM in minutes</em>).&#160; I figured it would be pretty straight forward.&#160; The docs on the Android Developer site for <a href="http://developer.android.com/guide/developing/tools/adt.html#installingplugin">installing ADT plug-in</a> seem pretty straight forward and simple, and I remember Eclipse having a very rich ecosystem of plug-ins that were easy to install (something I wish Visual Studio had – hint, hint Microsoft).</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/getting-started-coding-for-my-android-dev-phone-1/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/getting-started-with-my-adp1/" rel="bookmark">
+			Getting Started with My ADP1
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2009-03-14T00:00:00Z">2009-03-14</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Technology/" rel="category">Technology</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>After a bit of tinkering, I managed to provision my ADP1 setup without a SIM card.&#160; A bit of google, and here is what I did:</p>  <ol>   <li>Download the Android SDK.&#160; In my case, I unzipped it to C:\android-sdk-windows-1.1_r1. </li>    <li>Connection the phone via the USB cable to my computer.&#160; When the phone asks for a device. </li>    <li>You'll get the new hardware dialog, when prompted for the drivers, you'll need to specify the location.&#160; The Android SDK has the drivers, in my case they were at C:\android-sdk-windows-1.1_r1\usb_driver\x86. </li>    <li>Once you have the drivers installed cd to c:\android-sdk-windows-1.1_r1\tools. </li>    <li>Type adb devices.&#160; This should list all the Android devices that you have connected.&#160; If you don't see any devices listed, then you have a problem. </li>    <li>Type adb shell.&#160; This will direct your commands to your ADP1 </li>    <li>Now while at the adb shell, su to root, then :&#160; </li>    <li>cd /data/data/com.android/providers.settings/databases/ </li>    <li>sqlite3 settings.db </li>    <li>INSERT INTO system (name, value) VALUES ('device_provisioned', 1); </li>    <li>.quit </li>    <li>Reboot the phone </li>    <li>adb shell </li>    <li>am start -a android.intent.action.MAIN -n com.android.settings/.Settings </li> </ol>  <p>Once all that is done, you should be enable to use your ADP1 as if you had a SIM card in it (we'll except for the phoning part).</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/getting-started-with-my-adp1/">Read more…</a>
+	</div>
+</article>
+</main>
+
+<div class="pagination">
+	<a class="pagination__item pagination__item--prev btn" href="/tags/Android/page/2/">«</a>
+	<span class="pagination__item pagination__item--current">3/4</span>
+	<a class="pagination__item pagination__item--next btn" href="/tags/Android/page/4/">»</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><title>opgenorth.net</title></head>
+<body>
+
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">rake your Xamarin.Android Application</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2013-02-04T00:00:00Z">2013-02-04</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+		</header>
+		<div class="content post__content clearfix">
+			<p>Deploy early, deploy often is a popular goal in Agile methodologies. One easy way to support this to automate your build process. Last year at this time I would just use <a href="http://www.finalbuilder.com/finalbuilder.aspx">FinalBuilder</a> to automate the builds of my Xamarin.Android pet projects. It doesn&rsquo;t take much to set FinalBuilder, and it does provide support for a lot of tasks such as versioning .NET assemblies, manipulating XML, dealing with the file system, and so on.</p>
+<p>The problem is that FinalBuilder is Windows only. OS X and Linux types are left out in the cold. As I find myself working almost exclusive in OS X when developing my Xamarin.Android applications, I was looking for a Windows free way to automate my builds.</p>
+<p>Enter <a href="http://rake.rubyforge.org/">rake</a> and <a href="http://albacorebuild.net/">albacore</a>. rake is, of course the build system for Ruby.</p>
+<p>Albacore is a suite of rake tasks for building .NET applications. With a trivial amount of effort, I managed to setup a command line build of my Xamarin.AndroidXamarin.Android projects (which would also sign and zip align the APK file).</p>
+<p>Assuming that you have ruby installed, you just need to install rake and albacore:</p>
+<pre><code>gem install rake
+gem install albacore
+</code></pre>
+<p>That&rsquo;s pretty much it. Create your Rakefile and <code>require 'albacore'</code> and you now have access to a whole bunch of rake tasks to help you with building your Xamarin.Android app.</p>
+<p>Right now my Rakefile is pretty barebones - I don&rsquo;t auto-increment the build number and I don&rsquo;t create any tags in git to track each build. Also, right now my Rakefile will pause partway through in order to collect the password for my keystore file as well. This is fine for me right now as I do all this at the command line by it would be a bit of a drag if I was using a headless CI server.</p>
+<p>For references sake, here is the Rakefile I currently use:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>	require <span style="color:#e6db74">&#39;albacore&#39;</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	@file_version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;2.3.0.0&#34;</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	@keystore     <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;PATH TO MY KEYSTORE FILE&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>	@alias_name   <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;ALIAS TO THE KEY I WANT TO SIGN WITH&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>	@input_apk    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ReportGraffiti.Android/bin/Release/net.opgenorth.reportgraffiti.apk&#34;</span>
+</span></span><span style="display:flex;"><span>	@signed_apk   <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ReportGraffiti.Android/bin/Release/net.opgenorth.reportgraffiti_signed_notaligned.apk&#34;</span>
+</span></span><span style="display:flex;"><span>	@final_apk    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ReportGraffiti.Android/reportgraffiti.apk&#34;</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	task <span style="color:#e6db74">:default</span> <span style="color:#f92672">=&gt;</span> <span style="color:#f92672">[</span><span style="color:#e6db74">:clean</span>, <span style="color:#e6db74">:versioning</span>, <span style="color:#e6db74">:build</span>, <span style="color:#e6db74">:sign</span><span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	desc <span style="color:#e6db74">&#34;Remove the bin and obj directories.&#34;</span>
+</span></span><span style="display:flex;"><span>	task <span style="color:#e6db74">:clean</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>		rm_rf <span style="color:#e6db74">&#34;ReportGraffiti.Android/bin&#34;</span>
+</span></span><span style="display:flex;"><span>		rm_rf <span style="color:#e6db74">&#34;ReportGraffiti.Android/obj&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	desc <span style="color:#e6db74">&#34;Update the build number before compiling.&#34;</span>
+</span></span><span style="display:flex;"><span>	assemblyinfo <span style="color:#e6db74">:versioning</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>asm<span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span>		asm<span style="color:#f92672">.</span>input_file  <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ReportGraffiti.Android/Properties/AssemblyInfo.cs&#34;</span>
+</span></span><span style="display:flex;"><span>		asm<span style="color:#f92672">.</span>output_file <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ReportGraffiti.Android/Properties/AssemblyInfo.cs&#34;</span>
+</span></span><span style="display:flex;"><span>		asm<span style="color:#f92672">.</span>version <span style="color:#f92672">=</span> @file_version
+</span></span><span style="display:flex;"><span>		asm<span style="color:#f92672">.</span>file_version <span style="color:#f92672">=</span> @_file_version
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	desc <span style="color:#e6db74">&#34;Compiles the project&#34;</span>
+</span></span><span style="display:flex;"><span>	xbuild <span style="color:#e6db74">:build</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>msb<span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span>		msb<span style="color:#f92672">.</span>solution <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ReportGraffiti.Android/ReportGraffiti.Android.csproj&#34;</span>
+</span></span><span style="display:flex;"><span>		msb<span style="color:#f92672">.</span>properties <span style="color:#f92672">=</span> { <span style="color:#e6db74">:configuration</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">:release</span> }
+</span></span><span style="display:flex;"><span>		msb<span style="color:#f92672">.</span>targets <span style="color:#f92672">[</span> <span style="color:#e6db74">:Clean</span>, <span style="color:#e6db74">:Build</span>, <span style="color:#e6db74">:SignAndroidPackage</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	desc <span style="color:#e6db74">&#34;Signs and zip aligns the APK.&#34;</span>
+</span></span><span style="display:flex;"><span>	task <span style="color:#e6db74">:sign</span> <span style="color:#66d9ef">do</span> 
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>		sh <span style="color:#e6db74">&#34;jarsigner&#34;</span>,  <span style="color:#e6db74">&#34;-verbose&#34;</span>, <span style="color:#e6db74">&#34;-sigalg&#34;</span>, <span style="color:#e6db74">&#34;MD5withRSA&#34;</span>, <span style="color:#e6db74">&#34;-digestalg&#34;</span>, <span style="color:#e6db74">&#34;SHA1&#34;</span>, <span style="color:#e6db74">&#34;-keystore&#34;</span>,  @keystore, <span style="color:#e6db74">&#34;-signedjar&#34;</span>, @signed_apk, @input_apk, @alias_name
+</span></span><span style="display:flex;"><span>		sh <span style="color:#e6db74">&#34;zipalign&#34;</span>, <span style="color:#e6db74">&#34;-f&#34;</span>, <span style="color:#e6db74">&#34;-v&#34;</span>, <span style="color:#e6db74">&#34;4&#34;</span>, @signed_apk, @final_apk
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><p>Notice as well that I use the <a href="https://github.com/Albacore/albacore/wiki/XBuild-Task">xbuild</a> task from albacore. The  documentation says that this task will be merged into the <a href="https://github.com/Albacore/albacore/wiki/MSBuild-Task">MsBuild</a> task, but until then I guess one is supposed to keep using xbuild.</p>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/Xamarin/" rel="tag">Xamarin</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/android/" rel="tag">android</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/C/" rel="tag">C#</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/post/writing-gps-information-to-a-jpeg/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">Writing GPS information to a JPEG</p>
+		</a>
+	</div>
+</nav>
+
+
+
+
+
+</body>
+</html>

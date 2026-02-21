@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><title>opgenorth.net</title></head>
+<body>
+
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Using Estimotes with Xamarin.Android</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2014-02-16T14:40:03Z">2014-02-16</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+		</header>
+		
+<div class="post__toc toc">
+	<div class="toc__title">Page content</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#ranging">Ranging</a></li>
+    <li><a href="#monitoring">Monitoring</a></li>
+  </ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<p>I recently bought some <a href="http://estimote.com/">Estimote</a> beacons (a 3rd party iBeacon-like device) - largely because they seem like a cool and nerdy kind of thing. It has an <a href="https://github.com/Estimote/Android-SDK">Android SDK</a> which will allow Android devices to interaction with devices. With a little big of effort, I managed to create <a href="https://github.com/topgenorth/Estimotes-Xamarin/">Xamarin.Android binding</a> and port the sample Android project provided by the Estimote SDK.</p>
+<p>You can see an example of the app in these screenshots:</p>
+<p><img src="https://s3.amazonaws.com/opgenorthnet-blog/estimote1.png" alt="image"></p>
+<p>My Xamarin.Android port of the sample project is slightly different than the sample that Estimote provides. The obvious change is the use of a <a href="https://github.com/topgenorth/QuickAction-XamarinAndroid">QuickAction</a> menu that popups up when you select an Estimote. I found this to be a more intuitive interface than what came with the default Estimote example. The menu provides you with two options:</p>
+<h2 id="ranging">Ranging</h2>
+<p>The <code>DistanceBeaconActivity</code> tries to estimate how far away the selected Estimote is. Estimote refers to this as &ldquo;ranging&rdquo;. The outer blue circle is 6 metres, so the screenshot below was taken when my phone was about 3m away from the estimote.</p>
+<p><img src="https://s3.amazonaws.com/opgenorthnet-blog/estimote2.png" alt="image"></p>
+<h2 id="monitoring">Monitoring</h2>
+<p>The <code>NotifyDemoActivity</code> activity shows how to fire off a notification when the user walks into a &ldquo;region&rdquo; that the mobile device has moved into the vicinity of some beacons.</p>
+<p><img src="https://s3.amazonaws.com/opgenorthnet-blog/estimote3.png" alt="image"></p>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/C/" rel="tag">C#</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/android/" rel="tag">android</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/Xamarin/" rel="tag">Xamarin</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/post/measuring-distance-with-arduino/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">Measuring Distance with Arduino</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/post/adding-bluetooth-to-your-shooting-chrony/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">Adding Bluetooth to your Shooting Chrony</p>
+		</a>
+	</div>
+</nav>
+
+
+
+
+
+</body>
+</html>

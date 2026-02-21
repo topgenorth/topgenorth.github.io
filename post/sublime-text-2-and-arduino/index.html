@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><title>opgenorth.net</title></head>
+<body>
+
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Sublime Text 2 and Arduino</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2013-03-09T00:00:00Z">2013-03-09</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+		</header>
+		<div class="content post__content clearfix">
+			<p>If you&rsquo;re looking to get into Arduino, and you&rsquo;re a programmer, the first thing that will jump out at you is the Arduino IDE. It&rsquo;s best described as &ldquo;spartan&rdquo; (to say the least). As I&rsquo;m used to full featured IDE&rsquo;s I started looking for a replacement to the default Arduino IDE.</p>
+<p>There are extensions to use Visual Studio, but that means me starting up a VM to run Windows which I don&rsquo;t really want to do for Arduino development. There is a another IDE which looks promising called Maria Mole - but it&rsquo;s Windows only so not really a contender for me.  I need something for OS X. I looked at setting up Eclipse as my default IDE, but ran into some issues with that. Nothing to major, but as I don&rsquo;t like Eclipse in the first place I wasn&rsquo;t to motivated to sort things out, so I abandoned Eclipse as an IDE choice.</p>
+<p>The next thing I tried was <a href="http://www.sublimetext.com/">Sublime Text</a>. There is an Ardunio plugin called <a href="https://github.com/Robot-Will/Stino">Stino</a> that turns Sublime into a not bad IDE. In terms of writing your programs, Stino can pretty much do everything the Arduino IDE can do: compile programs, upload them to your Arduino board, import libraries, etc.</p>
+<p>Installing Stino isn&rsquo;t that bad:</p>
+<ol>
+<li>First make sure that you have downloaded <a href="http://arduino.cc/en/Main/Software">Arduino 1.0.3</a>. I&rsquo;m not to sure how well Stino will work with the current beta.</li>
+<li>In Sublime Text, go to Package Control, and type <code>Install Package</code>.</li>
+<li>Search using the keyword <code>Arduino</code>, you should see a couple of packages - one contains Stino and the other are a couple of snippets.</li>
+<li>Next open a <code>.ino</code> file in Sublime Text. When you do this the <code>Arduino</code> menu should appear in the Sublime toolbard.</li>
+<li>From the Arduino menu, specify the location of the Ardunio directory, i.e. <code>/Applications/Arduino.app</code>.</li>
+</ol>
+<p>Done!</p>
+<p>To monitor the serial port, I&rsquo;m using <a href="http://freeware.the-meiers.org/">CoolTerm</a>.  Seems to be &ldquo;good enough&rdquo; for what I want to do, and it&rsquo;s free. On Windows, I&rsquo;d probably use something like puTTY.</p>
+<p>[1] Blog post for Stino: <a href="http://kaixin.netii.net/stino-a-sublime-text-2-plugin-for-arduino.html">http://kaixin.netii.net/stino-a-sublime-text-2-plugin-for-arduino.html</a></p>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/arduino/" rel="tag">arduino</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/post/writing-gps-information-to-a-jpeg/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">Writing GPS information to a JPEG</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/post/animate-a-listview-deletion-in-xamarin-dot-android/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">Animate a ListView deletion in Xamarin.Android</p>
+		</a>
+	</div>
+</nav>
+
+
+
+
+
+</body>
+</html>

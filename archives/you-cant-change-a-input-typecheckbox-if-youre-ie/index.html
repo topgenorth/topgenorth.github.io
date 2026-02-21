@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><title>opgenorth.net</title></head>
+<body>
+
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">You Can&#39;t Change a &lt;input type=&#34;checkbox&#34; If You&#39;re IE?</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2008-11-20T00:00:00Z">2008-11-20</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+		</header>
+		<div class="content post__content clearfix">
+			<p><em>Update November 20th:&#160; Well, a quick search of </em><a href="http://www.stackoverflow.com"><em>StackOverflow.com</em></a><em>, and it turns out that I’m not exactly alone in this matter.&#160; According to this </em><a href="http://stackoverflow.com/questions/208471/getting-jquery-to-recognise-change-in-ie"><em>post</em></a><em> (and Grant in the comments of this post), in versions of IE &lt; 8, one must use the click event, and not the change event.</em></p>  <p>I ran into an interesting issue today.&#160; I don't really know the answer, but I figured I would blog about it so that I don't completely forget it.&#160; While I highly doubt the two readers of my blog (my brother and sister) have any idea of what I'm talking about, I'm sure that eventually somebody (smart) will stumble upon this via Google.&#160; What will happen in that case is anybodies guess, but I digress...</p>  <p>I had some JavaScript (note that I'm using <a href="http://www.jquery.com">jQuery</a> too):</p>  <div class="csharpcode">   <pre><span class="lnum">   1:  </span>$(document).ready(<span class="kwrd">function</span>() {</pre>
+
+  <p>
+    <br /></p>
+
+  <pre><span class="lnum">   2:  </span>    $(<span class="str">'#myCheckbox'</span>).change(myCallBackFunction);</pre>
+
+  <p>
+    <br /></p>
+
+  <pre><span class="lnum">   3:  </span>}</pre>
+
+  <p>
+    <br /></p>
+
+  <pre><span class="lnum">   4:  </span></pre>
+
+  <p>
+    <br /></p>
+
+  <pre><span class="lnum">   5:  </span><span class="kwrd">function</span> myCallBackFunction() {</pre>
+
+  <p>
+    <br /></p>
+
+  <pre><span class="lnum">   6:  </span>   <span class="rem">// unwrap protein strings and cure cancer in parallel on a single core system</span></pre>
+
+  <p>
+    <br /></p>
+
+  <pre><span class="lnum">   7:  </span>}</pre>
+</div>
+
+<p><!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } --></p>
+
+<p>For the sake of completeness, here is a sample HTML snippet to go with the above jQuery:</p>
+
+<pre class="csharpcode"><span class="kwrd">&lt;</span><span class="html">input</span> <span class="attr">id</span><span class="kwrd">=&quot;myCheckBox&quot;</span> <span class="attr">type</span><span class="kwrd">=&quot;checkbox&quot;</span>  <span class="kwrd">&gt;</span></pre>
+
+<p>Now, in FireFox 3, when you clicked on the checkbox, myCallBackFunction gets executed (as I would expect).&#160; However, in IE7, that doesn't seem to happen.&#160; This has me stumped.</p>
+
+<p>Now, at work, I asked &quot;Who is an expert in Javascript and jQuery?&quot;.&#160; Crickets chirped.&#160; Dead silence.&#160; A tumbleweed rolls on by.</p>
+
+<p>I then asked &quot;Who wants to make Tom look stupid?&quot; - everybody jumps at the opportunity.&#160; Go figure.&#160; Anyway, back to our exciting tale.&#160; To get around this, I couldn't rely on the collective brainpower of myself and my co-workers to figure out what the problem is.&#160; Instead, we deduced that it is better to go around the problem and try something different.&#160; I had&#160; to use the click event like so:</p>
+
+<pre class="csharpcode">$(<span class="str">'#myCheckbox'</span>).click(myCallBackFunction);</pre>
+
+<p><!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } --></p>
+
+<p>This works in both IE7 and FireFox 3 - not sure why.</p>
+
+<p>Based on my past experiences with things, I'm sure it's something I'm doing (or not doing).&#160; Going over my past experience, I'm sure it won't be me who figures out what I'm doing wrong.</p>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/JavaScript/" rel="tag">JavaScript</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/archives/off-to-austin/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">Off to Austin</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/archives/common-sevice-locator/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">Common Sevice Locator</p>
+		</a>
+	</div>
+</nav>
+
+
+
+
+
+</body>
+</html>

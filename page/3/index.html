@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="generator" content="Hugo 0.154.5"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><title>opgenorth.net</title></head>
+<body>
+
+<main class="main list" role="main">
+	<div class="content main__content clearfix">
+		<p>Welcome to <strong>Opgenorth.NET</strong>. This is the homepage content.</p>
+
+	</div>
+	<article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/purging-your-privates-msmq-with-powershell/" rel="bookmark">
+			Purging your Privates (MSMQ with Powershell)
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2011-03-01T00:00:00Z">2011-03-01</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		A project I’m currently on makes heavy use of MSMQ and private queues.  Every so often, it’s necessary to purge messages from the queue during development. I got tired of always using the MMC snap-in to perform this task, so I whipped up this quick PowerShell script to handle the dirty work for me.  Granted, it’s pretty crude, but it gets the job done.  Any suggestions or improvements, feel free to let me know.
+
+<pre lang="powershell" line="1">
+$queuename = ".\private$\myprivatequeue"
+[Reflection.Assembly]::LoadWithPartialName("System.Messaging") | Out-Null 
+$queue = New-Object -TypeName "System.Messaging.MessageQueue"
+$queue.Path = $queuename
+$messagecount = $queue.GetAllMessages().Length 
+$queue.Purge() 
+Write-Host "$queuename has been purged of $messagecount messages." -ForegroundColor Yellow
+</pre>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/wind-mobile-and-my-nexus-one/" rel="bookmark">
+			WIND Mobile and my Nexus One
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2010-12-20T00:00:00Z">2010-12-20</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Personal/" rel="category">Personal</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>Just recently I switch my mobile carrier from Rogers to <a title="WIND mobile" href="../../www.windmobile.ca">WIND Mobile</a>. Their <a title="Holiday Miracle Plan" href="http://www2.windmobile.ca/en/Pages/unlimitedtalktextdata.aspx">Holiday Miracle plan</a> was just to good to pass up - even paying the penalty to break my Rogers contract I will still save money in the long run.
+
+Anyway, once the number got transferred over, I didn't have a 3G connection, even after selecting the WIND Home APN. &nbsp;After a bit of google, it seems that what I had to do is to setup an APN. &nbsp;In case I can't find it later, here are the APN settings:</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/wind-mobile-and-my-nexus-one/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/tfs-2010-vs2010-database-projects-and-ci/" rel="bookmark">
+			TFS 2010, VS2010 Database Projects, and CI
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2010-11-29T00:00:00Z">2010-11-29</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>I’m currently working on a project where there are some functional tests that require a SQL Server database. Before in the past I’ve always handled this by using Redgate’s excellent SQL Server tools to create a monolithic script that would deploy the DB Schema, and then another set of scripts to set up the data.&#160; Then it’s pretty trivial to use OSQL.EXE to run the scripts and setup the database.</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/tfs-2010-vs2010-database-projects-and-ci/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/first-impressions-windows-phone-7-development/" rel="bookmark">
+			First Impressions: Windows Phone 7 Development
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2010-11-15T00:00:00Z">2010-11-15</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		I’ve spent a bit of my spare time in the past week looking at Windows Phone 7 from a developer’s point of view.  I’d have started sooner, but honestly, I didn’t see the point until there were actually devices that I could hold and use.  I know that in the U.S., some guys got developer phones from Microsoft, but I don’t think that anybody up here in Canada was that lucky.
+
+So, over the past year or so I’ve been dabbling with Android and I actually like programming for Android.  The biggest issues I’ve run into with Android are my lack of Java skills – I keep doing things the C# way (you really don’t realize how handy Linq is until you don’t have it) and the fact that Android doesn’t have a decent UI designer.  But otherwise, I like Android.
+
+So, I was curious what the developer experience was for WP7.  In a nutshell – it’s not bad, and in some ways better than that of Android.
+
+Things I like about WP7 development:
+<ul>
+	<li>Being a C# guy, it was pretty easy and fast for me to get going with WP7.  Of course, Novell now has <a href="http://www.monodroid.net">MonoDroid</a> which in theory should lessen the learning curve for a C# guy to create Android applications.</li>
+	<li>It’s nice to have good tooling to help with creating my UI’s.  Blend and Cider are pretty decent. Android does have <a href="http://droiddraw.org">DroidDraw</a>, but I’ve never really found that tool to be good to work with.  Eclipse has some sort of an GUI designer thingy, but again, I’ve found it to be kind of lack-lustre at best.  That, and I don’t use Eclipse – I prefer IntelliJ.</li>
+	<li>The Emulator seems to start up faster to me that the Android emulator – but that could just be me.</li>
+	<li>The MVVM pattern.  I know the theory, and am now learning the more practical side of it.  Was worried that WP7 was going to decent into the path of darkness and pain that was/is Web Forms.</li>
+	<li>I think that the debugger integrates better with the WP7 emulator.  Not that, generally speaking, I spend a lot of time in the debugger, but when you need it, it does seem to be more natural to me.  Again, this could just be because by day I do a lot of C# development so I’m more used to the Microsoft tooling to begin with.</li>
+</ul>
+Some things I didn’t like about WP7 development:
+<ul>
+	<li>You have to have Vista or Windows 7.  Yes, I know, XP is almost 10 years old, time to move on.  Call me an O/S curmudgeon.  I don’t mind Windows 7, but Vista sucks/sucked.</li>
+	<li>It seems like to build your apps, you have to use Visual Studio 2010.  Not a problem for a developer, but I’m old school when it comes to compiling applications, and your build server shouldn’t be tainted by your IDE.</li>
+	<li>I’m use to the relatively easy going Google marketplace and the fact I have numerous avenues available to me to distribute Android applications.  No such joy with WP7 apps.</li>
+	<li>Editing XAML by hand.  But, I suppose it’s no worse that the XML resource files that Android uses.</li>
+	<li>Not seeing a lot of projects whose code I can read.  Granted it’s still early, so hopefully that will change.  Or not.  .NET doesn’t seem to have the same OSS community spirit that Java does.</li>
+</ul>
+Microsoft has always tried to be pretty good to developers (sometimes to their own detriment), but I think Windows Phone 7 does have some things going for it, from a developer’s point of view anyway.  Here’s to hoping that strategy pays off – that cool apps will get written for WP7, and that it will be commercially viable.  Competition is good – it will keep Apple and Google on their toes.  <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://www.opgenorth.net/wp-content/uploads/2010/11/wlEmoticon-smile.png" alt="Smile" />
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/yeg-open-data-the-2010-edmonton-municipal-election-and-android/" rel="bookmark">
+			YEG Open Data, the 2010 Edmonton Municipal Election, and Android
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2010-10-15T00:00:00Z">2010-10-15</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p><em>(Or, things to do when you have a sick kid)</em></p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; margin-left: 0px; border-left-width: 0px; margin-right: 0px" title="election" border="0" alt="election" align="right" src="http://www.opgenorth.net/wp-content/uploads/2010/10/election.jpg" width="126" height="162" /></p>  <p>One of the new <a href="http://data.edmonton.ca/">data catalogues</a> that the City of Edmonton has put up is the <a href="http://data.edmonton.ca/DataBrowser/coe/Election2010Results#param=NOFILTER--DataView--Results">2010 Election Results</a>.&#160; This Thanksgiving Long Weekend I was kind of “grounded” at home when my son came down with a nasty inner ear infection.&#160; I was hanging out with him, and thought I could use the time to see how hard it would be and how quickly I could put together an Android application that would poll these results and show leading candidate in each contest for a given ward.&#160; Turns out it was not that hard at all.&#160; Development time was less than one day, and then I had the application running on my phone for a couple of days.</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/yeg-open-data-the-2010-edmonton-municipal-election-and-android/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/monster/" rel="bookmark">
+			Monster
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2010-09-13T00:00:00Z">2010-09-13</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Personal/" rel="category">Personal</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>Life has been a bit busy as of late.&#160; On Sept 4, 2010 a little monster invaded my house.&#160; A savage beast, suitably evolved for our Canadian winters and a fearless hunter of snow-snakes.&#160; Oh, that, and it turns out that she is a distant cousin to my last dog Bailey.&#160; This is my new puppy Casey, who is just shy of 9 weeks old.</p>  <p><a href="http://www.opgenorth.net/wp-content/uploads/2010/09/P9050049.jpg"><img style="border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px" title="P9050049" border="0" alt="P9050049" src="http://www.opgenorth.net/wp-content/uploads/2010/09/P9050049_thumb.jpg" width="436" height="328" /></a></p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/new-version-of-yeg-buildings-up/" rel="bookmark">
+			New Version of YEG Buildings up
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2010-08-28T00:00:00Z">2010-08-28</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>Last night I pushed a new build of <a href="http://www.androidzoom.com/android_applications/reference/yeg-buildings_icyx.html">YEG Buildings</a> out to the Android Market. The two changes with this one:</p>  <ul>   <li>Rather than showing the latitude/longitude of were you are, the application will try to translate that into a more human-friendly address.&#160; Note that the address might not be 100% accurate.&#160; It depends on how much accuracy the GPS has.</li>    <li>The application no longer uses Google Maps and a KML feed when show where all the historical buildings in Edmonton are.&#160; The map of Edmonton is now rendered locally, and all </li> </ul>  <p>Just for fun, I also <a href="http://contest.apps4edmonton.ca/apps/21">submitted YEG Buildings</a> as part of the <a href="http://contest.apps4edmonton.ca/">Apps4Edmonton contest</a>.&#160; So, feel free to check out the contest page – there are a lot of neat applications there.&#160; Also feel free to vote mine up.&#160; :)</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/new-version-of-yeg-buildings-up/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/new-version-of-yeg-buildings-formerly-historical-buildings/" rel="bookmark">
+			New Version of YEG Buildings (formerly Historical Buildings)
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2010-08-26T00:00:00Z">2010-08-26</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>After a few months of neglect, I put a new version of my Edmonton Historical Buildings application up on the Android Market.&#160; I’ve renamed it to just <a href="http://www.androidzoom.com/android_applications/reference/yeg-buildings_icyx.html">YEG Buildings</a>, as I’d like to eventually include buildings that aren’t historical, but interesting in general for some reason.&#160; The previous version had a nasty bug that would crash when you tried to view the location of a building on the map.&#160; Was one of those curious things where it worked in the emulator but not on a real device.&#160; I’ve tried it out on my HTC Dream running <a href="http://www.cyanogenmod.com/">Cyanogen 6.0 RC3</a> (this is Android 2.2), and it seemed to work.&#160; </p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/new-version-of-yeg-buildings-formerly-historical-buildings/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/using-intellij-for-android-development-the-sequel/" rel="bookmark">
+			Using IntelliJ for Android Development â the Sequel
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2010-08-24T00:00:00Z">2010-08-24</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>A while ago, I posted a blog article about <a href="http://www.opgenorth.net/2009/06/19/using-intellij-for-android-development-2/">using IntelliJ for Android development</a>.&#160; Given that was a year ago, and one version of IntelliJ later, I thought I would do a follow up post.&#160; Long story short (and to sound like a TV commercial):&#160; I liked IntelliJ IDEA 9 so much, I bought a license.</p>  <p>Since I blogged last year, the Android plug-in for IntelliJ has really matured.&#160; I guess the only draw back to it is that you only get the Android plug-in when you buy the Unlimited Edition of IntelliJ – it’s not in the Community Edition.&#160; Here are some general comments/thoughts/observations of mine:</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/using-intellij-for-android-development-the-sequel/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/javascript-ides/" rel="bookmark">
+			Javascript IDE&#39;s
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2010-08-10T00:00:00Z">2010-08-10</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>Lately I’ve found myself doing a lot more web application development in JavaScript.&#160; Typically, I always seem to fall back on plain old Notepad++ or Visual Studio.&#160; As a developer, the user experience in either is, IMHO, somewhat lacking. </p>  <p>However, for the past week, I’ve been using <a href="http://www.jetbrains.com/ruby/index.html">RubyMine</a>.&#160; <a href="http://www.jetbrains.com/ruby/index.html">RubyMine</a> is a Ruby on Rails IDE from <a href="http://www.jetbrains.com">Jetbrains</a>, but it seems to work rather well for editing JavaScript and HTML files.&#160; Plus, as an added bonus, it automatically comes with built in support for <a href="http://www.jquery.com">jQuery</a>.</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/javascript-ides/">Read more…</a>
+	</div>
+</article>
+</main>
+
+<div class="pagination">
+	<a class="pagination__item pagination__item--prev btn" href="/page/2/">«</a>
+	<span class="pagination__item pagination__item--current">3/11</span>
+	<a class="pagination__item pagination__item--next btn" href="/page/4/">»</a>
+</div>
+
+</body>
+</html>

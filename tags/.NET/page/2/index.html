@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><title>opgenorth.net</title></head>
+<body>
+
+<main class="main list" role="main">
+	<header class="main__header">
+		<h1 class="main__title">.NET</h1>
+	</header><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/common-sevice-locator/" rel="bookmark">
+			Common Sevice Locator
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2009-01-26T00:00:00Z">2009-01-26</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		One of the nice things about <a href="http://martinfowler.com/articles/injection.html">Dependency Injection</a> is that it can really help write a more flexible, modular application.  These days, it seems that there is no shortage of choice in the .NET community when it comes to IoC frameworks:
+<ul>
+	<li><a href="http://structuremap.sourceforge.net">StructureMap</a></li>
+	<li><a href="http://www.castleproject.org/container/index.html">Castle Windsor</a></li>
+	<li><a href="http://www.ninject.org">Ninject</a></li>
+	<li><a href="http://code.google.com/p/autofac/">Autofac</a></li>
+	<li><a href="http://www.codeplex.com/unity">Unity</a></li>
+	<li><a href="http://www.springframework.net/">Spring.NET</a></li>
+	<li>And probably others that I'm missing.</li>
+</ul>
+Ironically, when you first start using an IoC framework, you might find that in trying to make a loosely-coupled, modular, application you end up shackling yourself to the framework you're using for IoC.
+
+For example, you start off using your own homegrown IoC framework, and then decide at some point in the future to use a different framework, like say StructureMap.  Going through your codebase to make these changes can be quite the exercise in pain.
+
+There are a couple of ways to isolate yourself from this kind of situation.  I won't get into all of them but instead will focus on the <a href="http://www.codeplex.com/CommonServiceLocator">Common Service Locator</a>. What is Common Service Locator?  Well, allow me to cut and paste some text from the web site:
+
+"<em>The Common Service Locator library contains a shared interface for service location which application and framework developers can reference. The library provides an abstraction over IoC containers and service locators. Using the library allows an application to indirectly access the capabilities without relying on hard references. The hope is that using this library, third-party applications and frameworks can begin to leverage IoC/Service Location without tying themselves down to a specific implementation.</em>"
+
+Blah blah blah - so what does all that mean?  Well, in my own words, CSL is basically a wrapper around your IoC container which separates how you  initialize/configure your IoC container from how you use it.  This separation allows you to use your IoC container without knowing anything about it.
+
+This separation is achieved by use of adapters for the particular IoC container that you want to use.  These adapters are what do the dirty work of finding the service you need, in their own special way and totally transparent from your application code.  Currently, the Common Service Locator has adapters for <a href="http://www.codeplex.com/CommonServiceLocator/Wiki/View.aspx?title=StructureMap%20Adapter&amp;referringTitle=Home">StructureMap</a>, <a href="http://www.codeplex.com/CommonServiceLocator/Wiki/View.aspx?title=Castle%20Windsor%20Adapter&amp;referringTitle=Home">Castle Windows</a>, <a href="http://www.codeplex.com/CommonServiceLocator/Wiki/View.aspx?title=Unity%20Adapter&amp;referringTitle=Home">Unity</a>, <a href="http://www.codeplex.com/CommonServiceLocator/Wiki/View.aspx?title=Spring%20.NET%20Adapter&amp;referringTitle=Home">Spring.NET</a>, and <a href="http://www.codeplex.com/CommonServiceLocator/Wiki/View.aspx?title=Autofac%20Adapter&amp;referringTitle=Home">autofac</a>.
+
+Now, allow me an example of using the Common Service Locator with StructureMap. There is no special reason as to why StructureMap - it just happens to be what I find myself using these days.
+
+Now, say I use the the following <a href="http://structuremap.sourceforge.net/RegistryDSL.htm">registry</a> to configure StructureMap:
+<pre>   1: public class DefaultStructureMapRegistry: Registry</pre>
+<pre>   2: {</pre>
+<pre>   3:     public DefaultStructureMapRegistry()</pre>
+<pre>   4:     {</pre>
+<pre>   5:         ForRequestedType&lt;IDb4oConfiguration&gt;()</pre>
+<pre>   6:             .TheDefaultIsConcreteType&lt;SimpleDb4oConfiguration&gt;();</pre>
+<pre>   7:     }</pre>
+<pre>   8: }</pre>
+In a nutshell this says that every time StructureMap is asked to provided an object of type IDb4oConfiguration, it should instantiate a SimpleDb4oConfiguration object and return that.  So, to get an instance of IDb4oConfiguration with StructureMap, I would do something like this:
+<pre>   1: var db4oConfig = ObjectFactory.GetInstance&lt;IDb4oConfiguration&gt;();</pre>
+Pretty simple, but it does kind of tightly couples me to StructureMap.  If I need/feel like/am forced at gunpoint to change my IoC container to something that is Not StructureMap, you can bet that there will be much wailing and gnashing of teeth on my part as I hunt through my code to make these changes.
+
+Now enter the Common Service Locator.  First, let's take a peek at some interfaces for CSL.  First an interface:
+<pre>   1: namespace Microsoft.Practices.ServiceLocation</pre>
+<pre>   2: {</pre>
+<pre>   3:     public interface IServiceLocator : IServiceProvider</pre>
+<pre>   4:     {</pre>
+<pre>   5:         object GetInstance(Type serviceType);</pre>
+<pre>   6:         object GetInstance(Type serviceType, string key);</pre>
+<pre>   7:         IEnumerable&lt;object&gt; GetAllInstances(Type serviceType);</pre>
+<pre>   8:         TService GetInstance&lt;TService&gt;();</pre>
+<pre>   9:         TService GetInstance&lt;TService&gt;(string key);</pre>
+<pre>  10:         IEnumerable&lt;TService&gt; GetAllInstances&lt;TService&gt;();</pre>
+<pre>  11:     }</pre>
+<pre>  12: }</pre>
+The IServiceLocator is an interface that your application will use when it requests something from your IoC container.
+
+Another thing that CSL provides is a static class that your application would use to use a current IServiceLocator to request services.  That static class looks something like:
+<pre>   1: namespace Microsoft.Practices.ServiceLocation</pre>
+<pre>   2: {</pre>
+<pre>   3:     public static class ServiceLocator</pre>
+<pre>   4:     {</pre>
+<pre>   5:         public static IServiceLocator Current { get; }</pre>
+<pre>   6:         public static void SetLocatorProvider(ServiceLocatorProvider newProvider) {};</pre>
+<pre>   7:     }</pre>
+<pre>   8: }</pre>
+So, now lets see how we would request the default implementation of the IDb4oConfiguration service using CSL.  First, we would initialize CSL:
+<pre>   1: var registry = new DefaultStructureMapRegistry();</pre>
+<pre>   2: var container = new global::StructureMap.Container(registry);</pre>
+<pre>   3: var smServiceLocator = new StructureMapServiceLocator(container);</pre>
+<pre>   4: ServiceLocator.SetLocatorProvider(() =&gt; smServiceLocator );</pre>
+What is going on here? Allow me to provide a quick line by line explanation:
+
+Line 1 we instantiate a new StructureMap registry.  We then feed that registry to a StructureMap container in line 2.  With line 3, we see that StructureMap container is then fed to the StructureMapServiceLocator, which is the SM adapter for the Common Service Locator.  Finally, with line 4 we provide a lambda that CSL will use to fulfill future requests for services.
+
+Now when our application wants to get an instance of IDb4oConfiguration it just politely asks CSL:
+<pre>   1: var db4oConfig = ServiceLocator.Current.GetService&lt;IDb4oConfiguration&gt;();</pre>
+Pretty simple and clean, <a href="http://en.wikipedia.org/wiki/Eh#Canada">eh</a>?  Now, when radical group the <em>Foundation for Unity as the Dominate IoC Container</em> sneaks into your cube and forces you at the point of a nerf gun to switch to Unity, you can do so with minimal disruption to your application. With a properly layered application, it would be as simple as coding a new UnityConfiguration layer and then using that instead of your StructureMapConfiguration layer on application startup.
+
+Now, granted this is pretty trivialized example.  There are other ways to solve this problem, but CSL does seem to take are of the grunt work for you so that you can just get going with things.
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/off-to-austin/" rel="bookmark">
+			Off to Austin
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2008-10-28T00:00:00Z">2008-10-28</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		Well, in a scant few hours I'll be off to Austin, Texas, for <a href="http://www.KaizenConf.com">KaizenConf</a>.  It will be a fun packed couple of day dealing with some very <a href="http://codebetter.com/blogs/david_laribee/archive/2008/10/27/kaizenconf-workshops-schedule.aspx">interesting topics</a>.  In all honestly, I don't exactly know which of the topics I want to attend - the pretty much all are of interest to me.  Makes me wish I could clone myself.
+
+My plane lands early afternoon, so if you're kicking around Austin and want to entertain an easily amused Canuck, give me a holler (comments here, or on twitter).
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/typemock-testdriven-net-and-red-tests-2/" rel="bookmark">
+			TypeMock, TestDriven.NET, and Red Tests
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2008-10-18T00:00:00Z">2008-10-18</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>Lately I've been experimenting with <a href="http://www.typemock.com/">TypeMock Isolator</a>,&#160; and it's new AAA syntax.&#160; For the past two years I've been a diehard Rhino.Mocks kind of guy, but figured that it's time to check out other tools.&#160; Anyway, I had a situation where a unit test of mine was failing when I ran it with <a href="http://www.testdriven.net/">TestDriven.NET</a>, but would pass when I ran it using the unit test runner in <a href="http://www.jetbrains.com/resharper">Resharper 4.1</a>.</p>  <p>Usually when I develop, I write individual tests and then run individually with TestDriven.NET and collectively with Resharper.&#160; In this case, as I was writing one unit test, it kept failing with TestDriven.NET.&#160; At first I thought it was just me being stupid (always a good place to start), and then I was worried that perhaps the documentation for TypeMock was to blame.&#160; So, I sent a email to Avi at TypeMock, mostly expecting confirmation of my stupidity. </p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/typemock-testdriven-net-and-red-tests-2/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/typemock-testdriven-net-and-red-tests/" rel="bookmark">
+			TypeMock, TestDriven.NET, and Red Tests
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2008-10-18T00:00:00Z">2008-10-18</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>Lately I've been experimenting with <a href="http://www.typemock.com/">TypeMock Isolator</a>,&#160; and it's new AAA syntax.&#160; For the past two years I've been a diehard Rhino.Mocks kind of guy, but figured that it's time to check out other tools.&#160; Anyway, I had a situation where a unit test of mine was failing when I ran it with <a href="http://www.testdriven.net/">TestDriven.NET</a>, but would pass when I ran it using the unit test runner in <a href="http://www.jetbrains.com/resharper">Resharper 4.1</a>.</p>  <p>Usually when I develop, I write individual tests and then run individually with TestDriven.NET and collectively with Resharper.&#160; In this case, as I was writing one unit test, it kept failing with TestDriven.NET.&#160; At first I thought it was just me being stupid (always a good place to start), and then I was worried that perhaps the documentation for TypeMock was to blame.&#160; So, I sent a email to Avi at TypeMock, mostly expecting confirmation of my stupidity.</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/typemock-testdriven-net-and-red-tests/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/whats-in-a-name/" rel="bookmark">
+			Whatâs In A Name?
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2008-08-26T00:00:00Z">2008-08-26</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>As I was driving home today, I couldn't help notice something.&#160; Microsoft's ASP.NET MVC framework is still in beta, and was only announced last October.&#160; To my knowledge, there are currently three projects in the <a href="http://maps.google.ca/maps?q=Edmonton,+Alberta&amp;ie=UTF8&amp;oe=utf-8&amp;client=firefox-a&amp;ll=53.540307,-113.510742&amp;spn=18.606218,57.128906&amp;z=5&amp;iwloc=addr">Edmonton</a> area based off this framework.</p>  <p>Castle Monorail has been around for much longer, three years or so?&#160; It's still listed as a release candidate on it's website, but I'd say Monorail is suitable for production.&#160; Currently, I am not aware of any projects in the Edmonton that are based off this framework.</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/whats-in-a-name/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/squawking-about-the-manning-early-access-program/" rel="bookmark">
+			Squawking About The Manning Early Access Program
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2008-08-23T00:00:00Z">2008-08-23</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p><em>Note:&#160; I originally wrote this post on August 23, 2008.&#160; As things change with the book NHibernate in Action, I will be updating this post and resetting the date.&#160; </em></p>  <p>I'd like to take a break from boring you two readers of my blog about my experience with Linux and VMware, and take a moment to annoy you with a rant.&#160; Diversity is the spice of life after all.</p>  <p>This little remonstration of mine is about the <a href="http://www.manning.com/about/meap.html">Manning Early Access Program</a> (MEAP).&#160; Well, specifically just&#160; <a href="http://www.manning.com/kuate/">one book</a>.&#160; I've got my eye on a couple of other books available with MEAP to see how they pan out before considering the whole &quot;early access&quot; useless.&#160; Anyway...</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/squawking-about-the-manning-early-access-program/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/how-much-tdd-is-enough/" rel="bookmark">
+			How Much TDD is Enough?
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2008-08-06T00:00:00Z">2008-08-06</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>At the last <a href="http://groups.google.com/group/eamug">Edmonton Agile Methods User Group</a> meeting, we had a brief discussion around <a href="http://en.wikipedia.org/wiki/Code_coverage">code coverage</a>, and what should be an acceptable number to shoot for.&#160; Is it okay when the unit tests cover 80% of the code?&#160; Or should 100% be the only acceptable value?&#160; After all, how can you be confident in your code knowing that 20% of it isn't tested.</p>  <p>Allow me to go out on a limb here, and state with absolute certainty that the correct answer is &quot;It depends on your situation&quot;.&#160; Allow me to elaborate.</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/how-much-tdd-is-enough/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/rod-paddock-at-edmug/" rel="bookmark">
+			Rod Paddock at EDMUG
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2008-06-27T00:00:00Z">2008-06-27</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>Last night (Thursday, June 26th) <a href="http://blog.dashpoint.com/">Rod Paddock</a> gave a talk on using <a href="http://www.silverlight.net">Silverlight</a> 2.0 to the Edmonton .NET User Group.&#160; I'd say that Rod did a pretty good job, despite the fact that the beta of both <a href="http://www.silverlight.net">Silverlight</a> and Expression Blend didn't exactly want to play nice all the time.&#160; It's definitely perked my interest in the technology, and I can see a lot of business potential for it. </p>  <p>The rich user experience that <a href="http://www.silverlight.net">Silverlight</a> brings to the web-browser, will, I think raise the bar for what web applications will do for businesses.&#160; Forget all the buzz about ASP.NET MVC or MonoRail or ASP.NET 3.5.&#160; This is just another layer of makeup on the tired, old, hooker that is application development in .NET.&#160; <a href="http://www.silverlight.net">Silverlight</a> is what will make business users oh and ah and get excited about web apps again.</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/rod-paddock-at-edmug/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/asp-net-web-services-and-jqueryajax/" rel="bookmark">
+			ASP.NET Web Services and jQuery/AJAX
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2008-05-22T00:00:00Z">2008-05-22</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>As far as web developer's go, I'll freely admit that my Javascript is not one of my strong points.&#160; I don't have a real good reason for this, it's just that over the past few years I haven't had much call/need to polish and hone my Javascript skills.&#160; Recently I discovered <a href="http://www.jquery.com">jQuery</a>, and I must say that I wish I had know about this library earlier.&#160; The more I use <a href="http://www.jquery.com">jQuery</a>, the more I like it.&#160; The simple things are simple, and the hard things are possible.&#160; Take calling a simple webservice when the user clicks a button on a form.</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/asp-net-web-services-and-jqueryajax/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/on-the-functional-apex-of-mainstream-build-tools-in-net/" rel="bookmark">
+			On the Functional Apex of Mainstream Build Tools in .NET
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2008-05-01T00:00:00Z">2008-05-01</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		Wordy title.  To wordy.  Kind of like build files these days.
+
+I remember when I first discovered Ant, and then <a href="http://nant.sourceforge.net">Nant</a>* .  I was pretty happy, as it allow a decent way to compile my Java (and C#) without using make files.  Life was good as I could finally introduce some structure into HOW code was compiled.  The build process was no longer using whatever "build" command the IDE exposed, hoping that I didn't forget a compiler directive or a file or a reference to some other library along the way.  Other programmers could also compile the code with out fear as well.  Having a tool like Nant is pretty crucial to the whole concept of continuous integration.
+
+Somewhere along the way, though, Nant lost it's shine.  It isn't to hard to find these monster Nant scripts with all kinds of crazy things happening inside them.  Trying to work with these files can be a bit of a burden, to say the least.
+
+This takes me back to the title:  it seems to me that build tools like Nant have kind of peaked, functionally speaking.  What does that mean?  We can always add more tasks (created in a real programming language) to do things for us, but in a lot of ways Nant is constrained by the fact that it is just XML.  We can always add tasks to Nant, but somethings just can't be handled by out of the box, one size fits all tasks from Nant (or <a href="http://nantcontrib.sourceforge.net">NantContrib</a>).  As soon as you run into those things, you need to start writing code.  XML is good for config files (to a point).  It's bad for programming logic.  It is not at all uncommon to see in build files if statements doing all kinds of things.  We don't need to (and should not) make XML into another programming language. 
+
+I spent a bit of time tonight playing with <a href="http://code.google.com/p/boo-build-system/">Bake</a>.  For those who don't know, <a href="http://code.google.com/p/boo-build-system/">Bake</a> is to <a href="http://boo.codehaus.org">boo</a> what <a href="http://rake.rubyforge.org">Rake</a> is to <a href="http://www.ruby-lang.org">ruby</a>.  Or, in other terms, think of a build system that is actually based on a programming language, and not a configuration file.  Why did I pick Bake?  Well, it's boo, and I want to learn boo.  Boo is .NET, so I can leverage what I already know.  Plus, I'm reading <a href="http://www.ayende.com">Ayende'</a>s book <a href="http://www.manning.com/rahien/">Building Domain Specific Languages in Boo</a>, so Bake just seems to be a natural fit.
+
+So far, I'm liking it.  In the span of a couple hours, I managed to figure out how to create a quick bake script (~ 40 lines of boo) to compile some code.  I'd say that this script more readable (or soluble, to use the words of Scott Bellware) when compared to a Nant script.  Being pretty new, Bake doesn't have as many tasks as Nant.  However, it does seem pretty easy to create tasks for Bake.  Plus, I have all the expressiveness of a programming language available to me now
+
+I did have one glitch that is worth mentioning:  the task to compile my code was using the <a href="http://code.google.com/p/boo-build-system/issues/detail?id=3">CSC.EXE from .NET 2.0</a>.  This is a problem when you're working with a .NET 3.5 codebase.  But, no fear, I hacked out a quick fix inside of about 15 minutes, and all is well again.
+
+I imagine that someone soon will blog about using Rake to build your .NET projects.  I eagerly await such a post.  In the meantime, I'm going to continue on with Bake, and see if it will meet my needs.
+
+* <em>NOTE:  I lump MSBuild in with NAnt as MSBuild, IMHO, is a clone of NAnt</em><em>.</em>
+	</div>
+</article>
+</main>
+
+<div class="pagination">
+	<a class="pagination__item pagination__item--prev btn" href="/tags/.NET/">«</a>
+	<span class="pagination__item pagination__item--current">2/5</span>
+	<a class="pagination__item pagination__item--next btn" href="/tags/.NET/page/3/">»</a>
+</div>
+
+</body>
+</html>

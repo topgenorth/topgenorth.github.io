@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><title>opgenorth.net</title></head>
+<body>
+
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Animate a ListView deletion in Xamarin.Android</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2013-09-26T00:00:00Z">2013-09-26</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+		</header>
+		<div class="content post__content clearfix">
+			<p>A visually pleasant effect when deleting items from a ListView is to animate the row being deleted by gradually change the <code>.Alpha</code> value of the view from 1.0 to 0.0. If you&rsquo;ve tried to animate the deletion of a row from a <a href="http://developer.android.com/reference/android/widget/ListView.html">ListView</a> in a Xamarin.Android application, you may observe some curious behaviour when rapidly scrolling through a ListView with many rows: the animation may appear on rows other than then one that is being deleted.</p>
+<p>This happens because the ListView will recycle views for each row - the content changes but not the view itself. The side-effect of this is that the animation is transferred along with the recycled view. What is necessary is to convince the ListView not to recycle the view in while the animation is still in progress. There are two ways to handle this in Xamarin.Android when you&rsquo;re targeting Android 4.2 (API level 16) or higher:</p>
+<ul>
+<li>Use a <a href="http://developer.android.com/reference/android/view/ViewPropertyAnimator.html">ViewPropertyAnimator.</a></li>
+<li>Use a <a href="http://developer.android.com/reference/android/animation/ValueAnimator.html">ValueAnimator</a>.</li>
+</ul>
+<p>The ViewPropertyAnimator is, argueable the least amount of code. Take a look at the following event handler for the <code>ListView.ItemClick</code> event:</p>
+<pre tabindex="0"><code>private void HandleItemClick(object sender, AdapterView.ItemClickEventArgs e)
+{
+
+	e.View.Animate()
+		.SetDuration(1000)
+		.Alpha(0)
+    	.WithEndAction(new Runnable(() =&gt;{
+                _adapter.Remove(e.Id);
+                e.View.Alpha = 1f;
+        }));
+}
+</code></pre><p>This code is deceptively simple - animate the value of <code>e.View.Alpha</code> from 1.0 to 0.0 over the duration of one section. The <code>WithEndAction</code> is a helper method that was introduced in API 16. that specifies some action to be performed when the animation is complete. The ListView will not recycle the view while the ViewPropertyAnimator is active.</p>
+<p>The other technique involves using a ValueAnimator, as shown in this alternate <code>ListView.ItemClick</code>:</p>
+<pre tabindex="0"><code>private void HandleItemClick(object sender, AdapterView.ItemClickEventArgs e)
+{
+	View view = e.View;
+	view.HasTransientState = true; 
+
+	ValueAnimator animator = ValueAnimator.OfFloat(new[] { 1f, 0f });
+	animator.SetDuration(1000);
+	animator.Update += (o, animatorUpdateEventArgs) =&gt;{
+	    view.Alpha = (float)animatorUpdateEventArgs.Animation.AnimatedValue;
+	};
+
+	animator.AnimationEnd += delegate{
+	    _adapter.Remove(e.Id);
+	    view.Alpha = 1f;
+	};
+	animator.Start();
+
+}
+</code></pre><p>This code is a fairly straight forward <a href="http://developer.android.com/reference/android/animation/ValueAnimator.html">ValueAnimator</a>. What prevents the ListView from trying to recycle the view is <code>view.HasTransientState = true;</code>. The property [HasTransientState](<a href="http://developer.android.com/reference/android/support/v4/view/ViewCompat.html#setHasTransientState(android.view.View">http://developer.android.com/reference/android/support/v4/view/ViewCompat.html#setHasTransientState(android.view.View</a>, boolean)) was introduced in JellyBean, and tells the framework that the view is tracking some transient state (i.e. the animation) and needs to be preserved.</p>
+<p>I&rsquo;ve put up a <a href="https://github.com/topgenorth/animate-listview-delete">sample project on GitHub</a> to show this in action.</p>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/Xamarin/" rel="tag">Xamarin</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/android/" rel="tag">android</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/C/" rel="tag">C#</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/post/sublime-text-2-and-arduino/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">Sublime Text 2 and Arduino</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/post/measuring-distance-with-arduino/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">Measuring Distance with Arduino</p>
+		</a>
+	</div>
+</nav>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><title>opgenorth.net</title></head>
+<body>
+
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">PreferenceFragment.getPreferencesFromIntent</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2012-05-09T00:00:00Z">2012-05-09</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+		</header>
+		<div class="content post__content clearfix">
+			<p>One of the new classes that Honeycomb introduced was the <a href="http://developer.android.com/reference/android/preference/PreferenceFragment.html">PreferenceFragment</a>. This class is meant to simplify the creatation of a setting / preferences screen in Android applications. It handles a lot of the displaying, saving, and changing of an application&rsquo;s settings. There are a couple of ways to create a <code>PreferenceFragment</code>. The simplest way is to subclass, override <code>onCreate()</code> and then use either <code>getPreferencesFromResource</code> or <code>getPreferencesFromIntent</code>.</p>
+<p>There are many examples on how to use <code>getPreferencesFromResource</code>, but I noticed that there aren&rsquo;t that many on how to use <code>getPreferencesFromIntent</code>. Here is one such quick example.</p>
+<p>The first thing to do is to create your <code>PreferenceFragment</code> and provide it with an Intent that identifies an Activity. This Activity will have some meta-data associated with it that the <code>PreferenceFragment</code> will use to create it&rsquo;s layout (more on this later)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyPreferenceFragment</span> <span style="color:#66d9ef">extends</span> PreferenceFragment  {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onCreate</span>(Bundle savedInstanceState) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.<span style="color:#a6e22e">onCreate</span>(savedInstanceState); 
+</span></span><span style="display:flex;"><span>        Intent intent <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Intent(getActivity(), MyActivityWithPreferences.<span style="color:#a6e22e">class</span> );
+</span></span><span style="display:flex;"><span>        addPreferencesFromIntent(intent);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The next step is to create the Activity <code>MyActivityWithPreferences</code> (if you don&rsquo;t already have it). The code inside the Activity doesn&rsquo;t matter so much - what is important is how the Activity is declared in <code>AndroidManifest.xml</code>.  I provide <code>AndroidManifest.xml</code> here:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;manifest</span> <span style="color:#a6e22e">xmlns:android=</span><span style="color:#e6db74">&#34;http://schemas.android.com/apk/res/android&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">package=</span><span style="color:#e6db74">&#34;com.example&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">android:versionCode=</span><span style="color:#e6db74">&#34;1&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">android:versionName=</span><span style="color:#e6db74">&#34;1.0&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;uses-sdk</span> <span style="color:#a6e22e">android:minSdkVersion=</span><span style="color:#e6db74">&#34;15&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;application</span> <span style="color:#a6e22e">android:label=</span><span style="color:#e6db74">&#34;@string/app_name&#34;</span> <span style="color:#a6e22e">android:icon=</span><span style="color:#e6db74">&#34;@drawable/ic_launcher&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;activity</span> <span style="color:#a6e22e">android:name=</span><span style="color:#e6db74">&#34;MyActivity&#34;</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#a6e22e">android:label=</span><span style="color:#e6db74">&#34;@string/app_name&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;intent-filter&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&lt;action</span> <span style="color:#a6e22e">android:name=</span><span style="color:#e6db74">&#34;android.intent.action.MAIN&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&lt;category</span> <span style="color:#a6e22e">android:name=</span><span style="color:#e6db74">&#34;android.intent.category.LAUNCHER&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;/intent-filter&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/activity&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;activity</span> <span style="color:#a6e22e">android:name=</span><span style="color:#e6db74">&#34;.MyActivityWithPreferences&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;meta-data</span> <span style="color:#a6e22e">android:name=</span><span style="color:#e6db74">&#34;android.preference&#34;</span> <span style="color:#a6e22e">android:resource=</span><span style="color:#e6db74">&#34;@xml/preference_from_intent&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/activity&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/application&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/manifest&gt;</span>
+</span></span></code></pre></div><p>Notice on line 16 the <code>meta-data</code> element that was added as a child of the <code>activity</code> element. <code>PreferenceFragment</code> will use the resource file <code>res/xml/preference_from_intent.xml</code> and inflate a preference heirarchy using that XML file. Here is an example one such XML file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;PreferenceScreen</span> <span style="color:#a6e22e">xmlns:android=</span><span style="color:#e6db74">&#34;http://schemas.android.com/apk/res/android&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;PreferenceCategory</span> <span style="color:#a6e22e">android:title=</span><span style="color:#e6db74">&#34;Inline Preferences&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;CheckBoxPreference</span> <span style="color:#a6e22e">android:key=</span><span style="color:#e6db74">&#34;checkbox_preference&#34;</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#a6e22e">android:title=</span><span style="color:#e6db74">&#34;Checkbox Preference Title&#34;</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#a6e22e">android:summary=</span><span style="color:#e6db74">&#34;Checkbox Preference Summary&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/PreferenceCategory&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;PreferenceCategory</span> <span style="color:#a6e22e">android:title=</span><span style="color:#e6db74">&#34;Dialog Based Preferences&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;EditTextPreference</span> <span style="color:#a6e22e">android:key=</span><span style="color:#e6db74">&#34;edittext_preference&#34;</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#a6e22e">android:title=</span><span style="color:#e6db74">&#34;EditText Preference Title&#34;</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#a6e22e">android:summary=</span><span style="color:#e6db74">&#34;EditText Preference Summary&#34;</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#a6e22e">android:dialogTitle=</span><span style="color:#e6db74">&#34;Edit Text Preferrence Dialog Title&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/PreferenceCategory&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;PreferenceCategory</span> <span style="color:#a6e22e">android:title=</span><span style="color:#e6db74">&#34;Launch Preferences&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;PreferenceScreen</span> <span style="color:#a6e22e">android:key=</span><span style="color:#e6db74">&#34;screen_preference&#34;</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#a6e22e">android:title=</span><span style="color:#e6db74">&#34;Title Screen Preferences&#34;</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#a6e22e">android:summary=</span><span style="color:#e6db74">&#34;Summary Screen Preferences&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;CheckBoxPreference</span> <span style="color:#a6e22e">android:key=</span><span style="color:#e6db74">&#34;next_screen_checkbox_preference&#34;</span>
+</span></span><span style="display:flex;"><span>                          <span style="color:#a6e22e">android:title=</span><span style="color:#e6db74">&#34;Next Screen Toggle Preference Title&#34;</span>
+</span></span><span style="display:flex;"><span>                          <span style="color:#a6e22e">android:summary=</span><span style="color:#e6db74">&#34;Next Screen Toggle Preference Summary&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/PreferenceScreen&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;PreferenceScreen</span> <span style="color:#a6e22e">android:title=</span><span style="color:#e6db74">&#34;Intent Preference Title&#34;</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#a6e22e">android:summary=</span><span style="color:#e6db74">&#34;Intent Preference Summary&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;intent</span> <span style="color:#a6e22e">android:action=</span><span style="color:#e6db74">&#34;android.intent.action.VIEW&#34;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">android:data=</span><span style="color:#e6db74">&#34;http://www.android.com&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/PreferenceScreen&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/PreferenceCategory&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/PreferenceScreen&gt;</span>
+</span></span></code></pre></div>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/android/" rel="tag">android</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/archives/galaxy-nexus-an-update/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">Galaxy Nexus - an Update</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/archives/windows-8-64-bit-and-android-debug-bridge-where-is-my-galaxy-nexus/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">Windows 8 64-bit and Android Debug Bridge (Where is my Galaxy Nexus?)</p>
+		</a>
+	</div>
+</nav>
+
+
+
+
+
+</body>
+</html>

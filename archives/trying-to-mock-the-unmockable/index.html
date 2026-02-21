@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><title>opgenorth.net</title></head>
+<body>
+
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Trying to Mock the Unmockable</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2007-06-19T00:00:00Z">2007-06-19</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+		</header>
+		<div class="content post__content clearfix">
+			<p>(or, <em>DataRowView How I Hate Thee</em>)     <br />Recently I had to enhance an ASP.NET 2.0 <a href="http://msdn2.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.aspx">GridView</a> on a Web Form.&#160; Basically, the idea is that, if a certain field in the grid was false, I would strike-through all the text in that row.&#160; It seems simple enough: just use the <a href="http://msdn2.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rowdatabound.aspx">RowDataBound</a> event of the <a href="http://msdn2.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.aspx">GridView</a> control and&#160; apply the formating.&#160; Wanting to make this as testable as possible, I thought that perhaps some sort of decorator class would do the trick, something like: </p>  <pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">myGridView.RowDataBound += 
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">delegate</span>(<span style="color: #0000ff">object</span> sender, GridRowEventArgs rowEventArgs) 
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    { 
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        InventoryPartVendorGridRowDecorator gridRowDecorator = 
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            <span style="color: #0000ff">new</span> InventoryPartVendorGridRowDecorator(rowEventArgs.Row); 
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        gridRowDecorator.Decorate(); 
+</pre><pre style="background-color: #ffffff; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    }; </pre></pre>
+
+<p>Then, using the dynamic duo of <a href="http://www.nunit.org">NUnit</a> and <a href="http://www.ayende.com/projects/rhino-mocks.aspx">Rhino.Mocks</a>, I would be able to test my decorator class independent of my web application.&#160; I thought I could mock out the <a href="http://msdn2.microsoft.com/en-us/library/system.web.ui.webcontrols.gridviewrow.aspx">GridViewRow</a> and a <a href="http://msdn2.microsoft.com/en-us/library/system.data.datarowview.aspx">DataRowView</a>, and be on my merry way.&#160; Life would be good.&#160; And it would have been, until the wretched <a href="http://msdn2.microsoft.com/en-us/library/system.data.datarowview.aspx">DataRowView</a> entered into the picture. 
+
+  <br /><a href="http://msdn2.microsoft.com/en-us/library/system.data.datarowview.aspx">DataRowView</a> sits pretty high up on the inheritance tree, doesn't have any interfaces that are meaning full in this context, and it's constructors are internal.&#160; So, it proved to be pretty difficult to mock.&#160; <br />To explain what I did, I will first show you my unit test: </p>
+
+<pre style="border-bottom: #cecece 1px solid; border-left: #cecece 1px solid; padding-bottom: 5px; background-color: #fbfbfb; min-height: 40px; padding-left: 5px; width: 650px; padding-right: 5px; overflow: auto; border-top: #cecece 1px solid; border-right: #cecece 1px solid; padding-top: 5px"><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">[Test] 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">public</span> <span style="color: #0000ff">void</span> Decorate_InactiveVendor_TextDecorationLineThrough() 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">{ 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    MockRepository mockery = <span style="color: #0000ff">new</span> MockRepository(); 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    GridViewRow mockGridViewRow = mockery.CreateMock&lt;GridViewRow&gt;(1, 1, DataControlRowType.DataRow, DataControlRowState.Normal); 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    Hashtable dataRowViewDataItem = <span style="color: #0000ff">new</span> Hashtable(1); 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    dataRowViewDataItem.Add(&quot;<span style="color: #8b0000">Active</span>&quot;, <span style="color: #0000ff">false</span>); 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">using</span> (mockery.Record()) 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    { 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        Expect.Call(mockGridViewRow.RowType) 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            .Return(DataControlRowType.DataRow) 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            .Repeat.Once(); 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        Expect.Call(mockGridViewRow.DataItem) 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            .Return(dataRowViewDataItem) 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            .Repeat.Once(); 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        mockGridViewRow.Style 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            .Add(HtmlTextWriterStyle.TextDecoration, &quot;<span style="color: #8b0000">line-through</span>&quot;); 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    } 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">using</span> (mockery.Playback()) 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    { 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        InventoryPartVendorGridRowDecorator gridRowDecorator = 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">            <span style="color: #0000ff">new</span> InventoryPartVendorGridRowDecorator(mockGridViewRow); 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        gridRowDecorator.Decorate(); 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    } 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">} </pre></pre>
+
+<p>
+  <br />Notice what I did; I created a Hashtable and have my mockGridViewRow.DataItem return that.&#160; In otherwords, I'm not mocking DataRowView at all, I just cut it out of the picture.&#160; Then inside inside my InventoryPartVendorGridRowDecorator class I had to put this method: 
+
+  <br /></p>
+
+<pre style="border-bottom: #cecece 1px solid; border-left: #cecece 1px solid; padding-bottom: 5px; background-color: #fbfbfb; min-height: 40px; padding-left: 5px; width: 650px; padding-right: 5px; overflow: auto; border-top: #cecece 1px solid; border-right: #cecece 1px solid; padding-top: 5px"><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">private</span> <span style="color: #0000ff">bool</span> IsVendorActive() 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">{ 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">object</span> val; 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">object</span> dataItem = _row.DataItem; 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #008000">// HACK [TO070508@1149] Because we can't mock DataRowView, we do this. </span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">if</span> (dataItem <span style="color: #0000ff">is</span> DataRowView) 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    { 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        val = ((DataRowView) dataItem)[ActiveColumnName]; 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    } 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">else</span> <span style="color: #0000ff">if</span> (dataItem <span style="color: #0000ff">is</span> IDictionary) 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    { 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        val = ((IDictionary) dataItem)[ActiveColumnName]; 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    } 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">else</span> 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    { 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        val = <span style="color: #0000ff">null</span>; 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    } 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">if</span> (val == <span style="color: #0000ff">null</span>) 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    { 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">throw</span> <span style="color: #0000ff">new</span> NullReferenceException(&quot;<span style="color: #8b0000">Could not find the field 'Active'.</span>&quot;); 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    } 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">return</span> TypeHelper.ConvertToBoolean(val, <span style="color: #0000ff">true</span>); 
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">} </pre></pre>
+
+<p>
+  <br />As you can see, what I ended up doing was sticking in a little &quot;adapter&quot; into my decorator.&#160; Not pretty, but it works. </p>
+
+<p>What would others do in this situation?</p>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/.NET/" rel="tag">.NET</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/archives/not-so-deep-thoughts-on-stored-procedures/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">Not So Deep Thoughts on Stored Procedures</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/archives/handy-rhino-mocks-tip/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">Handy Rhino.Mocks Tip</p>
+		</a>
+	</div>
+</nav>
+
+
+
+
+
+</body>
+</html>

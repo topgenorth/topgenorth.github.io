@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><title>opgenorth.net</title></head>
+<body>
+
+<main class="main list" role="main">
+	<header class="main__header">
+		<h1 class="main__title">.NET</h1>
+	</header><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/tfs-2010-vs2010-database-projects-and-ci/" rel="bookmark">
+			TFS 2010, VS2010 Database Projects, and CI
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2010-11-29T00:00:00Z">2010-11-29</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>I’m currently working on a project where there are some functional tests that require a SQL Server database. Before in the past I’ve always handled this by using Redgate’s excellent SQL Server tools to create a monolithic script that would deploy the DB Schema, and then another set of scripts to set up the data.&#160; Then it’s pretty trivial to use OSQL.EXE to run the scripts and setup the database.</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/tfs-2010-vs2010-database-projects-and-ci/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/first-impressions-windows-phone-7-development/" rel="bookmark">
+			First Impressions: Windows Phone 7 Development
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2010-11-15T00:00:00Z">2010-11-15</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		I’ve spent a bit of my spare time in the past week looking at Windows Phone 7 from a developer’s point of view.  I’d have started sooner, but honestly, I didn’t see the point until there were actually devices that I could hold and use.  I know that in the U.S., some guys got developer phones from Microsoft, but I don’t think that anybody up here in Canada was that lucky.
+
+So, over the past year or so I’ve been dabbling with Android and I actually like programming for Android.  The biggest issues I’ve run into with Android are my lack of Java skills – I keep doing things the C# way (you really don’t realize how handy Linq is until you don’t have it) and the fact that Android doesn’t have a decent UI designer.  But otherwise, I like Android.
+
+So, I was curious what the developer experience was for WP7.  In a nutshell – it’s not bad, and in some ways better than that of Android.
+
+Things I like about WP7 development:
+<ul>
+	<li>Being a C# guy, it was pretty easy and fast for me to get going with WP7.  Of course, Novell now has <a href="http://www.monodroid.net">MonoDroid</a> which in theory should lessen the learning curve for a C# guy to create Android applications.</li>
+	<li>It’s nice to have good tooling to help with creating my UI’s.  Blend and Cider are pretty decent. Android does have <a href="http://droiddraw.org">DroidDraw</a>, but I’ve never really found that tool to be good to work with.  Eclipse has some sort of an GUI designer thingy, but again, I’ve found it to be kind of lack-lustre at best.  That, and I don’t use Eclipse – I prefer IntelliJ.</li>
+	<li>The Emulator seems to start up faster to me that the Android emulator – but that could just be me.</li>
+	<li>The MVVM pattern.  I know the theory, and am now learning the more practical side of it.  Was worried that WP7 was going to decent into the path of darkness and pain that was/is Web Forms.</li>
+	<li>I think that the debugger integrates better with the WP7 emulator.  Not that, generally speaking, I spend a lot of time in the debugger, but when you need it, it does seem to be more natural to me.  Again, this could just be because by day I do a lot of C# development so I’m more used to the Microsoft tooling to begin with.</li>
+</ul>
+Some things I didn’t like about WP7 development:
+<ul>
+	<li>You have to have Vista or Windows 7.  Yes, I know, XP is almost 10 years old, time to move on.  Call me an O/S curmudgeon.  I don’t mind Windows 7, but Vista sucks/sucked.</li>
+	<li>It seems like to build your apps, you have to use Visual Studio 2010.  Not a problem for a developer, but I’m old school when it comes to compiling applications, and your build server shouldn’t be tainted by your IDE.</li>
+	<li>I’m use to the relatively easy going Google marketplace and the fact I have numerous avenues available to me to distribute Android applications.  No such joy with WP7 apps.</li>
+	<li>Editing XAML by hand.  But, I suppose it’s no worse that the XML resource files that Android uses.</li>
+	<li>Not seeing a lot of projects whose code I can read.  Granted it’s still early, so hopefully that will change.  Or not.  .NET doesn’t seem to have the same OSS community spirit that Java does.</li>
+</ul>
+Microsoft has always tried to be pretty good to developers (sometimes to their own detriment), but I think Windows Phone 7 does have some things going for it, from a developer’s point of view anyway.  Here’s to hoping that strategy pays off – that cool apps will get written for WP7, and that it will be commercially viable.  Competition is good – it will keep Apple and Google on their toes.  <img class="wlEmoticon wlEmoticon-smile" style="border-style: none;" src="http://www.opgenorth.net/wp-content/uploads/2010/11/wlEmoticon-smile.png" alt="Smile" />
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/mvp-in-c-for-2010/" rel="bookmark">
+			MVP in C# For 2010
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2010-04-05T00:00:00Z">2010-04-05</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>I guess I forgot to mention this:&#160; On April 1, 2010, I received an e-mail from Microsoft that my <a href="https://mvp.support.microsoft.com/profile=31F1E181-79EC-4497-B792-FA8F83D34936">MVP in C#</a> was renewed for the third year.&#160; This makes me a happy, because with Resharper 5 (and therefore Visual Studio 2010) and Windows Mobile 7, I’m hoping that this will be an exciting year for the .NET crowd.&#160; </p>  <p>Well, okay, perhaps I didn’t forget.&#160; Given that it was April 1st when I got the e-mail, I like to give things a few days to settle down.&#160; I am acquainted with some mischievous pranksters who would think it was a funny April Fools joke.</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/mvp-in-c-for-2010/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/where-did-the-time-go/" rel="bookmark">
+			Where Did the Time Go?
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2010-01-28T00:00:00Z">2010-01-28</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p><a href="http://www.opgenorth.net/wp-content/uploads/2010/01/tumbleweed1.jpg"><img title="tumbleweed" style="border-right: 0px; border-top: 0px; display: inline; margin-left: 0px; border-left: 0px; margin-right: 0px; border-bottom: 0px" height="75" alt="tumbleweed" src="http://www.opgenorth.net/wp-content/uploads/2010/01/tumbleweed_thumb1.jpg" width="90" align="left" border="0" /></a>Yeah, I’ve been kind of quiet as of late.&#160; So quiet, I suspect that some people might be wondering if something happened.&#160; I was a bit surprised to see that the last time I had blogged was after TechDays in Calgary.&#160; Well, nothing significant has happened - just a bit of laziness augmented by a touch of tech-burnout compounded by the odd bit of single malt scotch.</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/where-did-the-time-go/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/techdays-2009-in-calgary-2/" rel="bookmark">
+			Followup: TechDays 2009 in Calgary
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2009-11-19T00:00:00Z">2009-11-19</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		Yesterday I was at TechDays 2009 in Calgary for the day (well, the morning really).  I wasn't there as an attendee, but as a speaker.  Thanks to everybody who came out to my two talks, the first one on an <em>Introduction to ASP.NET MVC</em> and the second one on <em>SOLIDifying your ASP.NET MVC Application</em>.  There were a few hiccups along the way:  as usual, I fell victim to the Technical Presentation Time Dilation Syndrome (i.e. ran out of time) on both talks.  I guess I'm just to long-winded for my own good.  As well, because I was running a <a href="http://www.jetbrains.net/confluence/display/ReSharper/ReSharper+Early+Access+Program">EAP of Resharper 5</a>, I had some Visual Studio 2008 issues - namely VS2008 would hang on me from time to time.  Note to self: maybe don't use the bleeding edge tools in a talk.  And I really should break myself of wanting to type all the code - using snippets would really save me time.
+
+Two things that suprised me:
+<ol>
+	<li>That there was still that much interest in ASP.NET MVC intro talks.  I just figured that everybody knew/knows about it.  Or maybe I just spend to much time with guys who have drunk the ASP.NET MVC Flavor Aid.  Either way, I think that there were some in the crowd that will convert from WebForms to ASP.NET MVC.</li>
+	<li>I asked how many people wrote unit tests or developing their software using Test Driven Development was the number of people who didn't raise their hands.  While I didn't expect the majority of the crowd, I did expect a lot more people than I saw.  Maybe it was a quiet crowd, and people didn't feel like saying they wrote unit tests.  Maybe I live in a bubble, and my perception of what is actually going on in the .NET world is skewed (that is to say, perhaps writing tests is the exception rather than the rule).  It did kind of make me a bit concerned, as I truly believe that TDD does help one write better software overall.</li>
+</ol>
+Anyway, here's to hoping that TechDays 2010 will stop off in Edmonton.  And hopefully have a track that will focus on developer fundamentals, like TechDays had in Toronto and Vancouver.
+<div class="zemanta-pixie"><img class="zemanta-pixie-img" src="http://img.zemanta.com/pixy.gif?x-id=2eb31f71-f855-83ff-bf64-795e87c1b4f0" alt="" /></div>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/compiling-asp-net-mvc-on-mono-2-4-3/" rel="bookmark">
+			Compiling ASP.NET MVC on Mono 2.4.3
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2009-11-11T00:00:00Z">2009-11-11</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>Out of intellectual curiosity, I sparked up <a href="http://www.monodevelop.com">MonoDevelop</a> and decided to see what would happen when I tried to compile the <a href="http://aspnet.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=24471">ASP.NET MVC source code</a>. I figured that it would Just Work.&#160; After all, I can use the .NET compiled assembly with no problems on <a href="http://www.go-mono.com">Mono</a>, so there really shouldn't be any problems trying to compile the code.&#160; Bad news is that there is one minor glitch.&#160; Good news is the glitch is easy to work around and has already been fixed so it shouldn't be a problem for future version of Mono. </p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/compiling-asp-net-mvc-on-mono-2-4-3/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/techdays-2009-in-calgary/" rel="bookmark">
+			TechDays 2009 In Calgary
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2009-11-10T00:00:00Z">2009-11-10</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		Just a heads up that <a href="http://www.microsoft.com/canada/techdays/default.aspx">TechDays Canada 2009</a> is happening in Calgary next week on November 17 and 18.  Yours truly will be there for the whole morning of November 18th talking about ASP.NET MVC and SOLID (note that this is <strong>not</strong> the same SOLID talk from the DevFundamentals track at TechDays Vancouver and TechDays Toronto).  If you happen to be there, don't be afraid to come on by and say hello.
+<div class="zemanta-pixie"><img class="zemanta-pixie-img" src="http://img.zemanta.com/pixy.gif?x-id=398917f8-5ef2-8681-9044-b9ab8d709d26" alt="" /></div>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/edmonton-code-camp-what-do-you-want/" rel="bookmark">
+			Edmonton Code Camp: What Do You Want?
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2009-08-26T00:00:00Z">2009-08-26</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>Well, it’s coming up on fall, which is traditionally the time of year for the <a href="http://www.edmontoncodecamp.com">Edmonton Code Camp</a>.&#160; It seems that there is still a spot or two left for speakers, so if you’re in Edmonton why not think of something programmy and give a talk.&#160; Doesn’t have to be .NET – anything that is related to software development will do.</p>  <p>Anyway, I’ve put my name down for a talk at ECC.&#160; There are several options available for me and I’m not sure which one to go with.&#160; So, I figured that perhaps a straw poll would help me decide.&#160; Feel free to add a comment about which topic you’d prefer:</p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/edmonton-code-camp-what-do-you-want/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/common-service-locator/" rel="bookmark">
+			Common Service Locator
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2009-03-19T00:00:00Z">2009-03-19</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>One of the nice things about <a href="http://martinfowler.com/articles/injection.html">Dependency Injection</a> is that it can really help write a more flexible, modular application.&#160; These days, it seems that there is no shortage of choice in the .NET community when it comes to IoC frameworks:</p>  <ul>   <li><a href="http://structuremap.sourceforge.net">StructureMap</a> </li>    <li><a href="http://www.castleproject.org/container/index.html">Castle Windsor</a> </li>    <li><a href="http://www.ninject.org">Ninject</a> </li>    <li><a href="http://code.google.com/p/autofac/">Autofac</a> </li>    <li><a href="http://www.codeplex.com/unity">Unity</a> </li>    <li><a href="http://www.springframework.net/">Spring.NET</a> </li>    <li>And probably others that I’m missing. </li> </ul>  <p>Ironically, when you first start using an IoC framework, you might find that in trying to make a loosely-coupled, modular, application you end up shackling yourself to the framework you’re using for IoC. </p>
+	</div>
+	<div class="list__footer clearfix">
+		<a class="list__footer-readmore btn" href="/archives/common-service-locator/">Read more…</a>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/archives/every-time-you-ignore-a-test-a-puppy-dies/" rel="bookmark">
+			Every Time you [Ignore] a Test, a Puppy Dies
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2009-02-20T00:00:00Z">2009-02-20</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<a href="http://www.opgenorth.net/wp-content/uploads/2010/03/image001_2.jpg"><img style="display: inline; border: 0px;" title="image001_2" src="http://www.opgenorth.net/wp-content/uploads/2010/03/image001_2_thumb.jpg" border="0" alt="image001_2" width="244" height="174" /></a>
+
+If you using a unit testing framework such as <a href="http://www.nunit.org">NUnit</a>, you're no doubt familiar with the <a href="http://www.nunit.org/index.php?p=ignore&amp;r=2.4.8">[Ignore]</a> attribute.  (Note:  I haven't used <a href="http://www.mbunit.com">MbUnit</a> in a while, but I'm pretty sure that all this applies there as well.) For those who aren't, when you adorn your [Test] with this attribute, then your test runner should pay no heed to this particular [Test].  Instead of going green or red, your test turns up as yellow in your test runner. At first blush, this seems handy - rather than deleting a failing or broken test you can have it [Ignore]d, much like your typical computer geek at a high school dance before the punch get's spiked. Now you can deal with the wayward test on your own time with the pesky failure cluttering up your CI build (you do have a CI build box set up, right?).
+
+Please bear with me while I submit to you: This isn't a good idea. This is a bad idea. An ugly idea. The kind of bad, ugly idea than even <a href="http://www.igloocoder.com">Belcham</a>-esque quantities of scotch couldn't make pretty. Why? Well, the whole point to having a unit test is to <strong>test something</strong>. If your test is failing, that means something is broken.  You should be addressing the cause of the failure and dealing with the problem now. Covering up the failure with some attribute kind of defeats the purpose of having the unit test in the first place. I mean, really, if you had open, festering lesions on your skin would you just cover them up with a band-aid and pretend nothing was wrong?  Odds are you'd go to a doctor and get that checked out.
+
+Alternately, perhaps the test isn't valid anymore: your application has changed/evolved and the code that you were testing isn't around anymore. Then, get rid of the test! Delete it from your test fixtures, and don't look back.
+
+Granted the world we live in is not black and while.  Sometimes we're working on things, and we only want tests to run when it is explicitly asked to run.  To handle this scenario, <a href="http://www.nunit.org">NUnit</a> provides the <a href="http://www.nunit.org/index.php?p=explicit&amp;r=2.4.8">[Explicit]</a> attribute.  This is a kinder, more gentle kind of ignore.  This instructs <a href="http://www.nunit.org">NUnit</a> to only run the test when it is told to run the test.  If you add a comment to the attribute, then it helps those going through the build log understand why the test is being run.  However it is still possible to run the test if desired.
+<pre style="border: 1px solid #cecece; padding: 5px; overflow: auto; background-color: #fbfbfb; min-height: 40px; width: 650px;">
+<pre style="margin: 0em; background-color: #fbfbfb; width: 100%; font-family: consolas,'Courier New',courier,monospace; font-size: 12px;">[Explicit("<span style="color: #8b0000;">This test takes a really really really long time to run so we don't want to run it in this test suite every time</span>")]
+</pre>
+<pre style="margin: 0em; background-color: #fbfbfb; width: 100%; font-family: consolas,'Courier New',courier,monospace; font-size: 12px;">[Test]
+</pre>
+<pre style="margin: 0em; background-color: #fbfbfb; width: 100%; font-family: consolas,'Courier New',courier,monospace; font-size: 12px;"><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> My_very_important_test()
+</pre>
+<pre style="margin: 0em; background-color: #fbfbfb; width: 100%; font-family: consolas,'Courier New',courier,monospace; font-size: 12px;">{
+</pre>
+<pre style="margin: 0em; background-color: #fbfbfb; width: 100%; font-family: consolas,'Courier New',courier,monospace; font-size: 12px;">    <span style="color: #008000;">// Test valuable things here</span>
+</pre>
+<pre style="margin: 0em; background-color: #fbfbfb; width: 100%; font-family: consolas,'Courier New',courier,monospace; font-size: 12px;">}</pre>
+</pre>
+I know some people are going to protest my advice. So I will offer up this one last piece.  If you are going to [Ignore] a [Test] then please take advantage of the fact that you can add a comment to the Ignore which will show up when <a href="http://www.nunit.org">NUnit</a> ignores the test:
+<pre style="border: 1px solid #cecece; padding: 5px; overflow: auto; background-color: #fbfbfb; min-height: 40px; width: 650px;">
+<pre style="margin: 0em; background-color: #fbfbfb; width: 100%; font-family: consolas,'Courier New',courier,monospace; font-size: 12px;">[Ignore("<span style="color: #8b0000;">This test is ignored as I wish to incur the wrath of Cthulhu (or his proxy)</span>")]
+</pre>
+<pre style="margin: 0em; background-color: #fbfbfb; width: 100%; font-family: consolas,'Courier New',courier,monospace; font-size: 12px;">[Test]
+</pre>
+<pre style="margin: 0em; background-color: #fbfbfb; width: 100%; font-family: consolas,'Courier New',courier,monospace; font-size: 12px;"><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> My_very_important_test()
+</pre>
+<pre style="margin: 0em; background-color: #fbfbfb; width: 100%; font-family: consolas,'Courier New',courier,monospace; font-size: 12px;">{
+</pre>
+<pre style="margin: 0em; background-color: #fbfbfb; width: 100%; font-family: consolas,'Courier New',courier,monospace; font-size: 12px;">    <span style="color: #008000;">// Test valuable things here.</span>
+</pre>
+<pre style="margin: 0em; background-color: #fbfbfb; width: 100%; font-family: consolas,'Courier New',courier,monospace; font-size: 12px;">}</pre>
+</pre>
+Now when your CI server runs your unit tests, you will have a nice friendly message that will inform others as to why the test is not running.
+	</div>
+</article>
+</main>
+
+<div class="pagination">
+	<span class="pagination__item pagination__item--current">1/5</span>
+	<a class="pagination__item pagination__item--next btn" href="/tags/.NET/page/2/">»</a>
+</div>
+
+</body>
+</html>

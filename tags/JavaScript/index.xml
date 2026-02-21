@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JavaScript on opgenorth.net</title>
+    <link>http://localhost:1313/tags/JavaScript/</link>
+    <description>Recent content in JavaScript on opgenorth.net</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 Aug 2010 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/JavaScript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Javascript IDE&#39;s</title>
+      <link>http://localhost:1313/archives/javascript-ides/</link>
+      <pubDate>Tue, 10 Aug 2010 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archives/javascript-ides/</guid>
+      <description>&lt;p&gt;Lately I’ve found myself doing a lot more web application development in JavaScript.&amp;#160; Typically, I always seem to fall back on plain old Notepad++ or Visual Studio.&amp;#160; As a developer, the user experience in either is, IMHO, somewhat lacking. &lt;/p&gt;  &lt;p&gt;However, for the past week, I’ve been using &lt;a href=&#34;http://www.jetbrains.com/ruby/index.html&#34;&gt;RubyMine&lt;/a&gt;.&amp;#160; &lt;a href=&#34;http://www.jetbrains.com/ruby/index.html&#34;&gt;RubyMine&lt;/a&gt; is a Ruby on Rails IDE from &lt;a href=&#34;http://www.jetbrains.com&#34;&gt;Jetbrains&lt;/a&gt;, but it seems to work rather well for editing JavaScript and HTML files.&amp;#160; Plus, as an added bonus, it automatically comes with built in support for &lt;a href=&#34;http://www.jquery.com&#34;&gt;jQuery&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>You Can&#39;t Change a &lt;input type=&#34;checkbox&#34; If You&#39;re IE?</title>
+      <link>http://localhost:1313/archives/you-cant-change-a-input-typecheckbox-if-youre-ie/</link>
+      <pubDate>Thu, 20 Nov 2008 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archives/you-cant-change-a-input-typecheckbox-if-youre-ie/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Update November 20th:&amp;#160; Well, a quick search of &lt;/em&gt;&lt;a href=&#34;http://www.stackoverflow.com&#34;&gt;&lt;em&gt;StackOverflow.com&lt;/em&gt;&lt;/a&gt;&lt;em&gt;, and it turns out that I’m not exactly alone in this matter.&amp;#160; According to this &lt;/em&gt;&lt;a href=&#34;http://stackoverflow.com/questions/208471/getting-jquery-to-recognise-change-in-ie&#34;&gt;&lt;em&gt;post&lt;/em&gt;&lt;/a&gt;&lt;em&gt; (and Grant in the comments of this post), in versions of IE &amp;lt; 8, one must use the click event, and not the change event.&lt;/em&gt;&lt;/p&gt;  &lt;p&gt;I ran into an interesting issue today.&amp;#160; I don&#39;t really know the answer, but I figured I would blog about it so that I don&#39;t completely forget it.&amp;#160; While I highly doubt the two readers of my blog (my brother and sister) have any idea of what I&#39;m talking about, I&#39;m sure that eventually somebody (smart) will stumble upon this via Google.&amp;#160; What will happen in that case is anybodies guess, but I digress...&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Unit Testing in JavaScript</title>
+      <link>http://localhost:1313/archives/unit-testing-in-javascript/</link>
+      <pubDate>Sat, 16 Aug 2008 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archives/unit-testing-in-javascript/</guid>
+      <description>&lt;p&gt;Well, I don&#39;t know why it&#39;s taken me so long to get to get around to this: but I must say that there are now a couple of &amp;quot;must haves&amp;quot; in my web developer&#39;s tool box.&amp;#160; One of them is &lt;a href=&#34;http://www.jquery.com&#34;&gt;jQuery,&lt;/a&gt; and now the other is &lt;a href=&#34;http://docs.jquery.com/QUnit&#34;&gt;QUnit&lt;/a&gt;.&lt;/p&gt;  &lt;p&gt;&lt;a href=&#34;http://www.lostechies.com/blogs/chad_myers/default.aspx&#34;&gt;Chad Myers&lt;/a&gt; has a good, quick, &lt;a href=&#34;http://www.lostechies.com/blogs/chad_myers/archive/2008/08/28/getting-started-with-jquery-qunit-for-client-side-javascript-testing.aspx&#34;&gt;post introducing QUnit&lt;/a&gt;, I&#39;d &lt;em&gt;strongly suggest&lt;/em&gt; checking it out if you do web development (which, IMHO, implies some use of JavaScript, right?).&amp;#160; Chad&#39;s post covers the basics pretty good, and I think I would just be duplicating/plagiarizing Chad&#39;s work if I were to blog the hour or two I spent getting to know QUnit here.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ASP.NET Web Services and jQuery/AJAX</title>
+      <link>http://localhost:1313/archives/asp-net-web-services-and-jqueryajax/</link>
+      <pubDate>Thu, 22 May 2008 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archives/asp-net-web-services-and-jqueryajax/</guid>
+      <description>&lt;p&gt;As far as web developer&#39;s go, I&#39;ll freely admit that my Javascript is not one of my strong points.&amp;#160; I don&#39;t have a real good reason for this, it&#39;s just that over the past few years I haven&#39;t had much call/need to polish and hone my Javascript skills.&amp;#160; Recently I discovered &lt;a href=&#34;http://www.jquery.com&#34;&gt;jQuery&lt;/a&gt;, and I must say that I wish I had know about this library earlier.&amp;#160; The more I use &lt;a href=&#34;http://www.jquery.com&#34;&gt;jQuery&lt;/a&gt;, the more I like it.&amp;#160; The simple things are simple, and the hard things are possible.&amp;#160; Take calling a simple webservice when the user clicks a button on a form.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ASP.NET Web Services and jQuery/AJAX, Part 2</title>
+      <link>http://localhost:1313/archives/asp-net-web-services-and-jqueryajax-part-2/</link>
+      <pubDate>Sat, 08 Mar 2008 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archives/asp-net-web-services-and-jqueryajax-part-2/</guid>
+      <description>&lt;p&gt;In my last post, I described how easy jQuery makes it to call an ASP.NET Web Service via AJAX.&lt;/p&gt;  &lt;p&gt;Currently, I&#39;m developing on Windows XP (SP2), Resharper 4 (running inside Visual Studio 2008), and using the Visual Studio Web Server.&amp;#160; We deploy to Windows 2003 R2/IIS6.&amp;#160; When I pushed the code described in my last post to the development server to test it out there, the web service call kept failing with an HTTP Status of 500 (internal error).&amp;#160; This basically means something went wrong on the server.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Javascript Didnât Rape My Dog</title>
+      <link>http://localhost:1313/archives/javascript-didnt-rape-my-dog/</link>
+      <pubDate>Fri, 09 Nov 2007 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archives/javascript-didnt-rape-my-dog/</guid>
+      <description>&lt;p&gt;One thing I noticed since I started doing ASP.NET programming back in 2002: I started using Javascript a lot less, and my copy of JavaScript: The Definitive Guide sits on the shelf gathering dust.&amp;#160; I&#39;ve noticed a lot of developers I&#39;ve worked with are the same way. In fact, I&#39;d say that most of the ASP.NET programmers I&#39;ve worked with these days really don&#39;t know much about Javascript.&lt;/p&gt;  &lt;p&gt;I don&#39;t blame Javascript itself for this - I blame ASP.NET. Developers just get used to dropping the server side controls on their WebForms, and then doing everything server side. I&#39;ve also worked at clients which had a &amp;quot;no client-side javascript&amp;quot; rule. All of this combines to cause our (my) Javascript skills to atrophy and wither. Kind of shame, really. (note: to a degree, I think the same can be said about CSS).&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

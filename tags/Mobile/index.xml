@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mobile on opgenorth.net</title>
+    <link>http://localhost:1313/tags/Mobile/</link>
+    <description>Recent content in Mobile on opgenorth.net</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 16 Jun 2011 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/Mobile/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Slide deck and code from Prairie Developers Conference 2011</title>
+      <link>http://localhost:1313/archives/slide-deck-and-code-from-prairie-developers-conference-2011/</link>
+      <pubDate>Thu, 16 Jun 2011 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archives/slide-deck-and-code-from-prairie-developers-conference-2011/</guid>
+      <description>For those wanted the slide-decks and code from my talks at &lt;a href=&#34;http://www.prairiedevcon.com/&#34;&gt;Prairie Developer&#39;s Conference 2011&lt;/a&gt;, you can find them up on &lt;a href=&#34;https://github.com/topgenorth/PrDC2011&#34;&gt;GitHub&lt;/a&gt;. Thanks to all who attended.&amp;nbsp; Maybe we&#39;ll see you again next year.&lt;br /&gt;</description>
+    </item>
+  </channel>
+</rss>

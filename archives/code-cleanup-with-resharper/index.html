@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><title>opgenorth.net</title></head>
+<body>
+
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Code Cleanup with Resharper</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2007-12-17T00:00:00Z">2007-12-17</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Programming/" rel="category">Programming</a>
+	</span>
+</div></div>
+		</header>
+		<div class="content post__content clearfix">
+			<p>As most Resharpies know, when you're using Resharper you can reformat your code. A nice feature is that you can use this reformat code to also organize and layout your code files the way you like it.</p>  <p>For example, <a href="http://codebetter.com/blogs/kyle.baley/archive/2007/12/17/removing-regions-or-quot-how-to-keep-your-code-expanded-quot.aspx">Kyle Baley did post</a> on how to how to use the format code to get rid of regions. His techique is a bit unrefined - his revolutionary, dogmatic zeal he will clobber all regions and do nothing else - but still handy.&#160;&#160; Myself, I'm a bit more compulsive / fussy when it comes to the layout of my code. Not only do I want regions gone, but I want the code to appear in a certain order. Lucky for me that Reformat Code does this for me. Here is the <a href="http://www.opgenorth.net/Data/Sites/1/Files/ResharperPatterns.xml">Type Member Layout pattern I use</a>. If you want to use it, just paste it into the type member layout window in Resharper.</p>  <p>What this will do, when you ask Resharper to Reformat Your Code, is the following: Remove all regions Sort your code, with the following order:</p>  <ul>   <li>any COM Interop interfaces </li>    <li>public delegates </li>    <li>public enums </li>    <li>constants (sorted alphabetically) </li>    <li>fields (sorted with readonly first, and alphabetically) </li>    <li>static constructors </li>    <li>constructors </li>    <li>properties (sorted alphabetically) </li>    <li>methods (sorted alphabetically) </li>    <li>anything else (sorted alphabetically) </li> </ul>  <p>For the sake of brevity, I'm not giving a detailed breakdown of the Type Member Layout Pattern syntax. Well, brevity and the fact that I'm not 100% certain on a lot of it and don't want to unintentionally say something wrong. I do believe that the format is pretty straight forward, so you look at it and make your own adjustments.</p>  <p>However, to give you an example. Imagine for a moment that you wanted to surround any interface methods in a #region. First off, don't tell Kyle. Might be a good idea <a href="http://laribee.com/blog/2007/07/22/why-regions-are-fugly/">not to mention it to David Laribee</a> while you're at it. Secondly, add the following snippet: </p>  <pre style="border-bottom: #cecece 1px solid; border-left: #cecece 1px solid; padding-bottom: 5px; background-color: #fbfbfb; min-height: 40px; padding-left: 5px; width: 650px; padding-right: 5px; overflow: auto; border-top: #cecece 1px solid; border-right: #cecece 1px solid; padding-top: 5px"><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">&lt;</span><span style="color: #800000">Entry</span><span style="color: #0000ff">&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">  <span style="color: #0000ff">&lt;</span><span style="color: #800000">Match</span><span style="color: #0000ff">&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">And</span> <span style="color: #ff0000">Weight</span>=<span style="color: #0000ff">&quot;100&quot;</span><span style="color: #0000ff">&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">      <span style="color: #0000ff">&lt;</span><span style="color: #800000">Kind</span> <span style="color: #ff0000">Is</span>=<span style="color: #0000ff">&quot;member&quot;</span><span style="color: #0000ff">/&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">        <span style="color: #0000ff">&lt;</span><span style="color: #800000">ImplementsInterface</span><span style="color: #0000ff">/&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">&lt;/</span><span style="color: #800000">And</span><span style="color: #0000ff">&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">  <span style="color: #0000ff">&lt;/</span><span style="color: #800000">Match</span><span style="color: #0000ff">&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">  <span style="color: #0000ff">&lt;</span><span style="color: #800000">Sort</span><span style="color: #0000ff">&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">ImplementsInterface</span> <span style="color: #ff0000">Immediate</span>=<span style="color: #0000ff">&quot;true&quot;</span><span style="color: #0000ff">/&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">      <span style="color: #0000ff">&lt;</span><span style="color: #800000">Kind</span> <span style="color: #ff0000">Order</span>=<span style="color: #0000ff">&quot;property method&quot;</span><span style="color: #0000ff">/&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">      <span style="color: #0000ff">&lt;</span><span style="color: #800000">Readonly</span><span style="color: #0000ff">/&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">      <span style="color: #0000ff">&lt;</span><span style="color: #800000">Name</span><span style="color: #0000ff">/&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">  <span style="color: #0000ff">&lt;/</span><span style="color: #800000">Sort</span><span style="color: #0000ff">&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">  <span style="color: #0000ff">&lt;</span><span style="color: #800000">Group</span><span style="color: #0000ff">&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">    <span style="color: #0000ff">&lt;</span><span style="color: #800000">ImplementsInterface</span> <span style="color: #ff0000">Immediate</span>=<span style="color: #0000ff">&quot;true&quot;</span> <span style="color: #ff0000">Region</span>=<span style="color: #0000ff">&quot;${ImplementsInterface} Members&quot;</span><span style="color: #0000ff">/&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px">  <span style="color: #0000ff">&lt;/</span><span style="color: #800000">Group</span><span style="color: #0000ff">&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"><span style="color: #0000ff">&lt;/</span><span style="color: #800000">Entry</span><span style="color: #0000ff">&gt;</span>
+</pre><pre style="background-color: #fbfbfb; margin: 0em; width: 100%; font-family: consolas,&#39;Courier New&#39;,courier,monospace; font-size: 12px"></pre></pre>
+
+<p>What this will do is, for each member of your class that is part of an interface implementation (the whole part), sort it by it's name (the part), and surround them with a #region (). If you look at my <a href="http://www.opgenorth.net/Data/Sites/1/Files/ResharperPatternsWithInterface.xml">Resharper Patterns with Interfaces</a> sample, you can see by the position with in the element that the interface #region will appear at almost the end of your *.CS file. I hope now that this will appease your inner obsessive compulsive self.</p>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/.NET/" rel="tag">.NET</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/archives/we-dont-want-external-code/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">We Donât Want External Code</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/archives/windsor-and-the-db4o-facility/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">Windsor and the db4o Facility</p>
+		</a>
+	</div>
+</nav>
+
+
+
+
+
+</body>
+</html>

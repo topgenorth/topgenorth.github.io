@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Android on opgenorth.net</title>
+    <link>http://localhost:1313/categories/android/</link>
+    <description>Recent content in Android on opgenorth.net</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 06 May 2012 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/android/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Galaxy Nexus - an Update</title>
+      <link>http://localhost:1313/archives/galaxy-nexus-an-update/</link>
+      <pubDate>Sun, 06 May 2012 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archives/galaxy-nexus-an-update/</guid>
+      <description>&lt;p&gt;In my last post I flashed a new firmware for the radio on my Galaxy Nexus. I notice that, after a day or so, my problems with connection to Wind Mobile returned. My phone would just not register on Wind&amp;rsquo;s network, regardless of where I was.&lt;/p&gt;&#xA;&lt;p&gt;Once again I did a bit of search, and read something peculiar (I wish I had booked marked it for reference sake). Some people were claiming that by setting the minimum clock speed of their Galaxy Nexus to 700MHz, that their radio problems had disappeared.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

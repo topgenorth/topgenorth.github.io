@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><title>opgenorth.net</title></head>
+<body>
+
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Getting Started with My ADP1</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2009-03-14T00:00:00Z">2009-03-14</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/Technology/" rel="category">Technology</a>
+	</span>
+</div></div>
+		</header>
+		<div class="content post__content clearfix">
+			<p>After a bit of tinkering, I managed to provision my ADP1 setup without a SIM card.&#160; A bit of google, and here is what I did:</p>  <ol>   <li>Download the Android SDK.&#160; In my case, I unzipped it to C:\android-sdk-windows-1.1_r1. </li>    <li>Connection the phone via the USB cable to my computer.&#160; When the phone asks for a device. </li>    <li>You'll get the new hardware dialog, when prompted for the drivers, you'll need to specify the location.&#160; The Android SDK has the drivers, in my case they were at C:\android-sdk-windows-1.1_r1\usb_driver\x86. </li>    <li>Once you have the drivers installed cd to c:\android-sdk-windows-1.1_r1\tools. </li>    <li>Type adb devices.&#160; This should list all the Android devices that you have connected.&#160; If you don't see any devices listed, then you have a problem. </li>    <li>Type adb shell.&#160; This will direct your commands to your ADP1 </li>    <li>Now while at the adb shell, su to root, then :&#160; </li>    <li>cd /data/data/com.android/providers.settings/databases/ </li>    <li>sqlite3 settings.db </li>    <li>INSERT INTO system (name, value) VALUES ('device_provisioned', 1); </li>    <li>.quit </li>    <li>Reboot the phone </li>    <li>adb shell </li>    <li>am start -a android.intent.action.MAIN -n com.android.settings/.Settings </li> </ol>  <p>Once all that is done, you should be enable to use your ADP1 as if you had a SIM card in it (we'll except for the phoning part).</p>  <p>Useful link:&#160; <a href="http://www.gotontheinter.net/content/faq-unlockingactivating-g1-or-adp1-without-sim-card">FAQ: Unlocking/Activating a G1 or ADP1 Without A Sim Card</a>.</p>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/android/" rel="tag">android</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/archives/got-my-google-dev-phone-1/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">Got my Google Dev Phone 1</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/archives/common-service-locator/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">Common Service Locator</p>
+		</a>
+	</div>
+</nav>
+
+
+
+
+
+</body>
+</html>

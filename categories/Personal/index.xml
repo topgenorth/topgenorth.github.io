@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Personal on opgenorth.net</title>
+    <link>http://localhost:1313/categories/Personal/</link>
+    <description>Recent content in Personal on opgenorth.net</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 21 Jul 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/Personal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My First QuadCopter</title>
+      <link>http://localhost:1313/post/my-first-quadcopter/</link>
+      <pubDate>Tue, 21 Jul 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/my-first-quadcopter/</guid>
+      <description>&lt;p&gt;Just recently I acquired a new quadcopter – a WL Toys 959. Total cost to me was about $75.00 and I ordered from Amazon.ca. I picked this because of the low cost and the fact that it came with camera that can do both photo and video and it was relatively inexpensive.&lt;/p&gt;&#xA;&lt;p&gt;First attempts at flying the quadcopter proved somewhat crash prone, so I ended up reading the manual and checking out some YouTube vidoes on quadcopter flight. Most informative was &lt;a href=&#34;https://www.youtube.com/watch?v=LCret4rv0HE&#34;&gt;this YouTube video&lt;/a&gt; on &lt;a href=&#34;https://en.wikipedia.org/wiki/Vortex_ring_state&#34;&gt;Vortex Ring State&lt;/a&gt; and how to deal with it (thanks to colleague Joel Martinez for the tip). I have a video of my first flight – it&amp;rsquo;s nothing fancy I just wanted to take off, hover, and then land.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Windows 8 64-bit and Android Debug Bridge (Where is my Galaxy Nexus?)</title>
+      <link>http://localhost:1313/archives/windows-8-64-bit-and-android-debug-bridge-where-is-my-galaxy-nexus/</link>
+      <pubDate>Tue, 25 Sep 2012 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archives/windows-8-64-bit-and-android-debug-bridge-where-is-my-galaxy-nexus/</guid>
+      <description>&lt;p&gt;Setting up a new VM for development - this one based on Windows 8 64 bit. Not that I really want to, but it seems that I need to for work (yes, yes, first world problems). So the usual fun with standing up a new VM:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Install OS&lt;/li&gt;&#xA;&lt;li&gt;Download Chrome and Firefox and ditch IE&lt;/li&gt;&#xA;&lt;li&gt;Download Resharper&lt;/li&gt;&#xA;&lt;li&gt;Remember that you need Visual Studio for Resharper so install that.&lt;/li&gt;&#xA;&lt;li&gt;Install Java SDK&lt;/li&gt;&#xA;&lt;li&gt;Install Android SDK&lt;/li&gt;&#xA;&lt;li&gt;Install Intellij and Eclipse&lt;/li&gt;&#xA;&lt;li&gt;etc.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Of course, then I notice that my phone, a Galaxy Nexus, isn&amp;rsquo;t being recognized by Android Debug Bridge.  This is a problem as I much prefer to develop using a device as opposed slow emulator that Google ships for Android, and you can&amp;rsquo;t deploy to the device without ADB.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Galaxy Nexus - an Update</title>
+      <link>http://localhost:1313/archives/galaxy-nexus-an-update/</link>
+      <pubDate>Sun, 06 May 2012 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archives/galaxy-nexus-an-update/</guid>
+      <description>&lt;p&gt;In my last post I flashed a new firmware for the radio on my Galaxy Nexus. I notice that, after a day or so, my problems with connection to Wind Mobile returned. My phone would just not register on Wind&amp;rsquo;s network, regardless of where I was.&lt;/p&gt;&#xA;&lt;p&gt;Once again I did a bit of search, and read something peculiar (I wish I had booked marked it for reference sake). Some people were claiming that by setting the minimum clock speed of their Galaxy Nexus to 700MHz, that their radio problems had disappeared.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Galaxy Nexus - Why don&#39;t you stay connected?</title>
+      <link>http://localhost:1313/archives/galaxy-nexus/</link>
+      <pubDate>Wed, 02 May 2012 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archives/galaxy-nexus/</guid>
+      <description>&lt;p&gt;I recently got a Galaxy Nexus, and like a typical geek I &lt;a href=&#34;http://androidforums.com/international-galaxy-nexus-all-things-root/452146-how-root-gsm-hspa-samsung-galaxy-nexus.html&#34;&gt;unlocked the bootloader and then rooted it&lt;/a&gt;. Life was good running Android 4.0.1. Well sort of. I had problems tethering my MacBook Pro via the WiFi hotspot, but no problems using Bluetooth. So nothing I couldn&amp;rsquo;t work around.&lt;/p&gt;&#xA;&lt;p&gt;Then I received an OTA update to Android 4.0.4 recently.  And this was when things started going not so good - specifically, for some blasted reason, I kept losing connectivity to Wind Mobile&amp;rsquo;s network. At first I thought it was Wind Mobile having issues. This would be odd, because for me, Wind Mobile has been pretty solid. To troubleshoot I pulled my SIM card and dropped it into my Nexus One. Everything worked fine. So apparently something with my phone.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>WIND Mobile and my Nexus One</title>
+      <link>http://localhost:1313/archives/wind-mobile-and-my-nexus-one/</link>
+      <pubDate>Mon, 20 Dec 2010 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archives/wind-mobile-and-my-nexus-one/</guid>
+      <description>&lt;p&gt;Just recently I switch my mobile carrier from Rogers to &lt;a title=&#34;WIND mobile&#34; href=&#34;../../www.windmobile.ca&#34;&gt;WIND Mobile&lt;/a&gt;. Their &lt;a title=&#34;Holiday Miracle Plan&#34; href=&#34;http://www2.windmobile.ca/en/Pages/unlimitedtalktextdata.aspx&#34;&gt;Holiday Miracle plan&lt;/a&gt; was just to good to pass up - even paying the penalty to break my Rogers contract I will still save money in the long run.&#xA;&#xA;Anyway, once the number got transferred over, I didn&#39;t have a 3G connection, even after selecting the WIND Home APN. &amp;nbsp;After a bit of google, it seems that what I had to do is to setup an APN. &amp;nbsp;In case I can&#39;t find it later, here are the APN settings:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Monster</title>
+      <link>http://localhost:1313/archives/monster/</link>
+      <pubDate>Mon, 13 Sep 2010 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archives/monster/</guid>
+      <description>&lt;p&gt;Life has been a bit busy as of late.&amp;#160; On Sept 4, 2010 a little monster invaded my house.&amp;#160; A savage beast, suitably evolved for our Canadian winters and a fearless hunter of snow-snakes.&amp;#160; Oh, that, and it turns out that she is a distant cousin to my last dog Bailey.&amp;#160; This is my new puppy Casey, who is just shy of 9 weeks old.&lt;/p&gt;  &lt;p&gt;&lt;a href=&#34;http://www.opgenorth.net/wp-content/uploads/2010/09/P9050049.jpg&#34;&gt;&lt;img style=&#34;border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px&#34; title=&#34;P9050049&#34; border=&#34;0&#34; alt=&#34;P9050049&#34; src=&#34;http://www.opgenorth.net/wp-content/uploads/2010/09/P9050049_thumb.jpg&#34; width=&#34;436&#34; height=&#34;328&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Tulips are Lovely this Time of Year</title>
+      <link>http://localhost:1313/archives/the-tulips-are-lovely-this-time-of-year/</link>
+      <pubDate>Sun, 30 May 2010 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archives/the-tulips-are-lovely-this-time-of-year/</guid>
+      <description>&lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;p&gt;You have to love spring time in Alberta.&amp;#160; The tulips have such a contrast against the snow at 21:30 on a Saturday evening:&lt;/p&gt;  &lt;p&gt;&lt;a href=&#34;http://www.opgenorth.net/wp-content/uploads/2010/05/omvt.jpg&#34;&gt;&lt;img style=&#34;border-bottom: 0px; border-left: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px&#34; title=&#34;omvt&#34; border=&#34;0&#34; alt=&#34;omvt&#34; src=&#34;http://www.opgenorth.net/wp-content/uploads/2010/05/omvt_thumb.jpg&#34; width=&#34;364&#34; height=&#34;484&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>A Sad Day in Whoville</title>
+      <link>http://localhost:1313/archives/a-sad-day-in-whoville/</link>
+      <pubDate>Tue, 10 Nov 2009 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archives/a-sad-day-in-whoville/</guid>
+      <description>&lt;p&gt;Well, today was a rather sad around the household.&amp;#160; This morning I had to take &lt;a href=&#34;http://picasaweb.google.ca/opgenorth/Bailey&#34;&gt;Bailey&lt;/a&gt;, my dog, to the vet to be put down.&amp;#160; She had just turned 14 years old in September of this year, and age had finally caught up with her.&amp;#160; Her hips were going and we were getting concerned that one day she would be stuck on the floor and wouldn&#39;t be able to walk anymore.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TDD on opgenorth.net</title>
+    <link>http://localhost:1313/tags/TDD/</link>
+    <description>Recent content in TDD on opgenorth.net</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 10 Apr 2008 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/TDD/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Where Should Your Tests Live?</title>
+      <link>http://localhost:1313/archives/where-should-your-tests-live/</link>
+      <pubDate>Thu, 10 Apr 2008 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archives/where-should-your-tests-live/</guid>
+      <description>&lt;p&gt;Thanks to &lt;a href=&#34;http://haacked.com/Default.aspx&#34;&gt;Phil Haack&lt;/a&gt;&#39;s &lt;a href=&#34;http://haacked.com/archive/2008/04/09/unit-test-project-structure-poll.aspx&#34;&gt;online poll&lt;/a&gt;, there is a bit of controversy over where one&#39;s unit tests should reside:&amp;#160; should the unit tests be housed in a separate project and assembly, or do they shack up in the same project as the code that they are testing?&amp;#160; Like &lt;a href=&#34;http://weblogs.asp.net/bsimser/archive/2008/04/09/unit-test-projects-or-not.aspx&#34;&gt;Bil&lt;/a&gt;, I figured that rather than a big long blog comment, I&#39;d be better of with my post.&lt;/p&gt;  &lt;p&gt;Way back when I started out with TDD, I used to put the test fixtures in the same file as the class under test, sort of like:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

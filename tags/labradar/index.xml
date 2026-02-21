@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Labradar on opgenorth.net</title>
+    <link>http://localhost:1313/tags/labradar/</link>
+    <description>Recent content in Labradar on opgenorth.net</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 19 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/labradar/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ballistic Data</title>
+      <link>http://localhost:1313/labradar/</link>
+      <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/labradar/</guid>
+      <description>&lt;p&gt;The data files from my  &lt;a href=&#34;http://mylabradar.com&#34;&gt;Labradar&lt;/a&gt; for various ammunition.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
