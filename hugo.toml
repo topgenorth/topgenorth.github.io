@@ -1,79 +1,36 @@
-baseURL = "https://www.opgenorth.net"
-title = "opgenorth.net"
-languageCode = "en-us"
-#theme = "mainroad"
-disablePathToLower = true
+baseURL = 'https://www.opgenorth.net/'
+languageCode = 'en-us'
+title = 'Opgenorth.NET'
 
-# Legacy single-value fields kept for compatibility with some themes
-disqusShortname = "opgenorthnet"
-googleAnalytics = "1812612"
+[module]
+  [[module.imports]]
+    path = "github.com/Vimux/Mainroad"
 
-[frontmatter]
-  publishDate = [":filename", "published", "publishdate", "pubdate", "date"]
+# Theme AFTER imports
+theme = ["Mainroad"]  # Matches import path basename
 
-[pagination]
-  pagerSize = 10
+[[menu.main]]
+  name = "Blog"
+  url = "/posts/"
+  weight = 1
 
-[params.author]
-  name = "Tom Opgenorth"
-  bio = "Just a humble software developer from the Great White North, with a taste for single-malt scotch and an interest in ballistic things."
-  avatar = "images/abominable-snowman-1.png"
-
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
-
-[services]
-  [services.disqus]
-    shortname = "opgenorthnet"
+[[menu.main]]
+  name = "Travel Gallery"
+  url = "/gallery/"
+  weight = 2
 
 [params]
-  description   = "Tom Opgenorth's Personal blog, mostly irrelevant"
-  copyright     = "Tom Opgenorth"
-  opengraph     = true
-  schema        = true
-  twitter_cards = false
-  readmore      = true
-  authorbox     = false
-  toc           = true
-  pager         = true
-  post_meta     = ["author", "date", "categories", "translations"]
-  mainSections  = ["post", "blog", "news"]
-  dateformat    = "2006-01-02"
-  mathjax       = true
-  mathjaxPath   = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js"
-  mathjaxConfig = "TeX-AMS-MML_HTMLorMML"
-  googleFontsLink = "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700"
-  highlightColor  = "" # Deprecated in favor of .Site.Params.style.vars.highlightColor
-  customCSS       = ["css/custom.css"]
-  customJS        = ["js/custom.js"]
-
-  [params.style.vars]
-    highlightColor = "#e22d30"
-    fontFamilyPrimary   = "'Open Sans', Helvetica, Arial, sans-serif"
-    fontFamilySecondary = "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace"
-
-  [params.logo]
-    image    = "images/abominable-snowman-1.jpg"
-    title    = "Opgenorth.NET"
-    subtitle = "Mindless Missives from the Great White North"
+  description = "Mindless missives from the Great White North."
+  avatar = "abominable-snowman-1.png"
+  favicon = "favicon.ico"
+  author = "Tom Opgenorth"
+  dateFormat = "2006-Jan-02"
+  hideAuthor = true
+  hideDate = false
+  mathjax = false
 
   [params.sidebar]
-    home   = "right"
-    list   = "left"
-    single = false
-    widgets = ["ddg-search", "recent", "categories", "taglist", "social", "languages"]
-
-  [params.widgets]
-    recent_num         = 5
-    categories_counter = false
-    tags_counter       = false
-
-    [params.widgets.social]
-      facebook  = "tom.opgenorth"
-      twitter   = "topgenorth"
-      instagram = "topgenorth"
-      linkedin  = "tomopgenorth"
-      github    = "topgenorth"
-      email     = "tom@opgenorth.net"
+    home = "right"
+    list = "right"
+    single = "right"
+    widgets = ["search", "recent", "categories", "taglist"]

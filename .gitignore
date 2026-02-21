@@ -1,3 +1,33 @@
+# Generated files by Hugo
+/public/
+/resources/
+/_gen
+/assets
+jsconfig.json
+hugo_stats.json
+
+# Executables (optional, if storing Hugo binary)
+hugo.exe
+hugo.darwin
+hugo.linux
+
+# Temporary lock file
+.hugo_build.lock
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# From old site
 _site
 .sass-cache
 /.DS_Store
