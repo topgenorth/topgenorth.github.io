@@ -1,6 +1,7 @@
 # Generated files by Hugo
 /public/
 /resources/
+/.hugo_build.lock
 /_gen
 /assets
 jsconfig.json
