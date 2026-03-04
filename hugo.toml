@@ -34,3 +34,7 @@ theme = ["Mainroad"]  # Matches import path basename
     list = "right"
     single = "right"
     widgets = ["search", "recent", "categories", "taglist"]
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
