@@ -1,4 +1,4 @@
-baseURL = 'https://www.opgenorth.net/'
+baseURL = 'http://www.opgenorth.net/'
 languageCode = 'en-us'
 title = 'Opgenorth.NET'
 
