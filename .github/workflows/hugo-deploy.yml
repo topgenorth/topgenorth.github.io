@@ -1,4 +1,4 @@
-name: Build with Hugo and update website
+name: Build with Hugo and update website  
 on:
   push:
     branches:
