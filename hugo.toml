@@ -1,6 +1,15 @@
 baseURL = 'http://www.opgenorth.net/'
 languageCode = 'en-us'
 title = 'Opgenorth.NET'
+paginate = "10" # Number of posts per page
+disqusShortname = "opgenorthnet" 
+googleAnalytics = "1812612" 
+disablePathToLower = true
+
+[Author] # Used in authorbox
+  name = "Tom Opgenorth"
+  bio = "Just a humble software developer from the Great White North, with a taste for single-malt scotch and an interest in ballistic things."
+  avatar = "images/abominable-snowman-1.png"
 
 [module]
   [[module.imports]]
@@ -14,26 +23,48 @@ theme = ["Mainroad"]  # Matches import path basename
   url = "/posts/"
   weight = 1
 
-[[menu.main]]
-  name = "Travel Gallery"
-  url = "/gallery/"
-  weight = 2
-
 [params]
-  description = "Mindless missives from the Great White North."
+  description = "Tom Opgenorth's Personal blog, mostly irrelevant"
+  copyright = "Tom Opgenorth"
+  opengraph = true
+  schema = true
+  twitter_cards = false
+  readmore = true
+  authorbox = false
+  toc = true
+  pager = true
+  mainSections = ["post" ] 
+  dateFormat = "2006-Jan-02"
   avatar = "abominable-snowman-1.png"
   favicon = "favicon.ico"
   author = "Tom Opgenorth"
-  dateFormat = "2006-Jan-02"
   hideAuthor = true
   hideDate = false
   mathjax = false
+  googleFontsLink = "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" # Load Google Fonts
 
   [params.sidebar]
     home = "right"
     list = "right"
     single = "right"
-    widgets = ["search", "recent", "categories", "taglist"]
+    widgets = ["recent", "taglist", "social"]
+
+  [params.logo]
+    image = "images/abominable-snowman-1.jpg" # Logo image. Path relative to "static"
+    title = "Opgenorth.NET" # Logo title, otherwise will use site title
+    subtitle = "Mindless Missives from the Great White North" # Logo subtitle
+
+  [params.widgets.social]
+    # Enable parts of social widget
+    facebook = "tom.opgenorth"
+    twitter = "topgenorth"
+    instagram = "topgenorth"
+    linkedin = "tomopgenorth"
+    #telegram = "username"
+    github = "topgenorth"
+    #gitlab = "username"
+    #bitbucket = "username"
+    email = "tom@opgenorth.net"    
 
 [caches]
   [caches.images]
