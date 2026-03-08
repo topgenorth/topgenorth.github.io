@@ -47,7 +47,7 @@ theme = ["Mainroad"]  # Matches import path basename
     home = "right"
     list = "right"
     single = "right"
-    widgets = ["recent", "taglist", "social"]
+    widgets = ["taglist", "social"]
 
   [params.logo]
     image = "images/abominable-snowman-1.jpg" # Logo image. Path relative to "static"
