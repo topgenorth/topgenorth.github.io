@@ -1,5 +1,5 @@
----
-title: "Home"
----
++++
+title = "Redirecting to Blog"
+aliases = ["/"]
++++
 
-Welcome to **Opgenorth.NET**. This is the homepage content.
