@@ -10,7 +10,7 @@ tags:
 ---
 
 Here is a list of some loads I have used for 6x45mm. General observations:
-* Projectiles much heavier than 95gr are problematic when it comes to seating with the COAL of 2.250". 
+* Projectiles much heavier than 90gr are problematic when it comes to seating with the COAL of 2.250". 
 * I've found that [IMR 8208 XBR](https://shop.hodgdon.com/imr-8208-xbr/) grouped the best and QuickLoad tells me it burns better for this particular cartridge.  However BL-C(2) does seem to be easier for me to find.
 * I did have to get a seperate seating die for the longer/heavier projecticles as the original one would leave a ring on the projectile itself. 
 
@@ -18,7 +18,9 @@ The [dies are from Redding](https://redding-reloading.com/die_finder/6mm-223-rem
 
 The brass is reformed once-fired .223 brass, either range pickups or donations from friends. I would just run the .223 brass through the 6x45 sizing die to expand the necks.
 
-The 75gr Hornday V-MAX seemed to seat the best, followed by the 80gr Barnes TTSX. It seems to me that the 80gr Barnes TTSX grouped the best, along with the 75gr Hornady V-MAX. If you're hunting, it's probably better to stick with the Barnes, but if you're plinking or varminting then the Hornady V-MAX is the better bet. The 87gr Berger Hunter seated very poorly - I would not recommend those unless you have a chamber that is cut to accept to longer bullets.
+The 75gr Hornday V-MAX seemed to seat the best, followed by the 80gr Barnes TTSX. It seems to me that the 80gr Barnes TTSX grouped the best, along with the 75gr Hornady V-MAX. 
+
+If you're hunting, it's probably better to stick with the Barnes (and maybe keep your shots under 100m). If you're plinking or varminting then the Hornady V-MAX is the better bet. The 87gr Berger Hunter seated very poorly &ndash; I would not recommend those unless you have a chamber (and magazines) that is cut to accept to longer bullets.
 
 I load these to 2.260" COAL (to fit in a STANAG magazine). All weights are in grains, and velocities in feet-per-second. The velocities were recorded using a 20" barrel.
 
