@@ -1,6 +1,7 @@
 ---
 aliases:
     - /post/2017-05-15-norinco-762x51-ballistics/
+    - /blog/2017/05/16/norinco-762x51-ballistics/
 categories:
     - Firearms
 comments: true
