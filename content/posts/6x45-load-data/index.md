@@ -18,9 +18,9 @@ The [dies are from Redding](https://redding-reloading.com/die_finder/6mm-223-rem
 
 The brass is reformed once-fired .223 brass, either range pickups or donations from friends. I would just run the .223 brass through the 6x45 sizing die to expand the necks.
 
-The 75gr Hornday V-MAX seemed to seat the best, followed by the 80gr Barnes TTSX. It seems to me that the 80gr Barnes TTSX grouped the best, along with the 75gr Hornady V-MAX. 
+The 75gr Hornday V-MAX seemed to seat the best, followed by the 80gr Barnes TTSX. It seems to me that the 80gr Barnes TTSX grouped the best, along with the 75gr Hornady V-MAX and 90gr Hornady ELD-X.
 
-If you're hunting, it's probably better to stick with the Barnes (and maybe keep your shots under 100m). If you're plinking or varminting then the Hornady V-MAX is the better bet. The 87gr Berger Hunter seated very poorly &ndash; I would not recommend those unless you have a chamber (and magazines) that is cut to accept to longer bullets.
+If you're hunting, it's probably better to stick with the Barnes (and maybe keep your shots under 100m). If you're plinking or varminting then the Hornady V-MAX is the better bet. The 87gr Berger Hunter seated very poorly; I would not recommend those unless you have a chamber (and magazines) that is cut to accept to longer bullets.
 
 I load these to 2.260" COAL (to fit in a STANAG magazine). All weights are in grains, and velocities in feet-per-second. The velocities were recorded using a 20" barrel.
 
@@ -44,6 +44,6 @@ I load these to 2.260" COAL (to fit in a STANAG magazine). All weights are in gr
 | Nosler Partition       |     95 | BL-C(2)      | 25.2   |   2330   |
 |                        |     95 | BL-C(2)      | 26.5   |   2435   |
 
-For the curious, here are the case dimensions for 6x45. Note that this is not a SAAMI approved cartridge - it is a wildcat.
+For the curious, here are the case dimensions for 6x45. Note that this is not a SAAMI approved cartridge &ndash; it is a wildcat.
 
 ![6x45 case dimensions](6x45mm.png )
