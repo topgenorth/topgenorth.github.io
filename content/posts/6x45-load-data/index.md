@@ -12,7 +12,7 @@ tags:
 Here is a list of some loads I have used for 6x45mm. General observations:
 * Projectiles much heavier than 90gr are problematic when it comes to seating with the COAL of 2.250". 
 * I've found that [IMR 8208 XBR](https://shop.hodgdon.com/imr-8208-xbr/) grouped the best and QuickLoad tells me it burns better for this particular cartridge.  However BL-C(2) does seem to be easier for me to find.
-* I did have to get a seperate seating die for the longer/heavier projecticles as the original one would leave a ring on the projectile itself. 
+* I did have to get a seperate seating stem for the longer/heavier projecticles as the original one would leave a ring on the projectile itself. I emailed RCBS and they sent me the replacement stem free of charge.
 
 The [dies are from Redding](https://redding-reloading.com/die_finder/6mm-223-remington-6mm-x-45-conventional-dies/). 
 
