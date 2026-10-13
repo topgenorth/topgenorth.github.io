@@ -29,3 +29,5 @@ For the first pass, I happened to have a bunch of 150gr bullets. This is a touch
 | **48.5gr** IMR 4064 | **47.6gr** IMR 4064 | **49.0gr** IMR 4064 |
 
 I didn't measure velocities at this time, I just wanted to see how the various loads would group. I'll update this blog post with the pictures of the groups later.
+
+![6x45 case dimensions](8mm-SAAMI.png )
