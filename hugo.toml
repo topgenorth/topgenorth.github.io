@@ -1,5 +1,5 @@
 baseURL = 'http://www.opgenorth.net/'
-languageCode = 'en-us'
+locale = 'en-ca'
 title = 'Opgenorth.NET'
 paginate = "10" # Number of posts per page
 disqusShortname = "opgenorthnet" 
@@ -18,10 +18,28 @@ disablePathToLower = true
 # Theme AFTER imports
 theme = ["Mainroad"]  # Matches import path basename
 
-[[menu.main]]
-  name = "Blog"
-  url = "/posts/"
-  weight = 1
+[menus]
+  [[menus.main]]
+    name = "Handloading"
+    pageRef = "/handloading"
+    weight = 20
+
+  [[menus.main]]
+    name = "6x45mm"
+    pageRef = "/handloading/6x45"
+    parent = "Handloading"
+    weight = 1
+
+  [[menus.main]]
+    name = "8mm Mauser"
+    pageRef = "/handloading/792x57"
+    parent = "Handloading"
+    weight = 2
+
+  [[menus.main]]
+    name = "Blog"
+    pageRef = "/posts/"
+    weight = 10
 
 [params]
   description = "Tom Opgenorth's Personal blog, mostly irrelevant"
@@ -60,11 +78,8 @@ theme = ["Mainroad"]  # Matches import path basename
     twitter = "topgenorth"
     instagram = "topgenorth"
     linkedin = "tomopgenorth"
-    #telegram = "username"
     github = "topgenorth"
-    #gitlab = "username"
-    #bitbucket = "username"
-    email = "tom@opgenorth.net"    
+    email = "tom@opgenorth.net"
 
 [caches]
   [caches.images]
