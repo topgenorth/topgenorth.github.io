@@ -16,7 +16,7 @@ disablePathToLower = true
     path = "github.com/Vimux/Mainroad"
 
 # Theme AFTER imports
-theme = ["Mainroad"]  # Matches import path basename
+theme = ["Mainroad"]
 
 [menus]
   [[menus.main]]
@@ -32,7 +32,7 @@ theme = ["Mainroad"]  # Matches import path basename
 
   [[menus.main]]
     name = "8mm Mauser"
-    pageRef = "/handloading/792x57"
+    pageRef = "/handloading/8x57JS"
     parent = "Handloading"
     weight = 2
 
