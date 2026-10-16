@@ -7,6 +7,7 @@ tags:
     - reloading
     - 7.92x57
 title: 8mm Mauser
+draft: true
 ---
 
 8mm Mauser is a great cartridge, known by many different names:
