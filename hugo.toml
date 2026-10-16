@@ -41,6 +41,11 @@ theme = ["Mainroad"]
     pageRef = "/posts/"
     weight = 10
 
+  [[menus.main]]
+    name = "Old stuff"
+    pageRef = "/archives"
+    weight = 200
+    
 [params]
   description = "Tom Opgenorth's Personal blog, mostly irrelevant"
   copyright = "Tom Opgenorth"
