@@ -19,11 +19,22 @@ disablePathToLower = true
 theme = ["Mainroad"]
 
 [menus]
+
+  [[menus.main]]
+    name = "Blog"
+    pageRef = "/posts/"
+    weight = 10
+
+
+  [[menus.main]]
+    name = "Travel"
+    pageRef = "/travel"
+    weight = 20
+
   [[menus.main]]
     name = "Handloading"
     pageRef = "/handloading"
-    weight = 20
-
+    weight = 30
   [[menus.main]]
     name = "6x45mm"
     pageRef = "/handloading/6x45"
@@ -35,11 +46,6 @@ theme = ["Mainroad"]
     pageRef = "/handloading/8x57JS"
     parent = "Handloading"
     weight = 2
-
-  [[menus.main]]
-    name = "Blog"
-    pageRef = "/posts/"
-    weight = 10
 
   [[menus.main]]
     name = "Old stuff"
