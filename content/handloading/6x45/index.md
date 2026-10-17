@@ -11,6 +11,22 @@ tags:
     - 6x45
 ---
 
+The 6x45mm (also known as the 6mm-223 or 6mm/.223 Remington) is a wildcat cartridge created by necking up the standard .223 Remington / 5.56x45mm case to accept 6mm (.243") diameter bullets.
+
+## History & Origins
+
+The cartridge originated around 1965, shortly after the commercial introduction of the .223 Remington and the U.S. military adoption of the 5.56x45mm cartridge. Benchrest shooters and hunters sought to enhance the ballistic efficiency and terminal performance of the compact .223 case by loading heavier, higher-ballistic-coefficient 6mm projectiles.
+
+Key aspects of its history and development include:
+
+* **Simplicity and Efficiency**: Unlike wildcats that require fire-forming or case shortening, the 6x45mm retains the original .223 Remington case length, rim diameter, and 23-degree shoulder angle. Reloaders can easily produce brass in a single step simply by passing standard .223 Remington brass through a 6x45mm full-length sizing die.
+* **Benchrest Competition**: During the late 1960s and 1970s, the 6x45mm gained substantial popularity in benchrest shooting due to its mild recoil, low powder consumption, extended barrel life, and exceptional inherent accuracy, bridging the gap before specialized benchrest cartridges like the 6mm PPC became dominant.
+* **Hunting Utility**: Many jurisdictions historically prohibited big game hunting with calibers under .243" (6mm), ruling out the standard .223 Remington. The 6x45mm offered a practical solution, allowing hunters to utilize lightweight bolt-action rifles and the AR-15 platform with legal 6mm bullets for deer and antelope while maintaining full magazine capacity.
+* **Not to be Confused with 6x45mm SAW**: The civilian 6x45mm (6mm-223) is distinct from the experimental **6x45mm SAW** (also known as the 6mm SAW) developed by the U.S. Army (Frankford Arsenal) during the 1970s Squad Automatic Weapon trials. While both share a 6mm bullet and a 45mm case length, the 6mm SAW was an entirely different, purpose-built cartridge with a fatter case body (larger base and rim diameter of ~0.408" vs. 0.378" for .223), greater case capacity, and a longer overall cartridge length (~2.580") designed to propel heavier ~105gr bullets out to 1,000 meters in military machine guns. The two cartridges are not interchangeable, and 6x45 SAW brass cannot be formed from standard .223 Remington cases.
+* **Standardization**: While never standardized by SAAMI in the United States, it was officially standardized in Europe by the CIP as the **6 x 45**.
+
+## Load Data
+
 Here is a list of some loads I have used for 6x45mm. General observations:
 * Projectiles much heavier than 90gr are problematic when it comes to seating with the COAL of 2.250". 
 * I've found that [IMR 8208 XBR](https://shop.hodgdon.com/imr-8208-xbr/) grouped the best and QuickLoad tells me it burns better for this particular cartridge.  However BL-C(2) does seem to be easier for me to find.
@@ -45,6 +61,8 @@ I load these to 2.260" COAL (to fit in a STANAG magazine). All weights are in gr
 | Hornady ELD-X          |     90 | BL-C(2)      | 27.2   |   2363   |
 | Nosler Partition       |     95 | BL-C(2)      | 25.2   |   2330   |
 |                        |     95 | BL-C(2)      | 26.5   |   2435   |
+
+## Dimensions
 
 For the curious, here are the case dimensions for 6x45. Note that this is not a SAAMI approved cartridge &ndash; it is a wildcat.
 
