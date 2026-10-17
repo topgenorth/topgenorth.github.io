@@ -36,7 +36,7 @@ theme = ["Mainroad"]
   [[menus.main]]
     identifier = "handloading-8x57js"
     name = "8mm Mauser"
-    url = "/handloading/8x57JS/"
+    url = "/handloading/8x57/"
     parent = "handloading"
     weight = 2
 

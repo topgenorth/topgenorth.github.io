@@ -4,7 +4,6 @@ aliases:
 categories:
     - Firearms
 comments: true
-draft: true
 date: '2018-09-28T09:09:54-07:00'
 tags:
     - reloading
@@ -25,7 +24,7 @@ Lately this seems to have changed (in Canada at least).  The availability of 8mm
 
 One option available to the hand loader is to reform brass from another cartridge to 8mm Mauser. Note that while I'm talking about 8mm Mauser, these principles can apply to pretty much any cartridge; for example reforming .223 brass to 300BLK.
 
-# Reforming Brass
+## Reforming Brass
 
 Forming brass isn't as bad as it sounds. Brass is a soft metal, and can be easily shaped without using to much specialized equipment or force. Not all brass cartridges can be reformed to 8mm Mauser. As a general rule of thumb, anything that is a derivative of 8mm Mauser and is as long or longer that the 8mm Mauser case can be reformed. A good example would be .30-06 Springfield or .270 Winchester. Both are very common hunting cartridges in North America.
 
@@ -43,7 +42,7 @@ From left to right:
 * Reformed .270 Winchester brass, after full length resizing.
 * New piece of 8mm Mauser brass: trimmed to 2.230", chamfered, deburred, and annealled.
 
-## Collecting tools and components
+### Collecting tools and components
 
 The first step is to collect the  necessary materials and tools. In my case I gathered up:
 
@@ -55,7 +54,7 @@ The first step is to collect the  necessary materials and tools. In my case I ga
 * Tools to trim, chamfer, and debur brass.
 * Tools to anneal the brass, or a friend who knows how.
 
-## The process
+### The process
 
 Once I had everything, it was necessary to prep the brass. I tumbled it to clean it up, and then lubed each case. Next, I put the the piece into my reloading press, and ran it through the reforming die. I didn't lower the ram of the reloading press immediately, I left it up:
 
