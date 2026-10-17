@@ -44,14 +44,14 @@ From left to right:
 
 ### Collecting tools and components
 
-The first step is to collect the  necessary materials and tools. In my case I gathered up:
+The first step is to collect the  necessary materials and tools. In my case I gathered up the following:
 
 * A bunch of .270 Winchester brass, donated to me by a fellow at the range who had the foresight to collect his brass and the generosity to give it to me.
 * [Lee Precision Resizing Lube](https://www.cabelas.ca/product/3565/lee-resizing-lubricant).
-* Redding Form and Trim Die, Part #83159. RCBS also makes trim die. Some people will just run their brass through a full length resizing die. I this case, I opted to use a reforming die.
+* [Redding Form and Trim Die, Part #83159](https://redding-reloading.com/product/trim-dies/). RCBS also makes trim die. Some people will just run their brass through a full length resizing die. I this case, I opted to use a reforming die.
 * Hack saw.
 * 8mm Mauser full length resizing die.
-* Tools to trim, chamfer, and debur brass.
+* Tools to trim, chamfer, and deburr brass.
 * Tools to anneal the brass, or a friend who knows how.
 
 ### The process
@@ -64,7 +64,7 @@ With the ram all the way up, I used my trusty hacksaw to trim away the excess ma
 
 ![Cutting off the excess brass](04.png)
 
-After performing this rough cut on each piece of brass, I'd lower the ram, take the brass out, and quicking inspect the mouth of the case to make sure there weren't any significant burrs around the mouth of the cartridge. Any burrs should be removed before proceeding on to the next step.
+After performing this rough cut on each piece of brass, I'd lower the ram, take the brass out, and quick inspect the mouth of the case to make sure there weren't any significant burrs around the mouth of the cartridge. Any burrs should be removed before proceeding on to the next step.
 
 After reforming and making the rough cut, I pressed the brass through my full length resizing die. I didn't find it necessary to lube the case a second time. Note that if there are excessive burrs on the case of the mouth, the full length sizer may mangle the piece of brass.
 
