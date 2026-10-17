@@ -1,40 +1,77 @@
 ---
+aliases:
+    - /post/2018-09-28-reforming-brass-for-8mm/
 categories:
     - Firearms
 comments: true
-date: '2026-10-12T02:36:32Z'
+draft: true
+date: '2018-09-28T09:09:54-07:00'
 tags:
     - reloading
     - 7.92x57
-title: 8mm Mauser
-draft: true
+title: Reforming brass for the Mauser 98k
 ---
 
-8mm Mauser is a great cartridge, known by many different names:
-* 8x57 JS / 8x57 IS (in the gothic script a J looked like an I to)
-* 7.92x57 / 7.9
-* 8x57 / 8x57 J
+The 8mm Mauser (7.92x57mm) round, in it's current incarnation, has been around since 1903. It is a improvement of the original 7.92x57mm cartridge that was developed in 1888 by Peter Paul Mauser.  Arguably, 8mm Mauser has been one of the world's most popular cartridges, having seen significant military and civilian use over the past 100+ year. It also influenced the design of many of today's cartridges, such as .30-06.
 
-## A bit of history
+Finding good 8mm Mauser ammunition (in Canada at least) is becoming harder. The glut of military surplus rifles and ammunition for this cartridge is long over, and there are more modern cartridges which have gained a significant following.
 
-The Imperial German army had just adopted it's infantry with a new rifle, the Model 1871. This was a single-shot, bolt action, black powder rifle designed by the Mauser brothers (Wilhelm and Peter-Paul), chambered in 11x60. Later, in 1886, the Model 71 was upgraded with an eight shot tube loaded magazine, designated the M71/86.
+The solution to the scarcity of 8mm Mauser is to hand load your own ammunition. Generally speaking all of the components necessary for reloading 8mm Mauser are common enough that a competent hand loader need not worry about having a supply of 8mm Mauser on hand.  
 
-At about the same time as Germany was upgrading their M71 to M71/86, the French adopted the 8x50R for their Lebel 1886 rifle. This was a very significant event in the history of rifles and ammunition.  The 8x50R was a metallic cartridge that used *smokeless gun powder*, not black powder. This allowed very high velocities, and thus improved the range, accuracy, and overall lethality of the Lebel 1886.
+Lately this seems to have changed (in Canada at least).  The availability of 8mm Mauser brass seems to be drying up &ndash; it's hard to find on the range (leftover by those who do shoot this cartridge), and buying commercial brass can be expensive.
 
-This innovation by the French caused much consternation in the Imperial Germany army. In the blink of an eye, the M71/86 rifle (which cost the Kaiser a lot of money) was now effectively obsolete &ndash; at least on the European battlefield. 
+![8mm Mauser cartridges](01.png)
 
-This could not stand, so a commission was struck to design the next service rifle for the German soldier.
+One option available to the hand loader is to reform brass from another cartridge to 8mm Mauser. Note that while I'm talking about 8mm Mauser, these principles can apply to pretty much any cartridge; for example reforming .223 brass to 300BLK.
 
-### The Gewehr 1888 rifle and the M88 cartridge
+# Reforming Brass
 
-And so we have the origin of the Gewehr 88 rifle and the M88 cartridge and the beginnings of 8mm Mauser. 
+Forming brass isn't as bad as it sounds. Brass is a soft metal, and can be easily shaped without using to much specialized equipment or force. Not all brass cartridges can be reformed to 8mm Mauser. As a general rule of thumb, anything that is a derivative of 8mm Mauser and is as long or longer that the 8mm Mauser case can be reformed. A good example would be .30-06 Springfield or .270 Winchester. Both are very common hunting cartridges in North America.
 
-The M88 was the first rimless catridge that used smokeless powder. It was a 226 grain, 7.92mm (0.318") diameter projectile moving at about 2100fps. It was very popular with hunters as well, and was commercially know as the **8x57I**. The 'I' denoted _Infanterie_.
+This picture shows the brass and reloading dies that I use to reform:
 
-The Commission 88 rifle (also called the Model 1888), had a Mannlicher style box magazine.
+![Reforming .270 Winchester to 8mm Mauser](05.png)
 
-![8mm Mauser case specifications](8mm-SAAMI.png )
+From left to right:
 
+* Original .270 Winchester brass.
+* Redding Form &amp; Trim die for 8mm Mauser.
+* .270 Winchester after the reforming die.
+* Reformed .270 Winchester, after a rough cut to remove excess material.
+* 8mm Mauser full length resizing die.
+* Reformed .270 Winchester brass, after full length resizing.
+* New piece of 8mm Mauser brass: trimmed to 2.230", chamfered, deburred, and annealled.
 
-## Load Data
+## Collecting tools and components
 
+The first step is to collect the  necessary materials and tools. In my case I gathered up:
+
+* A bunch of .270 Winchester brass, donated to me by a fellow at the range who had the foresight to collect his brass and the generosity to give it to me.
+* [Lee Precision Resizing Lube](https://www.cabelas.ca/product/3565/lee-resizing-lubricant).
+* Redding Form and Trim Die, Part #83159. RCBS also makes trim die. Some people will just run their brass through a full length resizing die. I this case, I opted to use a reforming die.
+* Hack saw.
+* 8mm Mauser full length resizing die.
+* Tools to trim, chamfer, and debur brass.
+* Tools to anneal the brass, or a friend who knows how.
+
+## The process
+
+Once I had everything, it was necessary to prep the brass. I tumbled it to clean it up, and then lubed each case. Next, I put the the piece into my reloading press, and ran it through the reforming die. I didn't lower the ram of the reloading press immediately, I left it up:
+
+![Cartridge in the die](03.png)
+
+With the ram all the way up, I used my trusty hacksaw to trim away the excess material from the case:
+
+![Cutting off the excess brass](04.png)
+
+After performing this rough cut on each piece of brass, I'd lower the ram, take the brass out, and quicking inspect the mouth of the case to make sure there weren't any significant burrs around the mouth of the cartridge. Any burrs should be removed before proceeding on to the next step.
+
+After reforming and making the rough cut, I pressed the brass through my full length resizing die. I didn't find it necessary to lube the case a second time. Note that if there are excessive burrs on the case of the mouth, the full length sizer may mangle the piece of brass.
+
+Finally I would trim the brass to the SAAMI spec for 8mm Mauser, and then debur it again. It is recommended to trim the case to 2.230", and the maximum length of the case must not exceed 2.240".  This diagram shows the SAAMI spec for 7.92x57mm (dimensions are in millimetres):
+
+![SAAMI spec for 8mm Mauser](02.png)
+
+Afterwards, I had the brass [annealled](http://www.massreloading.com/annealing.html). This is necessary because the steps involved with reforming and resizing the brass will result in it being "work hardened". This means that the brass has become brittle and hard as a result of the forces being used to reshape it. The case necks will quickly crack due to the pressure generated when the cartridge is fired.
+
+At this point, I can have prepped brass, ready for the process of being primed, charged with gunpowder, and being topped off with a projectile.
