@@ -48,4 +48,4 @@ I load these to 2.260" COAL (to fit in a STANAG magazine). All weights are in gr
 
 For the curious, here are the case dimensions for 6x45. Note that this is not a SAAMI approved cartridge &ndash; it is a wildcat.
 
-![6x45 case dimensions](6x45mm.png )
+![6x45 case dimensions](/images/6x45mm.png)
