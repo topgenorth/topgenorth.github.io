@@ -1,5 +1,5 @@
 baseURL = 'http://www.opgenorth.net/'
-languageCode = 'en-us'
+locale = 'en-ca'
 title = 'Opgenorth.NET'
 paginate = "10" # Number of posts per page
 disqusShortname = "opgenorthnet" 
@@ -16,14 +16,38 @@ disablePathToLower = true
     path = "github.com/Vimux/Mainroad"
 
 # Theme AFTER imports
-theme = ["Mainroad"]  # Matches import path basename
+theme = ["Mainroad"]
 
-[[menu.main]]
-  name = "Blog"
-  url = "/posts/"
-  weight = 1
+[menus]
 
+  [[menus.main]]
+    identifier = "handloading"
+    name = "Handloading"
+    url = "/handloading/"
+    weight = 30
+
+  [[menus.main]]
+    identifier = "handloading-6x45"
+    name = "6x45mm"
+    url = "/handloading/6x45/"
+    parent = "handloading"
+    weight = 1
+
+  [[menus.main]]
+    identifier = "handloading-8x57js"
+    name = "8mm Mauser"
+    url = "/handloading/8x57/"
+    parent = "handloading"
+    weight = 2
+
+  [[menus.main]]
+    identifier = "archives"
+    name = "Old stuff"
+    url = "/archives/"
+    weight = 200
+    
 [params]
+  customCSS = ["css/custom.css"]
   description = "Tom Opgenorth's Personal blog, mostly irrelevant"
   copyright = "Tom Opgenorth"
   opengraph = true
@@ -60,11 +84,8 @@ theme = ["Mainroad"]  # Matches import path basename
     twitter = "topgenorth"
     instagram = "topgenorth"
     linkedin = "tomopgenorth"
-    #telegram = "username"
     github = "topgenorth"
-    #gitlab = "username"
-    #bitbucket = "username"
-    email = "tom@opgenorth.net"    
+    email = "tom@opgenorth.net"
 
 [caches]
   [caches.images]
