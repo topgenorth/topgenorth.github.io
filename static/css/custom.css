@@ -1,0 +1,64 @@
+/* Desktop Dropdown Styles */
+.menu__item--has-children {
+  position: relative;
+}
+
+.menu__arrow {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 0.8em;
+  transition: transform 0.2s ease;
+}
+
+@media screen and (min-width: 768px) {
+  .menu__submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    background-color: #2a2a2a;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+  }
+
+  .menu__item--has-children:hover > .menu__submenu,
+  .menu__item--has-children:focus-within > .menu__submenu {
+    display: block;
+  }
+
+  .menu__submenu .menu__subitem {
+    display: block;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .menu__submenu .menu__link {
+    display: block;
+    padding: 10px 15px;
+    color: #ffffff;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .menu__submenu .menu__link:hover {
+    background-color: #383838;
+    color: #e22d30;
+  }
+}
+
+/* Mobile Responsive Adjustments */
+@media screen and (max-width: 767px) {
+  .menu__submenu {
+    list-style: none;
+    padding-left: 20px;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .menu__submenu .menu__subitem {
+    display: block;
+  }
+}

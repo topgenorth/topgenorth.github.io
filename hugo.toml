@@ -21,38 +21,45 @@ theme = ["Mainroad"]
 [menus]
 
   [[menus.main]]
+    identifier = "blog"
     name = "Blog"
-    pageRef = "/posts/"
+    url = "/posts/"
     weight = 10
 
-
   [[menus.main]]
+    identifier = "travel"
     name = "Travel"
-    pageRef = "/travel"
+    url = "/travel/"
     weight = 20
 
   [[menus.main]]
+    identifier = "handloading"
     name = "Handloading"
-    pageRef = "/handloading"
+    url = "/handloading/"
     weight = 30
+
   [[menus.main]]
+    identifier = "handloading-6x45"
     name = "6x45mm"
-    pageRef = "/handloading/6x45"
-    parent = "Handloading"
+    url = "/handloading/6x45/"
+    parent = "handloading"
     weight = 1
 
   [[menus.main]]
+    identifier = "handloading-8x57js"
     name = "8mm Mauser"
-    pageRef = "/handloading/8x57JS"
-    parent = "Handloading"
+    url = "/handloading/8x57JS/"
+    parent = "handloading"
     weight = 2
 
   [[menus.main]]
+    identifier = "archives"
     name = "Old stuff"
-    pageRef = "/archives"
+    url = "/archives/"
     weight = 200
     
 [params]
+  customCSS = ["css/custom.css"]
   description = "Tom Opgenorth's Personal blog, mostly irrelevant"
   copyright = "Tom Opgenorth"
   opengraph = true
