@@ -10,6 +10,7 @@ categories:
 tags:
   - reloading
   - 6x45
+sidebar: false
 ---
 
 ## What is it?
