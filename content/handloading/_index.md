@@ -2,6 +2,7 @@
 categories:
     - Firearms
 comments: false
+layout: single
 tags:
     - reloading
     - firearms

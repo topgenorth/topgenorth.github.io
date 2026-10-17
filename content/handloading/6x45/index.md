@@ -102,4 +102,4 @@ at your own risk. I'm just sharing what I do; I'm not suggesting that this is wh
 
 For the curious, here are the case dimensions for 6x45.
 
-![6x45 case dimensions](/images/6x45mm.png)
+![6x45 case dimensions](6x45mm.png)

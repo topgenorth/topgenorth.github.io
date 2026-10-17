@@ -10,6 +10,7 @@ tags:
     - reloading
     - 7.92x57
 title: Reforming brass for the Mauser 98k
+layout: single
 ---
 
 The 8mm Mauser (7.92x57mm) round, in it's current incarnation, has been around since 1903. It is a improvement of the original 7.92x57mm cartridge that was developed in 1888 by Peter Paul Mauser.  Arguably, 8mm Mauser has been one of the world's most popular cartridges, having seen significant military and civilian use over the past 100+ year. It also influenced the design of many of today's cartridges, such as .30-06.
