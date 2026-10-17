@@ -21,18 +21,6 @@ theme = ["Mainroad"]
 [menus]
 
   [[menus.main]]
-    identifier = "blog"
-    name = "Blog"
-    url = "/posts/"
-    weight = 10
-
-  [[menus.main]]
-    identifier = "travel"
-    name = "Travel"
-    url = "/travel/"
-    weight = 20
-
-  [[menus.main]]
     identifier = "handloading"
     name = "Handloading"
     url = "/handloading/"
