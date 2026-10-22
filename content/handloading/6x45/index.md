@@ -84,6 +84,8 @@ Here are some quick notes on my load data. This worked for me, in my rifle. If y
 at your own risk. I'm just sharing what I do; I'm not suggesting that this is what you should do. The COAL of these
 loads were all constrained by the magazine size to 2.260".
 
+My rifle, (MRA Renegade) is capable of about 0.27 milliradians (just shy of 1MOA), regardless of the load.
+
 | Projectile Name             | Powder Name  | Weight (grains) | Velocity (fps) | Mean Radius | Notes                   |
 |:----------------------------|:-------------|:---------------:|:--------------:|:-----------:|:------------------------|
 | 62gr Barnes Varmint Grenade | BL-C(2)      |      26.0       |      2949      |             |                         |
@@ -102,7 +104,8 @@ loads were all constrained by the magazine size to 2.260".
 
 ### 75gr Projectiles
 
-It seems that 75gr is a good weight for target shooting (and probably varminting as well). The Hornady V-MAX is pretty
+It seems that 75gr is a good weight for target shooting (and probably varminting as well). It seats nicely, and is
+relatively inexpensive. The Hornady V-MAX is pretty
 easy for me to find, and relatively inexpensive. I happened upon a bunch of Speer HP projectiles, so I thought I would
 compare them. I loaded up 30 rounds of each on a Dillon 550 press, and shot them at 200 m on ShotMarker. You can see the
 results in the following screenshots:
@@ -124,7 +127,7 @@ radius on the Speer wasn't much worse that the V-MAX, and that the Speer had a s
 
 ### 90gr Hornady ELD-X
 
-![90gr-HornadyELDX.png](90gr-HornadyELDX.png)
+![90gr-HornadyELDX.png](90gr-HornadyELDX-27_2grBLC2.png)
 
 This is 872 foot-pounds of energy.
 
