@@ -76,30 +76,43 @@ found both QuickLoad and Gordon's Reloading tool to be helpful in building up my
 If you're hunting, it's probably better to stick with the 80gr Barnes or the 90gr Hornady ELD-X. Shot placement would be
 crucial, and should be under 100m to ensure sufficient terminal performance. Your mileage may vary.
 
-### Summary of load data
+### Load Data
 
 Here are some quick notes on my load data. This worked for me, in my rifle. If you do use my load data, then you do so
-at your own risk. I'm just sharing what I do; I'm not suggesting that this is what you should do.
+at your own risk. I'm just sharing what I do; I'm not suggesting that this is what you should do. The COAL of these
+loads were all constrained by the magazine size to 2.260".
 
-| Projectile Name             | Powder Name  | Weight (grains) | Velocity (fps) |
-|:----------------------------|:-------------|:---------------:|:--------------:|
-| 62gr Barnes Varmint Grenade | BL-C(2)      |      26.0       |      2949      |
-|                             | IMR 8208 XBR |      26.4       |      2960      |
-| 75gr Hornady V-MAX          | BL-C(2)      |      25.2       |      2680      |
-|                             | BL-C(2)      |      27.3       |      2745      |
-|                             | BL-C(2)      |      27.4       |      2829      |
-|                             | IMR 8208 XBR |      26.0       |      2909      |
-|                             | BL-C(2)      |      27.65      |      2851      |
-| 80gr Barnes TTSX            | IMR 8208 XBR |      23.0       |      2472      |
-|                             | BL-C(2)      |      25.2       |      2429      |
-|                             | BL-C(2)      |      26.5       |      2637      |
-|                             | IMR 8208 XBR |      27.0       |      2643      |
-| 87gr Berger VLD Hunter      | BL-C(2)      |      24.2       |      2399      |
-| 90gr Hornady ELD-X          | BL-C(2)      |      27.2       |      2363      |
-| 95gr Nosler Partition       | BL-C(2)      |      25.2       |      2330      |
-|                             | BL-C(2)      |      26.5       |      2435      |
+| Projectile Name             | Powder Name  | Weight (grains) | Velocity (fps) | Mean Radius | Notes                   |
+|:----------------------------|:-------------|:---------------:|:--------------:|:-----------:|:------------------------|
+| 62gr Barnes Varmint Grenade | BL-C(2)      |      26.0       |      2949      |             |                         |
+|                             | IMR 8208 XBR |      26.4       |      2960      |             |                         |
+| **75gr Speer HP #1205**     | **BL-C(2)**  |    **27.3**     |    **2789**    |  0.29 mil   |                         |
+| **75gr Hornady V-MAX**      | **BL-C(2)**  |    **27.3**     |    **2798**    |  0.24 mil   |                         |
+|                             | IMR 8208 XBR |      26.0       |      2909      |             |                         |
+| 80gr Barnes TTSX            | IMR 8208 XBR |      23.0       |      2472      |             |                         |
+|                             | BL-C(2)      |      25.2       |      2429      |             |                         |
+|                             | BL-C(2)      |      26.5       |      2637      |             |                         |
+|                             | IMR 8208 XBR |      27.0       |      2643      |             |                         |
+| 87gr Berger VLD Hunter      | BL-C(2)      |      24.2       |      2399      |             | Doesn't seat very well. |
+| **90gr Hornady ELD-X**      | **BL-C(2)**  |    **27.2**     |    **2363**    |             |                         |
+| 95gr Nosler Partition       | BL-C(2)      |      25.2       |      2330      |             |                         |
+|                             | BL-C(2)      |      26.5       |      2435      |             |                         |
 
-### Dimensions
+#### 75gr Projectiles
+
+It seems that 75gr is a good weight for target shooting (and probably varminting as well). The Hornady V-MAX is pretty
+easy for me to find, and relatively inexpensive. I happened upon a bunch of Speer HP projectiles, so I thought I would
+compare them. I loaded up 30 rounds of each on a Dillon 550 press, and shot them at 200 m on ShotMarker. You can see the
+results in the following screenshots:
+
+|                                  75gr Hornady V-MAX                                  |                                   75gr Speer HP                                    |
+|:------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|
+|        ![75gr Hornady VMAX, 27_3gr BL-C(2)](75grHornadyVMAX-27_3grBLC2-2.jpg)        |           ![75gr Speer HP, 27_3gr BL-C(2)](75grSpeerHP-27_3grBLC2-2.jpg)           |
+| At 200m, ShotMarker reported a velocity of 2238 fps. This is 834 foot-lbs of energy. | At 200m, ShotMarker reported a velocity of 1902 fps, about 602 foot-lbs of energy. |
+
+There are a lot of numbers there, but to me the important one is the mean radius. It was interesting to me that the mean radius on the Speer wasn't much worse that the V-MAX, and that the Speer had a slightly better overall group size.
+
+## Dimensions
 
 For the curious, here are the case dimensions for 6x45.
 
