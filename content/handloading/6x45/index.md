@@ -71,12 +71,14 @@ found both QuickLoad and Gordon's Reloading tool to be helpful in building up my
   seat very well at all. Do not recommend.
 * [90gr Hornady ELD-X](https://www.hornady.com/bullets/rifle/6mm-.243-90-gr-eld-x#!/) also seemed promising in terms of
   accuracy, and might also be a promising hunting bullet for this cartridge.
-* Bullets much heavier than 90gr seem problematic when it comes to seating with the COAL of 2.260".
+* Bullets much heavier than 90gr seem problematic when it comes to seating with the COAL limitation of 2.260" for a
+  STANAG magazine.
 
 If you're hunting, it's probably better to stick with the 80gr Barnes or the 90gr Hornady ELD-X. Shot placement would be
-crucial, and should be under 100m to ensure sufficient terminal performance. Your mileage may vary.
+crucial. Working on the assumption that one should have about 1000 foot-lbs of energy on target for a white-tail deer,
+shots should be 100m to ensure sufficient terminal performance. Your mileage may vary.
 
-### Load Data
+## Load Data
 
 Here are some quick notes on my load data. This worked for me, in my rifle. If you do use my load data, then you do so
 at your own risk. I'm just sharing what I do; I'm not suggesting that this is what you should do. The COAL of these
@@ -94,11 +96,11 @@ loads were all constrained by the magazine size to 2.260".
 |                             | BL-C(2)      |      26.5       |      2637      |             |                         |
 |                             | IMR 8208 XBR |      27.0       |      2643      |             |                         |
 | 87gr Berger VLD Hunter      | BL-C(2)      |      24.2       |      2399      |             | Doesn't seat very well. |
-| **90gr Hornady ELD-X**      | **BL-C(2)**  |    **27.2**     |    **2363**    |             |                         |
+| **90gr Hornady ELD-X**      | **BL-C(2)**  |    **27.2**     |    **2363**    |  0.24 mil   |                         |
 | 95gr Nosler Partition       | BL-C(2)      |      25.2       |      2330      |             |                         |
 |                             | BL-C(2)      |      26.5       |      2435      |             |                         |
 
-#### 75gr Projectiles
+### 75gr Projectiles
 
 It seems that 75gr is a good weight for target shooting (and probably varminting as well). The Hornady V-MAX is pretty
 easy for me to find, and relatively inexpensive. I happened upon a bunch of Speer HP projectiles, so I thought I would
@@ -110,7 +112,21 @@ results in the following screenshots:
 |        ![75gr Hornady VMAX, 27_3gr BL-C(2)](75grHornadyVMAX-27_3grBLC2-2.jpg)        |           ![75gr Speer HP, 27_3gr BL-C(2)](75grSpeerHP-27_3grBLC2-2.jpg)           |
 | At 200m, ShotMarker reported a velocity of 2238 fps. This is 834 foot-lbs of energy. | At 200m, ShotMarker reported a velocity of 1902 fps, about 602 foot-lbs of energy. |
 
-There are a lot of numbers there, but to me the important one is the mean radius. It was interesting to me that the mean radius on the Speer wasn't much worse that the V-MAX, and that the Speer had a slightly better overall group size.
+There are a lot of numbers there, but to me the important one is the mean radius. It was interesting to me that the mean
+radius on the Speer wasn't much worse that the V-MAX, and that the Speer had a slightly better overall group size.
+
+### 80gr Barnes TTSX
+
+|                   100m                   |                    300m                     |
+|:----------------------------------------:|:-------------------------------------------:|
+|    ![80grBarnes.png](80grBarnes.png)     | ![80grBarnes-300m.png](80grBarnes-300m.png) |
+| At 100m, we have 709 foot-lbs of energy. |           526 foot-lbs of energy.           |
+
+### 90gr Hornady ELD-X
+
+![90gr-HornadyELDX.png](90gr-HornadyELDX.png)
+
+This is 872 foot-pounds of energy.
 
 ## Dimensions
 
