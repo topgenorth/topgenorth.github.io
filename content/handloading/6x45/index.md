@@ -27,23 +27,26 @@ and terminal performance of the compact .223 case by loading heavier 6mm project
 1960s and 1970s, particularly in benchrest shooting, because it has mild recoil, low powder consumption, extended barrel
 life, and exceptional inherent accuracy.
 
-## Why choose 6x45mm?
+## Why did I pick 6x45mm?
 
 In my case, I was attracted to the 6x45mm in about 2020. For those outside Canada, that is when the federal government
 decided to ban the AR-15 rifle and anything it deemed to be variant of the AR-15. Shortly after the ban happened, I had
 a bunch of AR-15 parts that I moved over to
 an [MRA Renegade](https://mapleridgearmoury.com/renegade/mra-renegade-receiver-kit-223-wylde-300-blk/) receiver kit.
-This is a straight pull receiver kit that has a fair bit of compatibility with the AR-15.
+This is a straight pull receiver kit that has a fair bit of compatibility with the AR-15. IMHO, it's a good deal if you
+have the parts and you still want to put them to use.
 
 I was first experimenting with 6.5 Grendel, but had consistent and recurrent failure to extract issues. One thing about
-straight pull actions is that they don't have much in the way of primary extraction to help pull the brass out of the
+straight pull actions is that they have little in the way of primary extraction to help pull the brass out of the
 chamber. I've read about some cases where MRA Renegades run fine in 6.5 Grendel. Maybe the chamber in my barrel has some
 issues (although I did get the chamber polished by a gunsmith)? With that cartridge off the table, I need an alternative
 and was considering 300 Blackout.
 
 It was at this point that someone suggested 6x45mm. It met the legal requirement of a cartridge larger than 0.24" in
-diameter for hunting (note that as of 2025 this is no longer the case in Alberta), and I happened to luck out and find a
-6x45 barrel. It's pretty simple to switch from .223 to 6x45mm &ndash; just run the .223 Remington brass through a 6x45mm
+diameter for hunting (note that as of 2025 Alberta change the regulations to allow .223 Remington for hunting). I
+happened to luck out and find a
+6x45mm barrel. It's pretty simple to switch from .223 to 6x45mm &ndash; just run the .223 Remington brass through a
+6x45mm
 full-length sizing die. No need to reform or trim the brass, and it's not that stressful on the case neck. I happened to
 luck out with finding a 6x45 barrel right away, and Redding
 sells [dies](https://redding-reloading.com/die_finder/6mm-223-remington-6mm-x-45-conventional-dies/).
@@ -55,18 +58,24 @@ This means that the cartridge overall length (COAL) can't be much longer than 2.
 bolt action rifle would allow more options with longer and heavier projectiles.
 
 Load data can be found with a bit of Google-fu. One could also probably just start with .223 Remington load data. I've
-found both QuickLoad and Gordon's Reloading tool to be helpful in building up my load data. General observations:
+found both QuickLoad and Gordon's Reloading tool to be helpful in building up my load data. QuickLoad and/or Gordon's
+Reloading tool are your friends when it comes to working up the
+powder charge.
 
-* I did have a problem with the seating stem in the Redding dies leaving a ring on the base. I contacted Redding about
+General observations:
+
+* I did have a problem with the seating stem in the Redding dies deforming the projecticle and leaving a ring. I
+  contacted Redding about
   this, and they sent me a replacement stem which works wonderfully.
 * Most powders that work for .223 Remington will work for 6x45mm. I've found
   that [IMR 8208 XBR](https://shop.hodgdon.com/imr-8208-xbr/) or [BL-C (2)](https://shop.hodgdon.com/hodgdon-bl-c-2/)
-  seem to work the best. QuickLoad and/or Gordon's Reloading tool are your friends when it comes to working up the
-  powder charge.
-* It seems that 75gr projectiles work the best for me. I've been able to get 2MOA groups pretty easily with
-  the [75gr Hornady V-MAX](https://www.hornady.com/bullets/rifle/6mm-243-75-gr-v-max#!/). These are also easy to find
-  where I live.
-* The [Barnes 80gr TTSX](https://barnesbullets.com/0-243-6mm-ttsx-80-gr-bt/) seemed to provide the best grouping.
+  seem to work the best.
+* It seems that 75gr projectiles work the best for me.
+  The [75gr Hornady V-MAX](https://www.hornady.com/bullets/rifle/6mm-243-75-gr-v-max#!/). These are also easy to find
+  where I live. I achieved similar accuracy with
+  the [75gr Speer HP Varminter (part #1205)](https://www.speer.com/bullets/rifle-bullets/varmint-hollow-point-bullet/19-1205.html).
+* The [Barnes 80gr TTSX](https://barnesbullets.com/0-243-6mm-ttsx-80-gr-bt/) seem like the best projectile for hunting
+  white-tail deer.
 * [Berger 87gr VLD hunting bullets](https://bergerbullets.com/product/6-mm-87-grain-very-low-drag-vld-hunting/) did not
   seat very well at all. Do not recommend.
 * [90gr Hornady ELD-X](https://www.hornady.com/bullets/rifle/6mm-.243-90-gr-eld-x#!/) also seemed promising in terms of
@@ -74,9 +83,9 @@ found both QuickLoad and Gordon's Reloading tool to be helpful in building up my
 * Bullets much heavier than 90gr seem problematic when it comes to seating with the COAL limitation of 2.260" for a
   STANAG magazine.
 
-If you're hunting, it's probably better to stick with the 80gr Barnes or the 90gr Hornady ELD-X. Shot placement would be
-crucial. Working on the assumption that one should have about 1000 foot-lbs of energy on target for a white-tail deer,
-shots should be 100m to ensure sufficient terminal performance. Your mileage may vary.
+For the curious, I'm loading on a Dillon 550 press. I don't have high confidence that the Dillon powder drop is super
+consistent, but I think it's good enough for hunting ammo.
+![6x45-reloading.jpg](6x45-reloading.jpg)
 
 ## Load Data
 
@@ -84,30 +93,31 @@ Here are some quick notes on my load data. This worked for me, in my rifle. If y
 at your own risk. I'm just sharing what I do; I'm not suggesting that this is what you should do. The COAL of these
 loads were all constrained by the magazine size to 2.260".
 
-My rifle, (MRA Renegade) is capable of about 0.27 milliradians (just shy of 1MOA), regardless of the load.
+My rifle, (MRA Renegade) I can expect a mean radius about 0.27 milliradians (just shy of 1MOA), regardless of the load.
+I feel confident in saying that this rifle shoots about 2.75 MOA groups.
 
-| Projectile Name             | Powder Name  | Weight (grains) | Velocity (fps) | Mean Radius | Notes                   |
-|:----------------------------|:-------------|:---------------:|:--------------:|:-----------:|:------------------------|
-| 62gr Barnes Varmint Grenade | BL-C(2)      |      26.0       |      2949      |             |                         |
-|                             | IMR 8208 XBR |      26.4       |      2960      |             |                         |
-| **75gr Speer HP #1205**     | **BL-C(2)**  |    **27.3**     |    **2789**    |  0.29 mil   |                         |
-| **75gr Hornady V-MAX**      | **BL-C(2)**  |    **27.3**     |    **2798**    |  0.24 mil   |                         |
-|                             | IMR 8208 XBR |      26.0       |      2909      |             |                         |
-| 80gr Barnes TTSX            | IMR 8208 XBR |      23.0       |      2472      |             |                         |
-|                             | BL-C(2)      |      25.2       |      2429      |             |                         |
-|                             | BL-C(2)      |      26.5       |      2637      |             |                         |
-|                             | IMR 8208 XBR |      27.0       |      2643      |             |                         |
-| 87gr Berger VLD Hunter      | BL-C(2)      |      24.2       |      2399      |             | Doesn't seat very well. |
-| **90gr Hornady ELD-X**      | **BL-C(2)**  |    **27.2**     |    **2363**    |  0.24 mil   |                         |
-| 95gr Nosler Partition       | BL-C(2)      |      25.2       |      2330      |             |                         |
-|                             | BL-C(2)      |      26.5       |      2435      |             |                         |
+| Projectile Name                                                                                                 | Powder Name  | Weight (grains) | Velocity (fps) | Mean Radius | Notes                   |
+|:----------------------------------------------------------------------------------------------------------------|:-------------|:---------------:|:--------------:|:-----------:|:------------------------|
+| [62gr Barnes Varmint Grenade](https://barnesbullets.com/0-243-6mm-varmint-grenade-fb/)                          | BL-C(2)      |      26.0       |      2949      |             |                         |
+|                                                                                                                 | IMR 8208 XBR |      26.4       |      2960      |             |                         |
+| **[75gr Speer HP #1205](https://www.speer.com/bullets/rifle-bullets/varmint-hollow-point-bullet/19-1205.html)** | **BL-C(2)**  |    **27.3**     |    **2789**    |  0.29 mil   |                         |
+| **[75gr Hornady V-MAX](https://www.hornady.com/bullets/rifle/6mm-243-75-gr-v-max#!/)**                          | **BL-C(2)**  |    **27.3**     |    **2798**    |  0.24 mil   |                         |
+|                                                                                                                 | IMR 8208 XBR |      26.0       |      2909      |             |                         |
+| [80gr Barnes TTSX](https://barnesbullets.com/0-243-6mm-ttsx-80-gr-bt/)                                          | IMR 8208 XBR |      23.0       |      2472      |             |                         |
+|                                                                                                                 | BL-C(2)      |      25.2       |      2429      |             |                         |
+|                                                                                                                 | BL-C(2)      |      26.5       |      2637      |             |                         |
+|                                                                                                                 | IMR 8208 XBR |      27.0       |      2643      |             |                         |
+| [Berger 87gr VLD hunting bullets](https://bergerbullets.com/product/6-mm-87-grain-very-low-drag-vld-hunting/)   | BL-C(2)      |      24.2       |      2399      |             | Doesn't seat very well. |
+| **[90gr Hornady ELD-X](https://www.hornady.com/bullets/rifle/6mm-.243-90-gr-eld-x#!/)**                         | **BL-C(2)**  |    **24.2**     |    **2363**    |  0.24 mil   |                         |
+| [95gr Nosler Partition](https://www.nosler.com/6mm-95gr-partition-50ct.html)                                    | BL-C(2)      |      25.2       |      2330      |             |                         |
+|                                                                                                                 | BL-C(2)      |      26.5       |      2435      |             |                         |
 
 ### 75gr Projectiles
 
 It seems that 75gr is a good weight for target shooting (and probably varminting as well). It seats nicely, and is
 relatively inexpensive. The Hornady V-MAX is pretty
 easy for me to find, and relatively inexpensive. I happened upon a bunch of Speer HP projectiles, so I thought I would
-compare them. I loaded up 30 rounds of each on a Dillon 550 press, and shot them at 200 m on ShotMarker. You can see the
+compare them. I loaded up 30 rounds of each and shot them at 200 m on ShotMarker. You can see the
 results in the following screenshots:
 
 |                                  75gr Hornady V-MAX                                  |                                   75gr Speer HP                                    |
@@ -136,3 +146,40 @@ This is 872 foot-pounds of energy.
 For the curious, here are the case dimensions for 6x45.
 
 ![6x45 case dimensions](6x45mm.png)
+
+## Is 6x45 suitable for hunting in Alberta?
+
+I'm sure that this will create some discussion/debate: is the 6x45 suitable for hunting?
+
+The "common wisdom" is that one should have 1000 foot-lbs of
+energy on target for a white-tail deer. Lets take that at face value. This requirement isn't much of a problem for the
+typical hunting cartridges used in North America,
+which typically have a diameter of greater than 0.24". It's for these small cartridges that things become interesting.
+
+From a regulatory perspective, starting 2025, Alberta now allows hunting white-tail deer with .223 Remington with the
+following guidelines:
+
+* Recommended grain weight: 62 &ndash; 77 grains
+* Distance guideline: Inside 225 meters
+* Critical focus: Precise shot placement (heart/lung) for an ethical kill.
+
+Let's do a bit of "back of napkin" math on .223 Remington. Let's assume a 77gr .223 projection travels about 2790 fps,
+generating about 1330 foot-lbs of energy at the muzzle. A very rough estimate (depending on the ballistic coefficient),
+is that the projectile will drop below 1000 ft-lbs somewhere just
+past 200m. Based on the Alberta guidelines, this implies that shot placement is much more crucial than energy. I'm sure
+that bullet design is also equally important &ndash; if the projectile doesn't expand well, then it's not going to be
+very effective.
+
+It seems to me that if .223 Remington is okay, then 6x45 should be as well. Because it's a wildcat, there isn't any
+commercially loaded ammo to compare against. Let's take a look at the velocities that I
+shared above. I'm not going to show the math, but here are some rough numbers.
+
+If we consider the 90gr Hornady ELD-X, it has < 1000 ft-lbs of energy somewhere around 100m. Hornady suggest that the
+projectile should be travelling at least 1600fps to reliably expand. At about 300m the projectile will be moving at
+about 1689 fps with that will happen at about 300m with about 570 foot-lbs of energy.
+
+The 80gr Barnes TTSX will drop below 1000 ft-lbs of energy somewhere around 150m. Barnes recommends a velocity of about
+1900 fps for reliable expansion. At 450m, the projectile will be moving at about 1925fps with 658 foot-lbs of energy.
+
+Based on these numbers, I'd feel comfortable using the 80gr Barnes TTSX for hunting. The 90gr Hornady ELD-X seems doable
+as well, but perhaps not as much margin for error as the Barnes.
