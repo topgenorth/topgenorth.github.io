@@ -32,7 +32,8 @@ life, and exceptional inherent accuracy.
 ## Why did I pick 6x45mm?
 
 In my case, I was attracted to the 6x45mm in about 2020. For those outside Canada, that is when the federal government
-decided to ban the AR-15 rifle and anything it deemed to be a variant of the AR-15. Shortly after the ban happened, I had
+decided to ban the AR-15 rifle and anything it deemed to be a variant of the AR-15. Shortly after the ban happened, I
+had
 a bunch of AR-15 parts that I moved over to
 an [MRA Renegade](https://mapleridgearmoury.com/renegade/mra-renegade-receiver-kit-223-wylde-300-blk/) receiver kit.
 This is a straight pull receiver kit that has a fair bit of compatibility with the AR-15. IMHO, it's a good deal if you
@@ -41,7 +42,8 @@ have the parts and you still want to put them to use.
 I was first experimenting with 6.5 Grendel, but had consistent and recurrent failure to extract issues. One thing about
 straight pull actions is that they have little in the way of primary extraction to help pull the brass out of the
 chamber. I've read about some cases where MRA Renegades run fine in 6.5 Grendel. Maybe the chamber in my barrel has some
-issues (although I did get the chamber polished by a gunsmith)? With that cartridge off the table, I needed an alternative
+issues (although I did get the chamber polished by a gunsmith)? With that cartridge off the table, I needed an
+alternative
 and was considering 300 Blackout.
 
 It was at this point that someone suggested 6x45mm. It met the legal requirement of a cartridge larger than 0.24" in
@@ -77,7 +79,8 @@ General observations:
   white-tail deer.
 * [Berger 87gr VLD hunting bullets](https://bergerbullets.com/product/6-mm-87-grain-very-low-drag-vld-hunting/) did not
   seat very well at all. Do not recommend.
-* [90gr Hornady ELD-X](https://www.hornady.com/bullets/rifle/6mm-.243-90-gr-eld-x#!/) also seemed promising as a hunting bullet for this cartridge.
+* [90gr Hornady ELD-X](https://www.hornady.com/bullets/rifle/6mm-.243-90-gr-eld-x#!/) also seemed promising as a hunting
+  bullet for this cartridge.
 * Bullets much heavier than 90gr seem problematic when it comes to seating with the COAL limitation of 2.260" for a
   STANAG magazine.
 
@@ -91,24 +94,25 @@ Here are some quick notes on my load data. This worked for me, in my rifle. If y
 at your own risk. I'm just sharing what I do; I'm not suggesting that this is what you should do. The COAL of these
 loads was all constrained by the magazine size to 2.260".
 
-With my rifle (an MRA Renegade), I can expect a mean radius of about 0.27 milliradians (just shy of 1 MOA), regardless of the load.
+With my rifle (an MRA Renegade), I can expect a mean radius of about 0.27 milliradians (just shy of 1 MOA), regardless
+of the load.
 I feel confident in saying that this rifle shoots about 2.75 MOA groups.
 
-| Projectile Name                                                                                                 | Powder Name  | Weight (grains) | Velocity (fps) | Mean Radius | Notes                   |
-|:----------------------------------------------------------------------------------------------------------------|:-------------|:---------------:|:--------------:|:-----------:|:------------------------|
-| [62gr Barnes Varmint Grenade](https://barnesbullets.com/0-243-6mm-varmint-grenade-fb/)                          | BL-C(2)      |      26.0       |      2949      |             |                         |
-|                                                                                                                 | IMR 8208 XBR |      26.4       |      2960      |             |                         |
-| **[75gr Speer HP #1205](https://www.speer.com/bullets/rifle-bullets/varmint-hollow-point-bullet/19-1205.html)** | **BL-C(2)**  |    **27.3**     |    **2789**    |  0.29 mil   |                         |
-| **[75gr Hornady V-MAX](https://www.hornady.com/bullets/rifle/6mm-243-75-gr-v-max#!/)**                          | **BL-C(2)**  |    **27.3**     |    **2798**    |  0.24 mil   |                         |
-|                                                                                                                 | IMR 8208 XBR |      26.0       |      2909      |             |                         |
-| [80gr Barnes TTSX](https://barnesbullets.com/0-243-6mm-ttsx-80-gr-bt/)                                          | IMR 8208 XBR |      23.0       |      2472      |             |                         |
-|                                                                                                                 | BL-C(2)      |      25.2       |      2429      |             |                         |
-|                                                                                                                 | BL-C(2)      |      26.5       |      2637      |             |                         |
-|                                                                                                                 | IMR 8208 XBR |      27.0       |      2643      |             |                         |
-| [Berger 87gr VLD hunting bullets](https://bergerbullets.com/product/6-mm-87-grain-very-low-drag-vld-hunting/)   | BL-C(2)      |      24.2       |      2399      |             | Doesn't seat very well. |
-| **[90gr Hornady ELD-X](https://www.hornady.com/bullets/rifle/6mm-.243-90-gr-eld-x#!/)**                         | **BL-C(2)**  |    **24.2**     |    **2363**    |  0.24 mil   |                         |
-| [95gr Nosler Partition](https://www.nosler.com/6mm-95gr-partition-50ct.html)                                    | BL-C(2)      |      25.2       |      2330      |             |                         |
-|                                                                                                                 | BL-C(2)      |      26.5       |      2435      |             |                         |
+| Projectile Name                                                                                                 | Powder Name  | Weight (grains) | Velocity (fps) | Mean Radius  | Notes                   |
+|:----------------------------------------------------------------------------------------------------------------|:-------------|:---------------:|:--------------:|:------------:|:------------------------|
+| [62gr Barnes Varmint Grenade](https://barnesbullets.com/0-243-6mm-varmint-grenade-fb/)                          | BL-C(2)      |      26.0       |      2949      |              |                         |
+|                                                                                                                 | IMR 8208 XBR |      26.4       |      2960      |              |                         |
+| **[75gr Speer HP #1205](https://www.speer.com/bullets/rifle-bullets/varmint-hollow-point-bullet/19-1205.html)** | **BL-C(2)**  |    **27.3**     |    **2789**    |   0.29 mil   |                         |
+| **[75gr Hornady V-MAX](https://www.hornady.com/bullets/rifle/6mm-243-75-gr-v-max#!/)**                          | **BL-C(2)**  |    **27.3**     |    **2798**    |   0.24 mil   |                         |
+|                                                                                                                 | IMR 8208 XBR |      26.0       |      2909      |              |                         |
+| [80gr Barnes TTSX](https://barnesbullets.com/0-243-6mm-ttsx-80-gr-bt/)                                          | IMR 8208 XBR |      23.0       |      2472      |              |                         |
+|                                                                                                                 | BL-C(2)      |      25.2       |      2429      |              |                         |
+|                                                                                                                 | BL-C(2)      |      26.5       |      2637      |              |                         |
+|                                                                                                                 | IMR 8208 XBR |      27.0       |      2643      | 0.22 mil (?) |                         |
+| [Berger 87gr VLD hunting bullets](https://bergerbullets.com/product/6-mm-87-grain-very-low-drag-vld-hunting/)   | BL-C(2)      |      24.2       |      2399      |              | Doesn't seat very well. |
+| **[90gr Hornady ELD-X](https://www.hornady.com/bullets/rifle/6mm-.243-90-gr-eld-x#!/)**                         | **BL-C(2)**  |    **24.2**     |    **2363**    |   0.24 mil   |                         |
+| [95gr Nosler Partition](https://www.nosler.com/6mm-95gr-partition-50ct.html)                                    | BL-C(2)      |      25.2       |      2330      |              |                         |
+|                                                                                                                 | BL-C(2)      |      26.5       |      2435      |              |                         |
 
 ### 75gr Projectiles
 
