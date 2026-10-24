@@ -78,8 +78,7 @@ General observations:
   white-tail deer.
 * [Berger 87gr VLD hunting bullets](https://bergerbullets.com/product/6-mm-87-grain-very-low-drag-vld-hunting/) did not
   seat very well at all. Do not recommend.
-* [90gr Hornady ELD-X](https://www.hornady.com/bullets/rifle/6mm-.243-90-gr-eld-x#!/) also seemed promising in terms of
-  accuracy, and might also be a promising hunting bullet for this cartridge.
+* [90gr Hornady ELD-X](https://www.hornady.com/bullets/rifle/6mm-.243-90-gr-eld-x#!/) also seemed promising as a hunting bullet for this cartridge.
 * Bullets much heavier than 90gr seem problematic when it comes to seating with the COAL limitation of 2.260" for a
   STANAG magazine.
 
