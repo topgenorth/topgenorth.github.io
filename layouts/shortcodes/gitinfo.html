@@ -1,0 +1,10 @@
+﻿{{ with .Page.GitInfo }}
+<div class="post-git-info" style="font-size: 0.85em; color: #666; margin-top: 1.5rem; border-top: 1px solid #e5e5e5; padding-top: 0.5rem;">
+    <span>Last updated: {{ .AuthorDate.Format "2006-01-02 15:04:05" }}</span> |
+    <span>Commit: <a href="https://github.com/topgenorth/topgenorth.github.io/commit/{{ .Hash }}" target="_blank" rel="noopener">{{ .AbbreviatedHash }}</a></span>
+</div>
+{{ else }}
+<div class="post-git-info" style="font-size: 0.85em; color: #666;">
+    <span>Published: {{ .Page.Date.Format "2006-01-02" }}</span>
+</div>
+{{ end }}

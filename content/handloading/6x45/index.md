@@ -13,6 +13,8 @@ tags:
 sidebar: false
 ---
 
+{{< gitinfo >}}
+
 ## What is it?
 
 The 6x45mm (also known as the 6mm-223 or 6mm/.223 Remington) is a wildcat cartridge created by necking up the standard
