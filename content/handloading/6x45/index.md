@@ -27,7 +27,7 @@ The cartridge originated around 1965, shortly after the commercial introduction 
 military adoption of the 5.56x45mm cartridge. Benchrest shooters and hunters sought to enhance the ballistic efficiency
 and terminal performance of the compact .223 case by loading heavier 6mm projectiles. It became popular during the late
 1960s and 1970s, particularly in benchrest shooting, because it has mild recoil, low powder consumption, extended barrel
-life, and exceptional inherent accuracy.
+life, and accuracy.
 
 ## Why did I pick 6x45mm?
 
