@@ -17,15 +17,15 @@ sidebar: false
 
 ## What is it?
 
-The 6x45mm (also known as the 6mm-223 or 6mm/.223 Remington) is a wildcat cartridge created by necking up the standard
-.223 Remington / 5.56x45mm case to accept 6mm (.243") diameter bullets. While never standardized by SAAMI in the United
+The 6x45mm is a wildcat cartridge created by necking up the standard
+.223 Remington / 5.56x45mm case to accept 6 mm (.243") diameter bullets. While never standardized by SAAMI in the United
 States, it was officially standardized in Europe by the CIP as the **6 x 45**.
 
 ## History
 
 The cartridge originated around 1965, shortly after the commercial introduction of the .223 Remington and the U.S.
 military adoption of the 5.56x45mm cartridge. Benchrest shooters and hunters sought to enhance the ballistic efficiency
-and terminal performance of the compact .223 case by loading heavier 6mm projectiles. It became popular during the late
+and terminal performance of the compact .223 case by loading heavier 6 mm projectiles. It became popular during the late
 1960s and 1970s, particularly in benchrest shooting, because it has mild recoil, low powder consumption, extended barrel
 life, and accuracy.
 
@@ -38,6 +38,8 @@ a bunch of AR-15 parts that I moved over to
 an [MRA Renegade](https://mapleridgearmoury.com/renegade/mra-renegade-receiver-kit-223-wylde-300-blk/) receiver kit.
 This is a straight pull receiver kit that has a fair bit of compatibility with the AR-15. IMHO, it's a good deal if you
 have the parts and you still want to put them to use.
+
+I feel confident in saying that this rifle shoots somewhere between 2 and 3 MOA groups.
 
 I was first experimenting with 6.5 Grendel, but had consistent and recurrent failure to extract issues. One thing about
 straight pull actions is that they have little in the way of primary extraction to help pull the brass out of the
@@ -96,7 +98,7 @@ loads was all constrained by the magazine size to 2.260".
 
 With my rifle (an MRA Renegade), I can expect a mean radius of about 0.27 milliradians (just shy of 1 MOA), regardless
 of the load.
-I feel confident in saying that this rifle shoots about 2.75 MOA groups.
+
 
 | Projectile Name                                                                                                 | Powder Name  | Weight (grains) | Velocity (fps) | Mean Radius  | Notes                   |
 |:----------------------------------------------------------------------------------------------------------------|:-------------|:---------------:|:--------------:|:------------:|:------------------------|
@@ -116,7 +118,7 @@ I feel confident in saying that this rifle shoots about 2.75 MOA groups.
 
 ### 75gr Projectiles
 
-It seems that 75gr is a good weight for target shooting (and probably varminting as well). It seats nicely, and is
+It seems that 75gr is a good weight for target shooting (and probably varminting as well). It seats nicely and is
 relatively inexpensive. The Hornady V-MAX is also pretty
 easy for me to find. I happened upon a bunch of Speer HP projectiles, so I thought I would
 compare them. I loaded up 30 rounds of each and shot them at 200 m on ShotMarker. You can see the
@@ -176,12 +178,12 @@ It seems to me that if .223 Remington is okay, then 6x45 should be as well. Beca
 commercially loaded ammo to compare against. Let's take a look at the velocities that I
 shared above. I'm not going to show the math, but here are some rough numbers.
 
-If we consider the 90gr Hornady ELD-X, it has < 1000 ft-lbs of energy somewhere around 100m. Hornady suggests that the
-projectile should be travelling at least 1600 fps to reliably expand. At about 300m, the projectile will be moving at
+If we consider the 90gr Hornady ELD-X, it has < 1000 ft-lbs of energy somewhere around 100 m. Hornady suggests that the
+projectile should be traveling at least 1600 fps to reliably expand. At about 300 m, the projectile will be moving at
 about 1689 fps with about 570 foot-lbs of energy.
 
-The 80gr Barnes TTSX will drop below 1000 ft-lbs of energy somewhere around 150m. Barnes recommends a velocity of about
-1900 fps for reliable expansion. At 450m, the projectile will be moving at about 1925 fps with 658 foot-lbs of energy.
+The 80gr Barnes TTSX will drop below 1000 ft-lbs of energy somewhere around 150 m. Barnes recommends a velocity of about
+1900 fps for reliable expansion. At 450 m, the projectile will be moving at about 1925 fps with 658 foot-lbs of energy.
 
 Based on these numbers, I'd feel comfortable using the 80gr Barnes TTSX for hunting. The 90gr Hornady ELD-X seems doable
 as well, but perhaps not as much margin for error as the Barnes.
